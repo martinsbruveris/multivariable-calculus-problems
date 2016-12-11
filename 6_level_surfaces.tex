@@ -1,0 +1,398 @@
+\begin{question}
+True or false: $\nabla f(a,b)$ is perpendicular to the graph of $z=f(x,y)$ at the point $(a,b)$?
+\end{question}
+
+\begin{solution}
+False.
+
+The vector $\nabla f(a,b)$ is perpendicular to the level curves of $f(x,y)$, not to its graph.
+\end{solution}
+
+\begin{question}
+Find $\nabla f$ at the given point and plot it on the level surface $f(x,y,z)=c$ passing through that point
+\begin{tasks}(2)
+\task
+$f(x,y,z) = x^2 + y^2 + z^2$ at $(0,0,1/2)$
+\task
+$f(x,y,z) = z - x^2 - y^2$ at $(0,0,1/2)$
+\task
+$f(x,y,z) = z - x + y$ at $(-1/3,1/3,1/3)$
+\task
+$f(x,y,z) = x + y - z^2$ at $\left(0,0,0\right)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+See the figures for plots of the level surfaces.
+
+\begin{center}
+\begin{tabu} to \linewidth {X[1,c] X[1,c] X[1,c] X[1,c]}
+\asyinclude[width=3.5cm]{asy/level_set_sphere.asy} &
+\asyinclude[width=3.5cm]{asy/level_set_paraboloid.asy} &
+\asyinclude[width=3.5cm]{asy/level_set_plane.asy} &
+\asyinclude[width=3.5cm]{asy/level_set_root.asy} \\
+(a) & 
+(b) & 
+(c) &
+(d)
+\end{tabu}
+\end{center}
+
+The vectors plotted in the figures are the normalized gradients $\frac{1}{\| \nabla f\|} \nabla f$ at the given point.
+% \begin{wrapfigure}{r}{4cm}
+% \centering
+% \asyinclude[width=4cm]{level_set_root.asy}
+
+% (d)
+% \end{wrapfigure}
+
+\begin{enumerate}
+\item
+The level surface 
+\[
+x^2 + y^2 + z^2 = \frac 12
+\] 
+is a sphere of radius $\frac{\sqrt{2}}2$ and
+$\nabla f\left(0,0,\frac 12\right) = \vec k$.
+\item
+The level surface 
+\[
+z = \frac 12 + x^2 + y^2
+\]
+is a paraboloid, shifted by $\frac 12$ in the $z$-direction and the gradient is
+\[
+\nabla f\left(0,0,\frac 12\right) = \vec k\,.
+\]
+
+\item
+The level surface $-x + y + z = 1$ is a plane. To draw it one finds the points, where it crosses the coordinate axes: the $x$-axis at $-1$, the $y$- and $z$-axes at $1$. The gradient is 
+\[
+\nabla f\left(\frac 13,-\frac 13,\frac 13\right) = -\vec i + \vec j + \vec k\,.
+\]
+
+\item
+The level surface can be written as the graph of the function $x= z^2 - y$. The gradient is $\nabla f(0,0,0) = \vec i + \vec j$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find a unit normal to the given surface at the given point.
+\begin{tasks}(2)
+\task
+$xyz=8$ at $(1,1,8)$
+\task
+$x^2y^2+y-z+1=0$ at $(0,0,1)$
+\task
+$\cos(xy)= e^z - 2$ at $(1, \pi, 0)$
+\task
+$e^{xyz} = e$ at $(1,1,1)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+A normal vector to the surface $f(x,y,z)=c$ at $(x_0,y_0,z_0)$ is given by $\nabla f(x_0,y_0,z_0)$. We obtain a unit normal vector by rescaling the gradient to unit length. Note that there are \emph{two} choices for the unit normal vector, since the vectors $\vec n$ and $-\vec n$ both have the same length.
+\begin{enumerate}
+\item
+With $f(x,y,z) = xyz$ we have
+\begin{align*}
+\nabla f(x,y,z) &= yz \vec i + xz \vec j + xy \vec k &
+\nabla f(1,1,8) &= 8\vec i + 8 \vec j + \vec k\,.
+\end{align*}
+A unit normal vector is
+$\vec n = \frac{1}{\sqrt {129}} \left( 8\vec i + 8 \vec j + \vec k \right)$.
+
+\item
+With $f(x,y,z) = x^2y^2 + y -z$ we have
+\begin{align*}
+\nabla f(x,y,z) &= 2xy^2 \vec i + (2x^2 y + 1) \vec j - \vec k &
+\nabla f(0,0,1) &= \vec j - \vec k\,.
+\end{align*}
+A unit normal vector is 
+$\vec n = \frac{1}{\sqrt 2} \left( \vec j - \vec k \right)$.
+
+\item
+With $f(x,y,z) = \cos(xy) - e^z$ we have
+\begin{align*}
+\nabla f(x,y,z) &= -\sin(xy) \left(y \vec i + x \vec j\right) - e^z \vec k &
+\nabla f(1,\pi,0) &= -\vec k\,.
+\end{align*}
+A unit normal vector is $\vec n = \vec k$.
+
+\item
+With $f(x,y,z) = e^{xyz}$ we have
+\begin{align*}
+\nabla f(x,y,z) &= e^{xyz} \left( yz \vec i + xz \vec j + xy \vec k \right) &
+\nabla f(1,1,1) &= \vec i + \vec j + \vec k\,.
+\end{align*}
+A unit normal vector is $\vec n = \frac 1{\sqrt{3}} \left( \vec i + \vec j + \vec k \right)$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find the equation of the tangent plane to each surface at the indicated point.
+\begin{tasks}(2)
+\task
+$x^2 + y^2 + 3z^2 = 10$; $\left(1, \sqrt{3}, 1\right)$
+\task
+$xyz^2 = 1$; $(1,1,1)$
+\task
+$x^2 + 2y^2 + 3xz = 10$; $\left(1, 2, \frac 13\right)$
+\task
+$y^2 - x^2 = 3$; $(1, 2, 8)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The tangent plane to the surface $f(\vec x)=c$ at the point $\vec x_0 = (x_0,y_0,z_0)$ is the plane, which passes through the point $\vec x_0$ and is orthogonal to $\nabla f(\vec x_0)$. The equation of such a plane is
+\[
+\nabla f(\vec x_0) \cdot (\vec x - \vec x_0) = 0
+\quad\Leftrightarrow\quad
+f_x(\vec x_0)\cdot(x-x_0) + f_y(\vec x_0)\cdot(y-y_0) + f_z(\vec x_0)\cdot(z-z_0) = 0\,.
+\]
+
+\begin{enumerate}
+\item
+With $f(x,y,z) = x^2+y^2+3z^2$ we have
+\begin{align*}
+\nabla f(x,y,z) &= 2x \vec i + 2y \vec j + 6z \vec k &
+\nabla f\left(1, \sqrt 3, 1 \right) &= 2\vec i + 2\sqrt{3} \vec j + 6 \vec k \,,
+\end{align*}
+and so the tangent plane has the equation
+\begin{align*}
+2(x-1) + 2\sqrt{3}(y-\sqrt{3}) + 6(z-1) &= 0 \\
+x + \sqrt{3} y + 3z &= 7\,.
+\end{align*}
+
+\item
+With $f(x,y,z) = xyz^2$ we have
+\begin{align*}
+\nabla f(x,y,z) &= yz^2 \vec i + xz^2 \vec j + 2xyz \vec k &
+\nabla f\left(1, 1, 1 \right) &= \vec i + \vec j + 2 \vec k \,,
+\end{align*}
+and so the tangent plane has the equation
+\begin{align*}
+(x-1) + (y-1) + 2(z-1) &= 0 \\
+x + y + 2z &= 4\,.
+\end{align*}
+
+\item
+With $f(x,y,z) = x^2+2y^2+3xz$ we have
+\begin{align*}
+\nabla f(x,y,z) &= (2x + 3z) \vec i + 4y \vec j + 3x \vec k &
+\nabla f\left(1, 2, \frac 13 \right) &= 3\vec i + 8\vec j + 3 \vec k \,,
+\end{align*}
+and so the tangent plane has the equation
+\begin{align*}
+3(x-1) + 8(y-2) + 3\left(z-\frac 13\right) &= 0 \\
+3x + 8 y + 3z &= 20\,.
+\end{align*}
+
+\item
+With $f(x,y,z) = y^2 - x^2$ we have
+\begin{align*}
+\nabla f(x,y,z) &= -2x \vec i + 2y \vec j &
+\nabla f\left(1, 2, 8\right) &= -2\vec i + 4\vec j\,,
+\end{align*}
+and so the tangent plane has the equation
+\begin{align*}
+-2(x-1) + 4(y-2) + 0\cdot \left(z-8\right) &= 0 \\
+-x + 2y &= 3\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Suppose that a particle is ejected from the surface $x^2 + y^2 - z^2 = -1$ at the point $\left(1, 1, \sqrt{3}\right)$ in a direction normal to the surface at time $t=0$ with a speed of $10$ units per second. When and where does it cross the $xy$-plane?
+\end{question}
+
+\begin{solution}
+A normal vector to the surface $x^2+y^2-z^2 = -1$ at the point $\left(1, 1, \sqrt{3}\right)$ is given by $\nabla f\left(1, 1, \sqrt 3\right)$, where $f$ is the function $f(x,y,z) = x^2+y^2-z^2$. The gradient is
+\[
+\nabla f(x,y,z) = 2x \vec i + 2y \vec j -2z \vec k\,,
+\qquad
+\nabla f\left(1, 1, \sqrt 3 \right) = 2\vec i + 2 \vec j -2\sqrt{3} \vec k \,.
+\]
+A unit normal vector is given by
+\[
+\vec n = \frac{1}{\sqrt{11}}\left( \vec i +  \vec j - \sqrt{3} \vec k \right) \,.
+\]
+Denote by $\vec r_0 = \left(1, 1, \sqrt 3\right)$ the starting point. Then the path of the particle is described by the curve
+\[
+\vec \si(t) = \vec r_0 + 10 t \vec n\,,
+\]
+and we want to know, when this curve crosses the $xy$-plane. It crosses the $xy$-plane, when the $z$-coordinate equals $0$, leading to the equation
+\[
+\sqrt{3} - \frac{10 \sqrt{3}}{\sqrt{11}} t = 0\,,
+\]
+which has the solution $t = \displaystyle\frac{\sqrt{11}}{10}$. To find out, where the particle crosses the $xy$-plane, we evaluate
+\[
+\vec \si\left(\frac{\sqrt{11}}{10}\right) = \left(2, 2, 0 \right)\,.
+\]
+Thus the particle crosses the $xy$-plane at time $\displaystyle\frac{\sqrt{11}}{10}$ at the point $(2,2,0)$.
+\end{solution}
+
+\begin{question}
+If $f(x,y) = xy$, find the gradient vector $\nabla f(3,2)$ and use it to find the tangent line to the level curve $f(x,y) = 6$ at the point $(3,2)$. Sketch the level curve, the tangent line, and the gradient vector.
+\end{question}
+
+\begin{solution} Even though this function depends only on two variables, instead of three, we can use the
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.625, baseline=(X.base)]
+ \def\scale{0.625}
+
+ \draw[coordinate grid, step=1] (0, 0) grid (6, 6);
+ \node at (0,0) (X) {};
+ \drawaxes{0}{0}{6}{6}
+
+ \drawxlabels[]{3/3}
+ \drawylabels[]{2/2}
+
+ \clip (0, 0) rectangle (6, 6);
+
+ \draw[draw=black, domain=1:6, samples=100]
+      plot[parametric] function {t, 6/t};
+
+ \draw[draw=black] (0,4) -- (6,0);
+
+ \draw[color=black,->] (3,2) -- (5,5);
+
+ \node[below right] at (1,6) {$xy=6$};
+ \node[above left] at (5,0) {$2x+3y=12$};
+ \node[below left] at (4.75,5) {$\nabla f(3,2)$};
+
+ \drawpoint{(3,2)};
+\end{tikzpicture}
+\end{wrapfigure}
+same methods to compute the gradient and tangent line. The gradient vector is
+\begin{align*}
+\nabla f(x,y) &= y\vec i + x \vec j &
+\nabla f(3,2) &= 2\vec i + 3 \vec j\,.
+\end{align*}
+The tangent line is the line through $(3,2)$ that is orthogonal to $\nabla f(3,2)$. It has the equation
+\begin{align*}
+f_x(3,2)(x-3) + f_y(3,2)(y-2) &= 0 \\
+2x + 3y &= 12\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+At what point on the ellipsoid $x^2 + y^2 + 2z^2 = 1$ is the tangent plane parallel to the plane $x+2y+z=1$?
+\end{question}
+
+\begin{solution}
+First we compute the tangent plane to the ellipsoid at a general point $(x_0, y_0, z_0)$. The ellipsoid is the level set of $f(x,y,z) = x^2 + y^2 + 2z^2$ for the value 1. Thus
+\[
+\nabla f(x,y,z) = 2x\vec i + 2y\vec j + 4z\vec k\,,
+\]
+and the tangent plane is given by
+\begin{align*}
+2x_0 x + 2y_0 y + 4z_0 z &= 2x_0^2 + 2y_0^2 + 4z_0^2 \\
+2x_0 x + 2y_0 y + 4z_0 z &= 2(x_0^2 + y_0^2 + 2z_0^2) \\
+x_0 x + y_0 y + 2z_0 z &= 1\,,
+\end{align*}
+because the point $(x_0,y_0,z_0)$ is assumed to lie on the ellipsoid and thus satisfies $x_0^2 + y_0^2 + 2z_0^2 = 1$.
+
+The question become, for which $(x_0,y_0,z_0)$ are the planes $x_0x + y_0y + 2z_0z = 1$ and $x+2y+z = 1$ parallel. Two planes are parallel, if the normal vectors are parallel. So there must exist $\la \neq 0$, such that
+\begin{align*}  
+x_0 &= \la &
+y_0 &= 2\la &
+2z_0 &= \la\,,
+\end{align*}
+and because $x_0^2 + y_0^2 + 2z_0^2 = 1$, also
+\[
+\la^2 + 4\la^2 + \frac 12 \la^2 = 1
+\quad\Leftrightarrow\quad
+\frac {11} 2 \la^2 = 1
+\quad\Leftrightarrow\quad
+\la = \pm \frac{\sqrt{22}}{11}\,.
+\]
+Thus we find the two points 
+$\left( \frac{\sqrt{22}}{11}, \frac{2\sqrt{22}}{11}, \frac{\sqrt{22}}{22} \right)$
+and 
+$\left( -\frac{\sqrt{22}}{11}, -\frac{2\sqrt{22}}{11}, -\frac{\sqrt{22}}{22} \right)$.
+\end{solution}
+
+\begin{question}
+Show that every plane that is tangent to the cone $x^2 + y^2 = z^2$ passes through the origin.
+\end{question}
+
+\begin{solution}
+The cone is the zero level set of the function $f(x,y,z) = x^2 + y^2 - z^2$, whose gradient is
+\[
+\nabla f(x,y,z) = 2x\vec i + 2y\vec j - 2z\vec k\,.
+\]
+The tangent plane at a point $(x_0,y_0,z_0)$ is
+\begin{align*}
+2x_0x + 2y_0y - 2z_0z &=2x_0^2 + 2y_0^2 - 2z_0^2 \\
+x_0 x + y_0 y + z_0z &= 0\,,
+\end{align*}
+because the point $(x_0,y_0,z_0)$ is assumed to lie on the cone. The right hand side of the equation $x_0 x + y_0 y + z_0z = 0$ vanishes and therefore the tangent plane through $(x_0,y_0,z_0)$ passes through the origin. Since $(x_0,y_0,z_0)$ was an arbitrary point, every tangent plane to the cone passes through the origin.
+\end{solution}
+
+\begin{question}
+Where does the normal line to the paraboloid $z=x^2 + y^2$ at the point $(1,1,2)$ intersect the paraboloid a second time?
+\end{question}
+
+\begin{solution}
+The paraboloid is the zero level set of the function $f(x,y,z) = x^2 + y^2 - z$. Its gradient is
+\begin{align*}
+\nabla f(x,y,z) &= 2x\vec i + 2y\vec j - \vec k &
+\nabla f(1,1,2) &= 2\vec i + 2\vec j - \vec k\,.
+\end{align*}
+The normal line can be parametrized by
+\[
+\vec \si(t) = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}
++ t \begin{pmatrix} 2 \\ 2 \\ -1 \end{pmatrix}
+\quad\Leftrightarrow\quad
+\vec \si(t) = (1+2t, 1+2t, 2-t)\,.
+\]
+It intersect the paraboloid, when $f(\vec \si (t)) = 0$, meaning that $t$ satisfies
+\begin{align*} 
+(1+2t)^2 + (1+2t^2) - (2-t) &= 0 \\
+8t^2 + 9t &= 0
+\quad\Leftrightarrow\quad
+t=0 \text{ or } t = -\frac 98\,.
+\end{align*}
+When $t=0$ we recover the point $(1,1,2)$ and when $t=-\frac 98$ we find the second point
+$\left( -\frac 54, -\frac 54, \frac{25}8 \right)$.
+\end{solution}
+
+\begin{question}
+Show that the sum of the $x$-, $y$- and $z$-intercepts of any tangent plane to the surface 
+$\sqrt x + \sqrt y + \sqrt z = \sqrt c$
+is a constant.
+
+\begin{hint*}
+The $x$-intercept is where the tangent plane meets the $x$-axis.
+\end{hint*}
+
+\begin{solution}
+The gradient of the function $f(x,y,z) = \sqrt x + \sqrt y + \sqrt z$ is
+\[
+\nabla f(x,y,z = \frac 12 \frac 1{\sqrt{x}} \vec i + \frac 12 \frac 1{\sqrt{y}} \vec j
++ \frac 12 \frac 1{\sqrt{z}} \vec k\,,
+\]
+and the tangent plane at the point $(x_0,y_0,z_0)$ is
+\begin{align*}
+\frac 12 \frac{x}{\sqrt{x_0}} + \frac 12 \frac{y}{\sqrt{y_0}} 
++ \frac 12 \frac{z}{\sqrt{z_0}} =
+\frac 12 \frac{x_0}{\sqrt{x_0}} + \frac 12 \frac{y_0}{\sqrt{y_0}} 
++ \frac 12 \frac{z_0}{\sqrt{z_0}}
+\quad\Leftrightarrow\quad
+\frac{x}{\sqrt{x_0}} + \frac{y}{\sqrt{y_0}} 
++ \frac{z}{\sqrt{z_0}} = \sqrt c
+\end{align*}
+What are the intercepts? To find the $x$-intercept, we set $y=z=0$ and obtain $x = \sqrt c \sqrt{x_0}$. Similarly, the $y$-intercept is $y = \sqrt c \sqrt{y_0}$ and the $z$-intercept is $z = \sqrt c \sqrt{z_0}$. Their sum is
+\[
+\sqrt c \sqrt{x_0} + \sqrt c \sqrt{y_0} + \sqrt c \sqrt{z_0} =
+\sqrt c \left(\sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0} \right) = \sqrt c \cdot \sqrt c = c\,,
+\]
+because the point $(x_0,y_0,z_0)$ satisfies $f(x_0,y_0,z_0) = \sqrt c$. Thus the sum of the intercepts of any tangent plane does not depend on the point, where the tangent plane is computed.
+\end{solution}
+\end{question}
+
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

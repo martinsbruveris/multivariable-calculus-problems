@@ -1,0 +1,1262 @@
+\begin{question}
+Find an example for each of the following domains.
+\begin{tasks}(2)
+\task
+A domain of type 1 and type 2.
+\task
+A domain of neither type 1 nor type 2.
+\task
+A domain of type 1, but not of type 2.
+\task
+A domain of type 2, but not of type 1.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+Examples of domains can be found below.
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+  \clip (-1,-1) rectangle (1,1);
+
+  \draw[integration domain] (1,1) |- (-1,-1) |- cycle;
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+  \clip (-1,-1) rectangle (1,1);
+
+  \draw[integration domain]
+    plot[parametric, domain=-1:1, samples=100] function {t, 0.5*t**2+0.5}
+    -- plot[parametric, domain=1:-1, samples=100] function {0.5*t**2+0.5, t}
+    -- plot[parametric, domain=1:-1, samples=100] function {t, -0.5*t**2-0.5}
+    -- plot[parametric, domain=-1:1, samples=100] function {-0.5*t**2-0.5, t};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+  \clip (-1,-1) rectangle (1,1);
+
+  \draw[integration domain]
+    plot[parametric, domain=-1:1, samples=100] function {t, 0.5*t**2+0.5}
+    -- (1,-1)
+    -- plot[parametric, domain=1:-1, samples=100] function {t, -0.5*t**2-0.5}
+    -- (-1,1);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+  \clip (-1,-1) rectangle (1,1);
+
+  \draw[integration domain]
+    (-1,1) -- (1,1)
+    -- plot[parametric, domain=1:-1, samples=100] function {0.5*t**2+0.5, t}
+    -- (1,-1) -- (-1,-1)
+    -- plot[parametric, domain=-1:1, samples=100] function {-0.5*t**2-0.5, t};
+\end{tikzpicture}
+\\
+(a) & (b) & (c) & (d)
+\end{figuretable}
+\end{center}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 1--2; MW, III.17.2}}
+Sketch each of the following domains and determine whether it is of type 1, type 2, both or neither.
+\begin{tasks}(2)
+\task
+$(x,y)$ such that $0 \leq y \leq 3x$, $0 \leq x \leq 1$.
+\task
+$(x,y)$ such that $2y^2-1 \leq x \leq y^2$, $|y| \leq 1$.
+\task
+$(x,y)$ such that $y^2 \leq x \leq y$, $0 \leq y \leq 1$.
+\task
+$(x,y)$ such that $1 - x^2 \leq 2y$, $x^2+y^2 \leq 1$.
+\task
+$(x,y)$ such that $x^2 + y^2 \leq 1$.
+\task
+$(x,y)$ such that $\displaystyle \frac 12 \leq x^2 + y^2 \leq 1$.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The domains can be seen in the figures below.
+% \begin{center}
+% \begin{figuretable}{3}
+% \begin{tikzpicture}[scale=1.25, baseline=0]
+%   \def\scale{1.25}
+
+%   \drawxlabels{1/1}
+%   \drawylabels{3/3}
+%   \drawaxes{0}{0}{3}{3}
+
+%   \draw[dashed] (0,3) -- (1,3);
+
+%   \draw[integration domain] (0,0) -- (1,0) -- (1,3) -- (0,0);
+%   \node at (0.66,1) {$D$};
+% \end{tikzpicture}
+% &
+% \begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+%   \def\scale{1.25}
+%   \node at (0,-1.5) (X) {};
+
+%   \drawaxes{-1.5}{-1.5}{1.5}{1.5}
+
+%   \node[above left] at (-.5,.5) {$x=2y^2-1$};
+%   \node[below right] at (.5,.7) {$x=y^2$};
+
+%   \clip (-1.5,-1.5) rectangle (1.5,1.5);
+
+%   \draw[dashed] (0,1) -- (1,1)
+%                 (0,-1) -- (1,-1);
+
+%   \fill[integration domain]
+%     plot[parametric, domain=-1:1, samples=100] function {2*t**2-1, -t}
+%     --plot[parametric, domain=-1:1, samples=100] function {t**2, t};
+
+%   \draw plot[parametric, domain=-1.5:1.5, samples=100] function {2*t**2-1, t};
+%   \draw plot[parametric, domain=-1.5:1.5, samples=100] function {t**2, t};
+
+%   \node at (-0.5,0) {$D$};
+
+%   \drawylabels[nofill]{-1/-1, 1/1}
+% \end{tikzpicture}
+% &
+% \begin{tikzpicture}[scale=2.5, baseline=(X.base)]
+%   \def\scale{2.5}
+%   \node at (0,-0.25) (X) {};
+
+%   \drawaxes{-0.25}{-0.25}{1.25}{1.25}
+%   \drawxlabels{1/1}
+%   \drawylabels{1/1}
+
+%   \draw[dashed] (1,0) -- (1,1) -- (0,1);
+
+%   \clip (-0.25,-0.25) rectangle (1.25,1.25);
+
+%   \fill[integration domain] (0,0) -- (1,1) 
+%     --plot[domain=1:0, samples=100] function {sqrt(x)};
+%   \draw (-0.25,-0.25) -- (1.25,1.25);
+%   \draw plot[parametric, domain=-0.25:1.25, samples=100] function {t**2, t};
+
+%   \node[below right] at (0.25,0.25) {$x=y$};
+%   \node[above left] at (0.5,0.707) {$x=y^2$};
+%   \node at (0.375,0.5) {$D$};
+% \end{tikzpicture}
+% \\
+% (a) & (b) & (c)
+% \end{figuretable}
+% \end{center}
+
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.25, baseline=0]
+  \def\scale{1.25}
+
+  \drawxlabels{1/1}
+  \drawylabels{3/3}
+  \drawaxes{0}{0}{3}{3}
+
+  \draw[dotted] (0,3) -- (1,3);
+
+  \draw[integration domain] (0,0) -- (1,0) -- (1,3) -- (0,0);
+  \node at (0.66,1) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1.5}{-1.5}{1.5}{1.5}
+
+  \node[above left] at (-.5,.5) {$x=2y^2-1$};
+  \node[below right] at (.5,.7) {$x=y^2$};
+
+  \clip (-1.5,-1.5) rectangle (1.5,1.5);
+
+  \draw[dotted] (0,1) -- (1,1)
+                (0,-1) -- (1,-1);
+
+  \draw[integration domain]
+    plot[parametric, domain=-1:1, samples=100] function {2*t**2-1, -t}
+    --plot[parametric, domain=-1:1, samples=100] function {t**2, t};
+
+  \draw[dashed]
+     plot[parametric, domain=1:1.5, samples=100] function {2*t**2-1, t}
+     plot[parametric, domain=-1.5:-1, samples=100] function {2*t**2-1, t};
+  \draw[dashed]
+    plot[parametric, domain=1:1.5, samples=100] function {t**2, t}
+    plot[parametric, domain=-1.5:-1, samples=100] function {t**2, t};
+
+  \node at (-0.5,0) {$D$};
+
+  \drawylabels[nofill]{-1/-1, 1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=2.5, baseline=(X.base)]
+  \def\scale{2.5}
+  \node at (0,-0.25) (X) {};
+
+  \drawaxes{-0.25}{-0.25}{1.25}{1.25}
+  \drawxlabels{1/1}
+  \drawylabels{1/1}
+
+  \draw[dotted] (1,0) -- (1,1) -- (0,1);
+
+  \clip (-0.25,-0.25) rectangle (1.25,1.25);
+
+  \draw[integration domain] (0,0) -- (1,1) 
+    --plot[domain=1:0, samples=100] function {sqrt(x)};
+  \draw[dashed] (-0.25,-0.25) -- (0,0)
+                (1,1) -- (1.25,1.25);
+  \draw[dashed]
+    plot[parametric, domain=-0.25:0, samples=100] function {t**2, t}
+    plot[parametric, domain=1:1.25, samples=100] function {t**2, t};
+
+  \node[below right] at (0.5,0.5) {$x=y$};
+  \node[above left] at (0.5,0.707) {$x=y^2$};
+  \node at (0.375,0.5) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+
+\begin{enumerate}
+\item
+The domain is a triangle with vertices $(0,0)$, $(1,0)$ and $(1,3)$. It is a domain of both types.
+\item
+This domain can be written as
+\[
+D = \left\{ (x,y) \,:\, -1 \leq y \leq 1,\, 2y^2 - 1 \leq x \leq y^2 \right\}\,.
+\]
+It is a type 2 domain, but not a type 1 domain.
+\item
+This domain can be written as
+\begin{align*}
+D &= \left\{ (x,y) \,:\, 0 \leq y \leq 1\,,\; y^2 \leq x \leq y \right\}
+= \left\{ (x,y) \,:\, 0 \leq x \leq 1\,,\; x \leq y \leq \sqrt{x} \right\}\,,
+\end{align*}
+and hence it is a domain of both types.
+\item
+The domain can be written as
+\[
+D = \left\{ (x,y) \,:\, -1 \leq x \leq 1,\, \frac 12\left(1-x^2\right) \leq y \leq \sqrt{1-x^2} \right\}\,.
+\]
+It is a type 1 domain, but not a type 2 domain.
+\item
+The domain can be written as
+\begin{align*}
+D &= \left\{ (x,y) \,:\, -1 \leq y \leq 1\,,\; -\sqrt{1-y^4} \leq x \leq \sqrt{1-y^4} \right\} \\
+&= \left\{ (x,y) \,:\, -1 \leq x \leq 1\,,\; -\sqrt{1-x^4} \leq y \leq \sqrt{1-x^4} \right\}\,,
+\end{align*}
+and it is a domain of both types.
+\item
+This domain is neither of type 1 nor of type 2.
+\end{enumerate}
+
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain] 
+    plot[domain=-1:1, samples=100] function {0.5-0.5*x**2}
+    --(1,0) arc[start angle=0, end angle=180, radius=1];
+
+  \draw[dashed]
+    (-1,0) arc[radius=1, start angle=180, end angle=360];
+%  \draw plot[domain=-1:1, samples=100] function {0.5-0.5*x**2};
+
+  \node at (0,0.75) {$D$};
+
+  \drawxlabels[fill]{-1/-1, 1/1}
+  \drawylabels[nofill]{1/1}
+  \drawylabels[fill]{-1/-1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \draw[integration domain, samples=100, smooth]
+    plot[parametric, domain=0:3.1416/2] 
+      function {cos(t), sin(t)}
+    --plot[parametric, domain=3.1416/2:3.1416] 
+      function {-(abs(cos(t))), sin(t)}
+    --plot[parametric, domain=3.1416:3.1416*1.5] 
+      function {-abs(cos(t)), -abs(sin(t))}
+    --plot[parametric, domain=3.1416*1.5:3.1416*2] 
+      function {cos(t), -abs(sin(t))}
+    --(1,0) ;
+
+  % Coordinate axes
+  \drawaxes{-1}{-1}{1}{1}
+  \drawxlabels[nofill]{-1/-1, 1/1}
+  \drawylabels[nofill]{-1/-1, 1/1}
+
+  % Label
+  \node at (0.4,0.4) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (-1,-1) (X) {};
+
+  \def\r{0.707106} % sqrt(2)/2
+
+  % Draw both curves at the same time and use even odd rule to plot inside
+  \draw[integration domain, samples=100, smooth, even odd rule]
+    plot[parametric, domain=0:3.1416/2] 
+      function {cos(t), sin(t)}
+    --plot[parametric, domain=3.1416/2:3.1416] 
+      function {-(abs(cos(t))), sin(t)}
+    --plot[parametric, domain=3.1416:3.1416*1.5] 
+      function {-abs(cos(t)), -abs(sin(t))}
+    --plot[parametric, domain=3.1416*1.5:3.1416*2] 
+      function {cos(t), -abs(sin(t))}
+    --(1,0)
+    plot[parametric, domain=0:3.1416/2] 
+      function {\r*cos(t), \r*sin(t)}
+    --plot[parametric, domain=3.1416/2:3.1416] 
+      function {-\r*(abs(cos(t))), \r*sin(t)}
+    --plot[parametric, domain=3.1416:3.1416*1.5] 
+      function {-\r*abs(cos(t)), -\r*abs(sin(t))}
+    --plot[parametric, domain=3.1416*1.5:3.1416*2] 
+      function {\r*cos(t), -\r*abs(sin(t))}
+    --(\r,0) ;
+
+  % Coordinate axes
+  \drawaxes{-1}{-1}{1}{1}
+  \drawxlabels[nofill]{-1/-1, \r/\textstyle{\frac{\sqrt{2}}{2}}, 1/1}
+  \drawylabels[nofill]{-1/-1, 1/1}
+
+  % Label
+  \node at (0.4,0.75) {$D$};
+\end{tikzpicture}
+\\
+(d) & (e) & (f)
+\end{figuretable}
+\end{center}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 5; Guichard, 15.1}}
+Evaluate the following iterated integrals.
+\begin{tasks}(2)
+\task
+$\int_0^1 \int_0^y xy \ud x \ud y$
+\task
+$\int_1^4 \int_1^{\sqrt{x}} y^2 \ud y \ud x$.
+\task
+$\int_1^2 \int_{y^2/2}^{\sqrt y} 1 \ud x \ud y$
+\task
+$\int_1^2 \int_1^x \frac{x^2}{y^2} \ud y \ud x$
+\task
+$\int_0^1 \int_0^x \frac{y}{e^x} \ud y \ud x$
+\task
+$\int_0^{\sqrt{\pi}/2} \int_0^{x^2} x \cos y \ud y \ud x$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+\begin{alignenum}
+\int_0^1 \int_0^y xy \ud x \ud y
+= \int_0^1 \frac 12 x^2 y \bigg|_{x=0}^y \ud y
+= \frac 12 \int_0^1 y^3 \ud y
+= \frac 18\,.
+\end{alignenum}
+\item
+\begin{alignenum}  
+\int_1^4 \int_1^{\sqrt{x}} y^2 \ud y \ud x
+&= \int_1^4 \frac 13 y^3 \bigg|_{y=1}^{\sqrt{x}} \ud x
+= \int_1^4 \frac 13 x^{3/2} - \frac 13 \ud x 
+= \frac 2{15} x^{5/2} - \frac 13 x \bigg|_{x=1}^4
+%= \frac{64}{15} - \frac 4 3 - \frac 2{15} + \frac 13
+= \frac{47}{15}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_1^2 \int_{y^2/2}^{\sqrt y} 1 \ud x \ud y
+= \int_1^2 \sqrt{y} - \frac 12 y^2 \ud y
+= \frac 23 y^{3/2} - \frac 16 y^3 \bigg|_{y=1}^2
+= \frac{4}{3}\sqrt{2} - \frac{11}{6}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_1^2 \int_1^x \frac{x^2}{y^2} \ud y \ud x
+= \int_1^2 -\frac{x^2}{y} \bigg|_{y=1}^x \ud x
+= \int_1^2 -x + x^2 \ud x 
+= -\frac 12 x^2 + \frac 13 x^3\bigg|_{x=1}^2
+= \frac{5}{6}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^1 \int_0^x \frac{y}{e^x} \ud y \ud x
+&= \int_0^1 \frac 12 \frac{y^2}{e^x} \bigg|_{y=0}^x \ud x
+= \frac 12 \int_0^1 x^2 e^{-x} \ud x
+= -\frac 12 x^2 e^{-x}\bigg|_{x=0}^1 + \int_0^1 x e^{-x} \ud x \\
+&= -\frac 12 e^{-1} - x e^{-x} \bigg|_{x=0}^1 + \int_0^1 e^{-x} \ud x
+= -\frac 32 e^{-x} - e^{-x}|_{x=0}^1 = 1-\frac 52 e^{-x}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^{\sqrt{\pi}/2} \int_0^{x^2} x \cos y \ud y \ud x
+%= \int_0^{\sqrt{\pi}/2} x \sin y \bigg|_{y=0}^{x^2} \ud x
+= \int_0^{\sqrt{\pi}/2} x \sin\left(x^2\right) \ud x
+= -\frac 12 \cos \left(x^2\right) \bigg|_{x=0}^{\sqrt{\pi}/2} = \frac 12 - \frac{\sqrt 2}4\,.
+\end{alignenum}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 9--11; Thomas 12th, 15.2}}
+Write an iterated integral $\iint_D f(x,y) \ud x \ud y$ over the described region, both as a type 1 domain and as a type 2 domain.
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-0.5) (X) {};
+
+  \drawaxes{-0.5}{-0.5}{1.5}{1.5}
+  \clip (-.5,-.5) rectangle (1.5,1.5);
+
+  \draw plot[parametric, domain=-0.5:1.5, samples=100] function {t, t**3};
+  \draw (-.5,1) -- (1.5,1);
+
+  \draw[integration domain]
+    plot[parametric, domain=0:1, samples=100] function {t, t**3}
+    -- (0,1) -- (0,0);
+
+  \node[below right] at (1,1) {$y=8$};
+  \node[left] at (1.1, {1.1^3}) {$y=x^3$};
+
+  \node at (0.4,0.6) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-0.5) (X) {};
+
+  \drawaxes{-0.5}{-0.5}{1.5}{1.5}
+  \clip (-.5,-.5) rectangle (1.5,1.5);
+
+  \draw (-.5,-.5) -- (1.5,1.5);
+  \draw (1,-.5) -- (1,1.5);
+
+  \draw[integration domain]
+    (0,0) -- (1,0) -- (1,1) -- cycle;
+
+  \node[right] at (1,.5) {$x=3$};
+  \node[above left] at (.7,.7) {$y=2x$};
+
+  \node at (0.6,0.3) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-0.5) (X) {};
+
+  \drawaxes{-0.5}{-0.5}{1.5}{1.5}
+  \clip (-.5,-.5) rectangle (1.5,1.5);
+
+  \draw plot[parametric, domain=-0.5:1.5, samples=100] function {t, t**2};
+  \draw (-.5,-.5) -- (1.5,1.5);
+
+  \draw[integration domain]
+    plot[parametric, domain=0:1, samples=100] function {t, t**2}
+    -- (0,0);
+
+  \node[left] at (.8,.8) {$y=3x$};
+  \node[right] at (0.7, 0.49) {$y=x^2$};
+
+  \node at (0.5,0.375) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The functions $y=x^3$ and $y=8$ intersect in the point $(2,8)$ and the inverse of $y=x^3$ is $x=\sqrt[3]{y}$. Thus
+\[
+\iint_D f(x,y) \ud x \ud y
+= \int_0^2 \int_{x^3}^8 f(x,y) \ud y \ud x
+= \int_0^8 \int_0^{\sqrt[3]{y}} f(x,y) \ud x \ud y\,.
+\]
+\item
+The lines $y=2x$ and $x=3$ intersect in the point $(3,6)$ and the iverse of $y=2x$ is $x=\frac y2$. Thus
+\[
+\iint_D f(x,y) \ud x \ud y
+= \int_0^3 \int_0^{2x} f(x,y) \ud y \ud x
+= \int_0^6 \int_{y/2}^3 f(x,y) \ud x \ud y\,.
+\]
+\item
+The functions $y=3x$ and $y=x^2$ intersect in the two points $(0,0)$ and $(3,9)$. The inverse of $y=3x$ is $x=\frac y3$ and the inverse of $y=x^2$ is $x=\sqrt y$. Thus
+\[
+\iint_D f(x,y) \ud x \ud y
+= \int_0^3 \int_{x^2}^{3x} f(x,y) \ud y \ud x
+= \int_0^9 \int_{y/3}^{\sqrt y} f(x,y) \ud x \ud y\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 21, 22; MW, III.17.2 and Ex. 13, 16, 17; Hartman, 13.2}}
+Evaluate the following integrals
+\begin{tasks}(1)
+\task
+$\iint_D 3-y \ud x \ud y$; $D$ is the domain between the parabolas $y^2=2x$ and $x^2=2y$.
+\task
+$\iint_D x^2-y^2 \ud x \ud y$; $D$ is the rectangle with vertices $(-1,-1)$, $(1,-1)$, $(1,1)$, $(-1,1)$.
+\task
+$\iint_D x^3y - x \ud x \ud y$; $D$ is the half of the circle $x^2 + y^2 \leq 9$ in the first and second quadrants.
+\task
+$\iint_D x-y \ud x \ud y$; $D$ is the triangle with vertices $(0,0)$, $(1,0)$ and $(2,2)$.
+\task
+$\iint_D y \cos x \ud x \ud y$; $D$ is the triangle defined by $0 \leq x \leq \pi$ and $0 \leq y \leq x$.
+\task
+\difficulty{*}
+$\iint_D e^y \ud x \ud y$; $D$ is the domain between $y=\ln x$ and $y = \frac{1}{e-1}(x-1)$.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-.5) (X) {};
+
+  \drawaxes{-.5}{-.5}{2.5}{2.5}
+  \clip (-.5,-.5) rectangle (2.5,2.5);
+
+  \draw[dotted] (0,2) -- (2,2) -- (2,0);
+
+  \draw[integration domain] 
+    plot[parametric, domain=0:2, samples=100] function {t, sqrt(2*t)}
+    -- plot[parametric, domain=2:0, samples=100] function {t, t**2/2};
+
+  \draw[dashed]
+    plot[parametric, domain=-0.5:0, samples=100] function {t, t**2/2}
+    plot[parametric, domain=2:2.5, samples=100] function {t, t**2/2};
+  \draw[dashed]
+    plot[parametric, domain=-0.5:0, samples=100] function {t**2/2, t}
+    plot[parametric, domain=2:2.5, samples=100] function {t**2/2, t};
+
+  \node[left] at (1.2,{sqrt{2*1.2}}) {$x=y^2/2$};
+  \node[right] at (.75,{.7^2/2}) {$x=\sqrt{2y}$};
+  \node at (1,1) {$D$};
+
+  \drawxlabels[fill]{2/2}
+  \drawylabels[fill]{2/2}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1.5}{-1.5}{1.5}{1.5}
+
+  \draw[integration domain] (-1,-1) -| (1,1) -| cycle;
+
+  \node[above right] at (1,1) {$(1,1)$};
+  \node[below left] at (-1,-1) {$(-1,-1)$};
+  
+  \node at (0,0) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.625, baseline=(X.base)]
+  \def\scale{0.625}
+  \node at (-3,-3) (X) {};
+
+  \draw[integration domain]
+    (3,0) arc[radius=3, start angle=0, end angle=180] -- cycle;
+
+  \draw[dashed]
+    (3,0) arc[radius=3, start angle=0, end angle=-180];
+
+  % Coordinate axes
+  \drawaxes{-3}{-3}{3}{3}
+  % \drawxlabels[fill]{-3/-3,3/3}
+  % \drawylabels[nofill]{-3/-3,3/3}
+
+  \node[above right] at (80:3) {$y=\sqrt{1-x^2}$};
+
+  % Label
+  \node at (1,1.5) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+
+\begin{enumerate}
+\item
+The domain can be written as a type 2 domain with lower limit $x=\frac{y^2}2$ and upper limit $x = \sqrt{2y}$. Thus
+\begin{align*}
+\iint_D 3-y \ud x \ud y
+&= \int_0^2 \int_{y^2/2}^{\sqrt{2y}} 3-y \ud x \ud y
+= \int_0^2 (3-y)\left(\sqrt{2y} - \frac{y^2}{2} \right) \ud y \\
+&= \int_0^2 3\sqrt 2 y^{1/2} - \sqrt 2 y^{3/2} - \frac 32 y^2 + \frac 12 y^3 \ud y \\
+&= 2 \sqrt 2 y^{3/2} - \frac 25 \sqrt 2 y^{5/2} - \frac 12 y^3 + \frac 18 y^4 \bigg|_{y=0}^2
+= \frac {14}5\,.
+\end{align*}
+\item
+This is a simple iterated integral with fixed limits.
+\[
+\int_{-1}^1 \int_{-1}^1 x^2 - y^2 \ud x \ud y
+= \int_{-1}^1 \frac 13 x^3 - xy^2 \bigg|_{x=-1}^1 \ud y
+= \int_{-1}^1 \frac 23 - 2y^2 \ud y = 0\,.
+\]
+\item
+This domain is of type 1 with lower limit $y=0$ and upper limit $y=\sqrt{3-x^2}$. Thus
+\begin{align*}
+\int_{-3}^3 \int_0^{\sqrt{3-x^2}} x^3 y - x \ud y \ud x
+&= \int_{-3}^3 \frac 12 x^3 y^2 - xy \bigg|_{y=0}^{\sqrt{3-x^2}} \ud x
+= \int_{-3}^3 \frac 12 x^3 \left(3-x^2 \right) - x \sqrt{3-x^2} \ud x \\
+&= \frac 38 x^4 - \frac 1{12}x^6 + \frac 13 \left(3-x^2\right)^{3/2} \bigg|_{x=-3}^3
+=0 \,.
+\end{align*}
+\item
+The triangle is a type 2 domain and can be parametrised by
+\[
+D = \left\{ (x,y) \,:\, 0 \leq y \leq 2\,,\; y \leq x \leq \frac y2+1 \right\}
+\]
+We then have to calculate the integral
+\begin{align*} 
+\iint_D x-y \ud x \ud y
+&= \int_0^2 \int_{y}^{y/2-2} x-y \ud x \ud y 
+= \int_0^2 \frac 12 x^2 - xy \bigg|_{x=y}^{y/2-2} \ud y \\
+&= \int_0^1 \frac 12 \left(\frac y2-2\right)^2 - \frac {y^2}{2} - y\left(\frac y2-2\right) + y^2 \ud y \\
+&= \int_0^2 \frac{y^2}8 + y + 2 \ud y
+= \frac 13 + 2 + 4 = \frac {19}3 \,.
+\end{align*}
+\item
+This integral is best written as an integral over a type 2 domain.
+\begin{align*}
+\iint_D y \cos x \ud x \ud y
+&= \int_0^\pi \int_y^\pi y \cos x \ud x \ud y
+= \int_0^\pi y \sin x \bigg|_{x=y}^\pi \ud y
+= - \int_0^\pi y \sin y \ud y \\
+&= y \cos y \bigg|_{y=0}^\pi + \int_0^\pi \cos y \ud y
+= -\pi\,.
+\end{align*}
+\item
+The challenge here is to find the limits of integration. These are given by solutions of
+\[
+\ln x = \frac {1}{e-1} \left(x-1\right)\,.
+\]
+The two solutions are given by $x=1$ and $x=e$. The domain is of type 1 and therefore
+\begin{align*}
+\iint_D e^y \ud x \ud y
+&= \int_1^e \int_{\ln x}^{(x-1)/(e-1)} e^y \ud y \ud x
+= \int_1^e e^{(x-1)/(e-1)} - x \ud x \\
+&= (e-1) e^{(x-1)/(e-1)} - \frac 12 x^2 \bigg|_{x=1}^e
+= \frac 32 + \frac 12 e^2\,.
+\end{align*}
+\end{enumerate}
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[dotted] (2,0) -- (2,2) -- (0,2);
+
+  \draw[integration domain]
+    (0,0) -- (1,0) -- (2,2) -- cycle;
+
+  \node at (1,0.666) {$D$};
+
+  \drawxlabels[fill]{1/1, 2/2}
+  \drawylabels[fill]{2/2}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=3.75, baseline=(X.base)]
+  \def\scale{3.75}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{1}{1}
+
+  \draw[dotted] (0,1) -- (1,1);
+
+  \draw[integration domain] 
+    (0,0) -- (1,0) -- (1,1) -- cycle;
+  
+  \node at (0.666,0.333) {$D$};
+  
+  \drawxlabels{1/\pi};
+  \drawylabels{1/\pi};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{0}{-1.5}{3}{1.5}
+
+  \drawxlabels{1/1, 2.787/e}
+  \drawylabels{1/1}
+
+  \clip (0,-1.5) rectangle (3,1.5);
+
+  \draw[dotted] (2.787,0) -- (2.787,1) -- (0,1);
+
+  \draw[dashed]
+    plot[parametric, domain=0.01:1, samples=100] function {t, log(t)}
+    plot[parametric, domain=2.787:3, samples=100] function {t, log(t)};
+
+  \draw[dashed] (0,{-1/(2.787-1)}) -- (1,0)
+                (2.787,1) -- (3,{2/(2.787-1)});
+
+  \draw[integration domain]
+    plot[parametric, domain=1:2.787, samples=100] function {t, log(t)} -- cycle;
+
+  \node at (1.9, 0.55) {$D$};
+\end{tikzpicture}
+\\
+(d) & (e) & (f)
+\end{figuretable}
+\end{center}
+\end{solution}
+
+\begin{question}
+Interpret the following iterated integrals as double integrals over a domain $D$. Sketch $D$ and change the order of integration.
+\begin{tasks}(2)
+\task
+$\int_0^3 \int_0^{\sqrt{3}} f(x,y) \ud y \ud x$
+\task
+$\int_1^3 \int_0^{\ln x} f(x,y) \ud y \ud x$
+\task
+$\int_0^1 \int_{\arctan y}^{\pi/4} f(x,y) \ud x \ud y$
+\task
+$\int_{-\sqrt 2}^{\sqrt 2} \int_{y^2-1}^1 f(x,y) \ud x \ud y$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The domains can be seen below.
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[integration domain] (0,0) |- (2,1.155) |- cycle;
+
+  \drawxlabels{2/3}
+  \drawylabels{1.155/\sqrt{3}}
+
+  \node at (1,.575) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.8666, baseline=(X.base)]
+  \def\scale{0.8666}
+  \node at (0,-1) (X) {};
+
+  \drawxlabels{1/1, 3/3}
+  \drawylabels{{ln(3)}/\ln 3}
+  \drawaxes{0}{-1}{3}{2}
+
+  \clip (0,-1) rectangle (3,2);
+
+  \draw[integration domain]
+    plot[parametric, domain=1:3, samples=100] function {t, log(t)}
+    |- cycle;
+    
+  \draw[dashed]
+    plot[parametric, domain=0.01:1, samples=100] function {t, log(t)};
+
+  \draw[dotted] (0,{ln(3)}) -- (3,{ln(3)});
+
+  \node at (2.3,0.3) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=2.6, baseline=(X.base)]
+  \def\scale{2.6}
+  \node at (0,0) (X) {};
+
+  \drawylabels{1/1}
+  \drawaxes{0}{0}{1}{1}
+  \drawxlabels{0.785/\frac{\pi}4}
+
+
+  \clip (0,0) rectangle (1,1);
+
+  \draw[integration domain]
+    plot[parametric, domain=0:1, samples=100] function {atan(t), t}
+    |- cycle;
+
+  \draw[dotted] (0,1) -- (0.785,1);
+
+  \node at (.6,.3) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.8666, baseline=(X.base)]
+  \def\scale{0.8666}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1.5}{-1.5}{1.5}{1.5}
+  \clip (-1.5,-1.5) rectangle (1.5,1.5);
+
+  \draw[integration domain]
+    plot[parametric, domain=-1.414:1.414, samples=100] function {t**2-1, t}
+    -- cycle;
+
+  \draw[dotted] (0,-1.414) -- (1,-1.414)
+                (0,1.414) -- (1,1.414);
+
+  \drawxlabels[nofill]{-1/-1,1/1}
+  \drawylabels{-1.414/-\sqrt{2}, 1.414/\sqrt{2}}
+
+  \node at (0,0) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c) & (d)
+\end{figuretable}
+\end{center}
+
+\begin{enumerate}
+\item
+$\int_0^3 \int_0^{\sqrt{3}} f(x,y) \ud y \ud x
+= \int_0^{\sqrt 3} \int_0^{3} f(x,y) \ud x \ud y$
+\item
+$\int_1^3 \int_0^{\ln x} f(x,y) \ud y \ud x
+= \int_0^{\ln 3} \int_{e^y}^3 f(x,y) \ud x \ud y$
+\item
+$\int_0^1 \int_{\arctan y}^{\pi/4} f(x,y) \ud x \ud y
+= \int_0^{\pi/4} \int_0^{\tan x} f(x,y) \ud y \ud x$
+\item
+$\int_{-\sqrt 2}^{\sqrt 2} \int_{y^2-1}^1 f(x,y) \ud x \ud y
+= \int_{-1}^1 \int_{-\sqrt{x+1}}^{\sqrt{x+1}} f(x,y) \ud y \ud x$
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 17, 19, 20; MW, III.17.2}}
+Sketch the region, interchange the order of integration and evaluate the integral.
+\begin{tasks}(3)
+\task
+$\displaystyle \int_0^1 \int_x^1 xy \ud y \ud x$.
+\task
+$\displaystyle \int_0^1 \int_{1-y}^1 (x+y^2) \ud x \ud y$.
+\task
+$\displaystyle \int_1^4 \int_1^{\sqrt{x}} \left(x^2 + y^2\right) \ud y \ud x$.
+\end{tasks}
+\end{question}
+
+\begin{solution} 
+The regions are shown in the figures below.
+
+\begin{center}
+\begin{tabular}{ccc}
+% Triangle (0,0) - (1,0) - (1,1)
+\begin{tikzpicture}[scale=3.75, baseline=0]
+  \def\scale{3.75}
+
+  \drawaxes{0}{0}{1}{1}
+  \drawxlabels{1/1}
+  \drawylabels{1/1}
+
+  \draw[black,integration domain] (0,0) -- (1,0) -- (1,1) -- cycle;
+  \node[above left] at (0.75, 0.75) {$y=x$};
+
+  \draw[dotted] (0,1) -- (1,1);
+
+  \node at (0.66,.33) {$D$};
+\end{tikzpicture}
+&
+% Triangle (1,0) - (1,1) - (0,1)
+\begin{tikzpicture}[scale=3.75, baseline=0]
+  \def\scale{3.75}
+
+  \drawaxes{0}{0}{1}{1}
+  \drawxlabels{1/1}
+  \drawylabels{1/1}
+
+  \draw[integration domain] (1,0) -- (1,1) -- (0,1) -- cycle;
+  \node[below left, align=left] at (0.625, 0.375) {$x=1-y$};
+
+  \node at (0.66,.66) {$D$};
+\end{tikzpicture}
+&
+% Area between y=1, y=sqrt(x) and 1<x<4.
+\begin{tikzpicture}[scale=0.9375, baseline=(BL)]
+  \def\scale{0.9375}
+  \coordinate (BL) at (0,-1);
+  \coordinate (TR) at (4,3);
+
+  \drawaxes{0}{-1}{4}{3}
+  \drawxlabels{1/1, 4/4}
+  \drawylabels{1/1, 2/2}
+
+  \draw[dashed]
+    plot[domain=0:1, samples=100, smooth] function {sqrt(x)};
+
+  \draw[integration domain, smooth]
+    plot[domain=1:4] function {sqrt(x)} |- cycle;
+  \draw[dotted] (0,2) -- (4,2)
+                (4,0) -- (4,1)
+                (1,0) |- (0,1);
+
+  \node[above] at (4,2) {$y=\sqrt{x}$};
+  \node at (3,1.4) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item
+We can write the domain as
+\begin{align*}
+D &= \left\{ (x,y) \,:\, 0 \leq x \leq 1\,,\; x \leq y \leq 1 \right\} \\
+&= \left\{ (x,y) \,:\, 0 \leq y \leq 1\,,\; 0 \leq x \leq y \right\}\,.
+\end{align*}
+The integral then becomes
+\[
+\int_0^1 \int_x^1 xy \ud y \ud x = \int_0^1 \int_0^y xy \ud x \ud y
+\]
+We evaluate the latter integral
+\begin{align*}
+\int_0^1 \int_0^y xy \ud x \ud y
+&= \int_0^1 \frac 12 x^2 y\bigg|_{x=0}^y \ud y
+= \int_0^1 \frac 12 y^3 \ud y = \frac 18\,.
+\end{align*}
+
+\item
+We can write the domain as
+\begin{align*}
+D &= \left\{ (x,y) \,:\, 0 \leq y \leq 1\,,\; 1-y \leq x \leq 1 \right\} \\
+&= \left\{ (x,y) \,:\, 0 \leq x \leq 1\,,\; 1-x \leq y \leq 1 \right\}\,.
+\end{align*}
+The integral then becomes
+\[
+\int_0^1 \int_{1-y}^1 \left(x+y^2\right) \ud x \ud y = \int_0^1 \int_{1-x}^1 \left(x+y^2\right) \ud y \ud x \,.
+\]
+We evaluate the latter integral
+\begin{align*}
+\int_0^1 \int_{1-x}^1 \left(x+y^2\right) \ud y \ud x
+&= \int_0^1 xy + \frac 13 y^3 \bigg|_{y=1-x}^1 \ud x
+= \int_0^1 x^2 + \frac 13 - \frac 13 \left(1 - x\right)^3 \ud x \\
+&= \frac 13 x^3 + \frac 13 x + \frac 1{12} \left(1-x\right)^4 \bigg|_{x=0}^1
+= \frac 7{12}\,.
+\end{align*}
+
+\item
+We can write the domain as
+\begin{align*}
+D &= \left\{ (x,y) \,:\, 1 \leq y \leq 4\,,\; 1 \leq y \leq \sqrt x \right\} \\
+&= \left\{ (x,y) \,:\, 1 \leq y \leq 2\,,\; y^2 \leq x \leq 4 \right\}\,.
+\end{align*}
+The integral then becomes
+\[
+\int_1^4 \int_1^{\sqrt{x}} \left(x^2 + y^2\right) \ud y \ud x
+= \int_1^2 \int_{y^2}^4 \left(x^2 + y^2 \right) \ud x \ud y\,.
+\]
+We evaluate the latter integral
+\begin{align*}
+\int_1^2 \int_{y^2}^4 \left(x^2 + y^2 \right) \ud x \ud y
+&= \int_1^2 \frac 13 x^3 + y^2 x \bigg|_{x=y^2}^4 \ud y
+= \int_1^2 \frac{64}3 - \frac 13 y^6 + 4y^2 - y^4 \ud y \\
+&= \frac{64}{3} y - \frac 1{21}y^7 + \frac 43 y^3 - \frac 15 y^5 \bigg|_{y=1}^2
+= \frac{1934}{105}\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {MA2815 Exams, 2015}}
+Evaluate the following integrals.
+\begin{tasks}(2)
+\task
+$\int_{-1}^1 \int_1^2 \frac{x \tan^2 y}{1 + \ln y} \ud y \ud x$
+\task
+$\int_0^1 \int_{2x}^2 e^{-y^2} \ud y \ud x$
+\task
+$\int_0^2 \int_{y/2}^1 \cos\left(x^2\right) \ud x\ud y$
+\task
+$\int_0^1 \int_{\sqrt[3]{y}}^1 \sqrt{x^4+1} \ud x \ud y$
+\task
+$\int_0^2 \int_{y/2}^1 y \cos (x^3 - 1) \ud x \ud y$
+\task
+$\int_0^{\pi/2} \int_x^{\pi/2} \frac{\sin y}{y} \ud y \ud x$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawxlabels{1/1}
+  \drawylabels{2/2}
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[integration domain] (0,0) -- (1,2) -| cycle;
+
+  \draw[dotted] (1,0) -- (1,2);
+
+  \node at (0.333, 1.333) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawxlabels{1/1}
+  \drawylabels{2/2}
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[integration domain] (0,0) -- (1,2) |- cycle;
+
+  \draw[dotted] (0,2) -- (1,2);
+
+  \node at (0.666, 0.666) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=2.6, baseline=(X.base)]
+  \def\scale{2.6}
+  \node at (0,0) (X) {};
+
+  \drawylabels{1/1}
+  \drawxlabels{1/1}
+  \drawaxes{0}{0}{1}{1}
+
+  \clip (0,0) rectangle (1,1);
+
+  \draw[integration domain]
+    plot[parametric, domain=0:1, samples=100] function {t, t**3}
+    |- cycle;
+
+  \draw[dotted] (0,1) -- (1,1);
+
+  \node at (.8,.3) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=2.6, baseline=(X.base)]
+  \def\scale{2.6}
+  \node at (0,0) (X) {};
+
+  \node[left] at (0,.95) {$\textstyle\frac{\pi}2$};
+  \node[below] at (1,0) {$\textstyle\frac{\pi}2$};
+  \drawaxes{0}{0}{1}{1}
+  \clip (0,0) rectangle (1,1);
+
+  \draw[integration domain]
+    (0,0) -- (1,1) -- (0,1) -- cycle;
+
+  \draw[dotted] (1,0) -- (1,1);
+
+  \node at (0.333,0.666) {$D$};
+\end{tikzpicture}
+\\
+(b) & (c) \& (e) & (d) & (f)
+\end{figuretable}
+\end{center}
+\begin{enumerate}
+\item
+\begin{alignenum}
+\int_{-1}^1 \int_1^2 \frac{x \tan^2 y}{1 + \ln y} \ud y \ud x
+= \int_1^2 \int_{-1}^1 \frac{x \tan^2 y}{1 + \ln y} \ud x \ud y
+= \int_1^2 \frac 12 x^2 \cdot \frac{\tan^2 y}{1 + \ln y} \bigg|_{x=-1}^1 \ud y
+= 0\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^1 \int_{2x}^2 e^{-y^2} \ud y \ud x
+&= \int_0^2 \int_0^{y/2} e^{-y^2} \ud x \ud y
+= \int_0^2 e^{-y^2} x \bigg|_{x=0}^{y/2} \ud y
+= \int_0^2 e^{-y^2} \frac y2 \ud y \\
+&= -\frac 14 e^{-y^2} \bigg|_{y=0}^2
+= \frac 14 \left( 1 - e^{-4}\right)\,.
+\end{alignenum}
+% The region of integration can be expressed as
+% \[
+% \{ (x,y) \,:\, 0 \leq x \leq 1,\, 2x \leq y \leq 2 \}
+% = \left\{ (x,y) \,:\, 0 \leq y \leq 2,\, 0 \leq x \leq \frac y2 \right\}\,.
+% \]
+% Interchanging the order of integration leads to
+% \[
+% I = \int_0^2 \int_0^{y/2} e^{-y^2} \ud x \ud y\,.
+% \]
+% The first integration is simple
+% \[
+% I = \int_0^2 e^{-y^2} x \bigg|_{x=0}^{y/2} \ud x = \int_0^2 e^{-y^2} \frac y2 \ud x
+% \]
+% Now we are also able to perform the $y$-integration
+% \[
+% I = -\frac 14 \int_0^2 -2y e^{-y^2} \ud y
+% = -\frac 14 e^{-y^2} \bigg|_{y=0}^2 = \frac 14 \left( 1 - e^{-4}\right)\,.
+% \]
+\item
+\begin{alignenum}
+\int_0^2 \int_{y/2}^1 \cos\left(x^2\right) \ud x\ud y
+&= \int_0^1 \int_0^{2x} \cos\left(x^2\right) \ud y \ud x
+= \int_0^1 \cos\left( x^2 \right) y \bigg|_{y=0}^{2x} \ud x \\
+&= \int_0^1 2x \cos\left(x^2\right) \ud x
+= \sin\left(x^2\right) \bigg|_{x=0}^1 = \sin 1\,.
+\end{alignenum}
+% The region of integration can be expressed as
+% \[
+% \left\{ (x,y) \,:\, 0 \leq y \leq 2,\, \frac y2 \leq x \leq 1 \right\}
+% = \{ (x,y) \,:\, 0 \leq x \leq 1 ,\, 0 \leq y \leq 2x \}\,.
+% \]
+% Interchanging the order of integration leads to
+% \[
+% I = \int_0^1 \int_0^{2x} \cos\left(x^2\right) \ud y \ud x\,.
+% \]
+% The first integration is simple
+% \[
+% I = \int_0^1 \cos\left( x^2 \right) y \bigg|_{y=0}^{2x} \ud x
+% = \int_0^1 2x \cos\left(x^2\right) \ud x\,.
+% \]
+% Now we are also able to perform the $x$-integration
+% \[
+% I = \sin\left(x^2\right) \bigg|_{x=0}^1 = \sin 1\,.
+% \]
+\item
+\begin{alignenum}
+\int_0^1 \int_{\sqrt[3]{y}}^1 \sqrt{x^4+1} \ud x \ud y
+&= \int_0^1 \int_0^{x^3} \sqrt{x^4+1} \ud y \ud x
+= \int_0^1 y \sqrt{x^4 + 1} \,\bigg|_{y=0}^{x^3} \ud x \\
+&= \int_0^1 x^3 \sqrt{x^4 + 1} \ud x
+= \frac 16 \left(x^4 + 1\right)^{3/2} \bigg|_{x=0}^1
+= \frac 16 \left(2\sqrt{2} - 1\right)\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^2 \int_{y/2}^1 y \cos \left(x^3 - 1 \right) \ud x \ud y
+&= \int_0^1 \int_0^{2x} y \cos \left(x^3 - 1 \right) \ud y \ud x
+= \int_0^1 \frac 12 y^2 \cos \left( x^3 - 1 \right) \bigg|_{y=0}^{2x} \ud x \\
+&= \int_0^1 2x^2 \cos \left(x^3 - 1 \right) \ud x
+= \frac 23 \sin \left(x^3 - 1 \right) \bigg|_{x=0}^1
+= \frac 23 \sin 1\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^{\pi/2} \int_x^{\pi/2} \frac{\sin y}{y} \ud y \ud x
+&= \int_0^{\pi/2} \int_0^{y} \frac{\sin y}{y} \ud x \ud y
+= \int_0^{\pi/2} x \cdot \frac{\sin y}{y} \bigg|_{x=0}^y \ud y \\
+&= \int_0^{\pi/2} \sin y \ud y = 1\,.
+\end{alignenum}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{difficulty = {*}}
+Evaluate the iterated integral
+\[
+\int_0^2 \int_0^{2\sqrt{4-x^2}} \left( 4-x^2 - \frac 14 y^2\right) \ud y \ud x\,.
+\]
+\begin{hint*}
+After performing the integration with respect to $y$, use a change of coordinates to transform the square roots from $\sqrt{4-x^2}$ to $\sqrt{1-u^2}$. Then use the trigonometric subsitution. To evaluate the resulting integral you will need to apply the half-angle formula twice.
+\end{hint*}
+\end{question}
+
+\begin{solution}
+We do the calculations step by step.
+\begin{align*}
+\int_0^2 \int_0^{2\sqrt{4-x^2}} \left( 4-x^2 - \frac 14 y^2\right) \ud y \ud x 
+&= \int_0^2 8 \sqrt{4-x^2} - 2x^2 \sqrt{4-x^2} - \frac 8{12} \left(\sqrt{4-x^2}\right)^3 \ud x \\
+&= \int_0^2 \frac 43 \left( \sqrt{4-x^2} \right)^3 \ud x
+= \int_0^2 \frac {32}3 \left( \sqrt{1-\frac{x^2}4} \right)^3 \ud x\,.
+\end{align*}
+Now make the substitution $\frac x2 = u$ with $\ud x = 2 \ud u$. We obtain
+\[
+\int_0^2 \frac {32}3 \left( \sqrt{1-\frac{x^2}4} \right)^3 \ud x = 2 \int_0^1 \frac {32}3 \left( \sqrt{1-u^2} \right)^3 \ud u\,.
+\]
+Next we use the trigonometric substitution $u = \sin t$ with $\ud u = \cos t \ud t$. This leads to
+\[
+2 \int_0^1 \frac {32}3 \left( \sqrt{1-u^2} \right)^3 \ud u =
+2 \int_0^{\pi/2} \frac {32}3 \left( \sqrt{1-\sin^2 t} \right)^3 \cos t \ud u =
+\frac{64}3 \int_0^{\pi/2}  \cos^4 t \ud u\,.
+\]
+To evaluate this integral we use the half-angle formula twice to get
+\begin{align*}
+\cos^4 t &= \left( \frac{1 + \cos 2t}2 \right)^2 = \frac 14 + \frac 12 \cos 2t + \frac 14 \cos^2 2t \\
+&= \frac 14 + \frac 12 \cos 2t + \frac 14 \frac{1 + \cos 4t}2 = \frac 38 + \frac 12 \cos 2t + \frac 18 \cos 4t\,.
+\end{align*}
+This is now easy to integrate
+\[
+\frac{64}3 \int_0^{\pi/2} \frac 38 + \frac 12 \cos 2t + \frac 18 \cos 4t \ud u =
+\frac{64}3 \left. \left( \frac 38 t + \frac 14 \sin 2t + \frac 1{32} \sin 4t \right) \right|_{t=0}^{\pi/2} = 4 \pi\,.
+\]
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{difficulty = {*}}
+\SetQuestionProperties{source = {Ex. 28; MW, III.17.2}}
+Prove
+$\int_0^x \int_0^t f(u) \ud u \ud t = \int_0^x (x-u) f(u) \ud u\,.$
+\end{question}
+
+\begin{solution}
+\begin{adjustbox}{valign=T,raise=\strutheight,minipage={\linewidth}}
+  \begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+\begin{tikzpicture}[scale=2.6, baseline=(X.base)]
+  \def\scale{2.6}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$t$]{0}{1}
+  \drawyaxis[$u$]{0}{1}
+  \drawxlabels{1/x}
+  \drawylabels{1/x}
+  \clip (0,0) rectangle (1,1);
+
+  \draw[integration domain]
+    (0,0) -- (1,1) -- (0,1) -- cycle;
+
+  \draw[dotted] (1,0) -- (1,1);
+
+  \node at (0.333,0.666) {$D$};
+\end{tikzpicture}
+\end{wrapfigure}
+\strut{}
+Treating $x$ as a constant, we change the order of integration
+\begin{align*}
+\int_0^x \int_0^t f(u) \ud u \ud t 
+&= \int_0^x \int_u^x f(u) \ud t \ud u \\
+&= \int_0^x f(u) \left( \int_0^x 1 \ud t \right) \ud u \\
+&= \int_0^x (x-u) f(u) \ud u\,.
+\end{align*}
+\end{adjustbox}
+\end{solution}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "problems"
+%%% End:

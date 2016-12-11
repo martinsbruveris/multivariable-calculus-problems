@@ -1,0 +1,586 @@
+%--------------------------------------------------------------------
+%--- Notes to myself
+%--------------------------------------------------------------------
+
+% TODO: Tautasdziesma
+% TODO: Figure out how vertical space works in title page
+%       Clean up code for title page
+% TODO: Add section numbers to pdf bookmarks
+% TODO: Change document class to book to have two parts
+%       Part 1 - problems
+%       Part 2 - solutions
+%       Both in one document
+% TODO: Work on page geometry
+
+% Need gnuplot to compile this
+% TODO: Add id to plots, so we can compile without gnuplot,
+%       see TikZ manual p.329.
+% TODO: Change figuretable to use tabu
+%       Avoid globally resetting \tabcolsep
+% TODO: Tables for local extrema look bad
+% 
+% TODO: Sect. 10, choose better functions to integrate over
+%       rectangles
+% TODO: Check for consistent usage of alignenum
+% 
+%--------------------------------------------------------------------
+%--- Loading packages
+%--------------------------------------------------------------------
+
+\PassOptionsToPackage{dvipsnames}{xcolor} % Is loaded by TikZ                                
+
+\usepackage{amsmath,amsthm,textcomp}
+
+\usepackage[charter,expert]{mathdesign}   % Bitstream Charter font, 
+                                          % as recommended by Aleksey
+\usepackage[scaled=.96,osf]{XCharter}     % Matches the size used in math
+\usepackage{microtype}                    % Typographical improvements
+\usepackage{bm}
+
+\usepackage[T1]{fontenc}  % These three packages load Times fonts
+% \usepackage{mathptmx}
+% \usepackage{tgtermes} 
+
+% \usepackage{newtxtext}  % Other fonts to consider
+% \usepackage{newtxmath}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\usepackage{enumitem}                     % Customize lists
+% \usepackage{enumerate}                  
+\usepackage{geometry}                     % Customize page geometry
+% \usepackage{showframe}                    % To show page geometry
+\usepackage{fancyhdr}                     % Custom headers and footers
+\usepackage{lastpage}                     % To show "Page 1 / 20"
+
+\usepackage{tikz}                         % For drawing figures
+
+\usepackage{exsheets}                     % For problem/solution environments
+\usepackage{wrapfig}                      % To let text wrap around a figure
+\usepackage{adjustbox}                    % For wrapfigure inside enumerate
+\usepackage{ifthen}                       % iften for defining commands
+\usepackage{siunitx}                      % To typeset units
+\usepackage{tabu}                         % tabu environment for tables
+\usepackage{tasks}                        % tasks environment for horizontal lists
+\usepackage{nth}
+\usepackage[savepos]{zref}                % For align in enumerate workaround
+\usepackage{etoolbox}                     % For parameter toggles
+\usepackage{xcolor}                       % For red title
+
+\usepackage[style=numeric, minnames=3,
+            doi=false, url=false, isbn=false,
+            firstinits=true,
+            sortcites=true,
+            backend=biber]{biblatex}      % For bibliographies
+
+%--------------------------------------------------------------------
+%--- Pdf options
+%--------------------------------------------------------------------
+
+\usepackage[
+  pdftitle={\docclass{} -- \doctitle}, 
+  pdfauthor={\docauthor},
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue,
+  bookmarks=true,
+  bookmarksopenlevel=2]{hyperref}
+
+\usepackage[inline]{asymptote}            % For asymptote graphics
+
+%--------------------------------------------------------------------
+%--- Global page geometry and layout
+%--------------------------------------------------------------------
+
+\geometry{
+%  total={210mm,297mm},
+  left=25mm,
+  right=25mm,
+  bindingoffset=0mm, 
+  top=20mm,
+  bottom=20mm
+}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyhead[L]{\textsc{\docclass}}
+\fancyhead[C]{\textsc{\doctitle}}
+\fancyhead[R]{\textsc{\docdate}}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyfoot[L]{\textsc{\docauthor}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\textsc{Page \thepage\ /\ \pageref*{LastPage}}}
+
+\setlength{\headheight}{14pt} % Was necessary, warning otherwise
+
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[L]{}
+  \fancyfoot[C]{}
+  \fancyfoot[R]{}
+  \renewcommand{\headrulewidth}{0mm}
+}
+
+\pagestyle{fancy}
+
+\author{\docauthor}
+\date{\docdate}
+\title{\docclass{} -- \doctitle}
+
+% Custom Title
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\textsc{\@author} \hfill \textsc{\@date}
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+
+%--------------------------------------------------------------------
+%--- Microtype settings
+%--- Source: microtype documentation
+%--------------------------------------------------------------------
+
+\microtypesetup{expansion=alltext, step=1}
+\microtypesetup{kerning=true}
+
+\DeclareMicrotypeSet*[protrusion]
+  { doc }
+  { encoding = {*, TS1, OMS},
+    family   = {rm*, tt*},
+    size     = {footnotesize, small, normalsize} }
+\SetProtrusion
+  { encoding = OMS,
+    family   = mdbch }
+  { "68 = {400, },  % \langle
+    "69 = { ,400} } % \rangle
+\DeclareMicrotypeSet*[kerning]
+  { doc }
+  { encoding = T1,
+    family   = blg, % typewriter font and ...
+    font     = * }  % French sample in section \ref{sub:kerning}
+\SetExtraKerning
+  { encoding = T1,
+    family   = blg }
+  { _ = {100,100} } % underscores shouldn't touch
+
+%--------------------------------------------------------------------
+%--- Global parameters and commands
+%--------------------------------------------------------------------
+
+\linespread{1.2}
+
+\everymath{\displaystyle}
+
+% Table to typeset tikz figures; parameter is number of columns
+\newenvironment{figuretable}[2][1em]
+  {
+    \begin{tabular}{*{#2}{c@{\hspace{#1}}}}
+  }
+  {
+    \end{tabular}
+  }
+
+% A better solution should be found for this...
+\tabcolsep=0pt
+
+% Used to adjust vertical height for wrapfigure inside enumerate
+\newlength{\strutheight}
+\settoheight{\strutheight}{\strut}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+
+\settasks{counter-format=(tsk[a])} % Use letters for tasks lists
+\settasks{label-width={1.5em}}
+
+\let\six=\si % \si is defined by package siunitx, but we use it for \sigma
+
+% Pagebreak after each problem section
+\newboolean{sectionnewpage}
+\setboolean{sectionnewpage}{false}
+
+% For printing difficulty level
+\newcommand{\difficulty}[1]{(#1)}
+
+% Bibliography
+\addbibresource{bibliography.bib}
+
+% Align in enumerate environment
+% Source: tex.stackexchange.com/questions/9394
+\newenvironment{alignenum}{%
+  $\begin{aligned}[t]
+}{%
+  \end{aligned}$
+}
+% This one has centered formulas
+% \newenvironment{alignenum}{%
+%   \hfill$\begin{aligned}[t]
+% }{%
+%   \end{aligned}$\hfill\null
+% }
+
+\newcounter{dummy} % necessary for correct hyperlinks (to index, bib, etc.)
+
+%--------------------------------------------------------------------
+%--- Question/Solution environments
+%--------------------------------------------------------------------
+
+% From tex.stackexchange.com/questions/249455 
+% to enable displaying question source
+\ExplSyntaxOn
+\RenewDocumentCommand{\QuestionNumber}{sm}
+ {
+  \IfBooleanTF{#1}
+   { \exsheets_question_number:o {#2} }
+   { \exsheets_question_number:n {#2} }
+ }
+\cs_generate_variant:Nn \exsheets_question_number:n { o }
+
+\RenewDocumentCommand{\IfQuestionPropertyTF}{smmmm}
+ {
+  \IfBooleanTF{#1}
+   { \exsheets_if_question_property:noTF { #2 } { #3 } { #4 } { #5 } }
+   { \exsheets_if_question_property:nnTF { #2 } { #3 } { #4 } { #5 } }
+ }
+\cs_generate_variant:Nn \exsheets_if_question_property:nnTF { no }
+\ExplSyntaxOff
+
+% To display question source
+\DeclareQuestionProperty{source}
+\DeclareQuestionProperty{difficulty}
+
+\SetupExSheets{
+  question/post-body-hook={%
+    \IfQuestionPropertyTF*%
+      {source}%
+      {\CurrentQuestionID}%
+      {\strut\hfill \mbox{[\GetQuestionProperty{source}{\CurrentQuestionID}]}}%
+      {}%
+    } ,
+  question/pre-body-hook={%
+    \IfQuestionPropertyTF*%
+      {difficulty}%
+      {\CurrentQuestionID}%
+      {{\bfseries\difficulty{\GetQuestionProperty{difficulty}{\CurrentQuestionID}}}}%
+      {}%
+  } 
+}
+
+\DeclareInstance{exsheets-heading}{block-nonr}{default}{
+  title-post-code = {\bfseries .} ,
+  attach = {
+    main[l,vc]title[l,vc](0pt,0pt) ;
+    main[r,vc]points[l,vc](\marginparsep,0pt)
+  }
+}
+
+\DeclareInstance{exsheets-heading}{runin-nonr}{default}{
+  runin = true ,
+  title-post-code = {\bfseries .\space} ,
+  attach = {
+    main[r,vc]points[l,vc](\marginparsep,0pt)
+  } ,
+  join = {
+    main[r,vc]title[r,vc](0pt,0pt)
+  }
+}
+
+\RenewQuSolPair
+  {question}[headings=margin-nr]
+  {solution}[headings=runin-nonr]
+
+%--------------------------------------------------------------------
+%--- Some theorem-like environments
+%--------------------------------------------------------------------
+
+\newtheoremstyle{theoremnote}%
+  {\parskip}%   Space above
+  {0pt}%        Space below
+  {}%           Body font
+  {\parindent}% Indent amount
+  {\itshape}%   Theorem head font
+  {:}%          Punctuation after theorem head
+  {.5em}%       Space after theorem head
+  {\thmnumber{#2 }\thmname{#1}\thmnote{. #3}}%  Theorem head spec
+
+\theoremstyle{theoremnote}
+\newtheorem*{note*}{Note}
+
+\newtheoremstyle{theoremhint}%
+  {\parskip}%   Space above
+  {0pt}%        Space below
+  {}%           Body font
+  {}% Indent amount
+  {\itshape}%   Theorem head font
+  {:}%          Punctuation after theorem head
+  {.5em}%       Space after theorem head
+  {\thmnumber{#2 }\thmname{#1}\thmnote{. #3}}%  Theorem head spec
+
+\theoremstyle{theoremhint}
+\newtheorem*{hint*}{Hint}
+
+
+%--------------------------------------------------------------------
+%--- Tikz setup and parameters
+%--------------------------------------------------------------------
+
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{math}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{external}        % To create standalone pdf files
+ 
+
+% \tikzset{external/disable dependency files=false}
+% \tikzexternalize % Activate externalization
+\tikzsetexternalprefix{tmp_tikz/}
+\tikzset{external/optimize command away=\asyinclude}
+\tikzset{external/optimize command away=\asy} % Unclear if it will work
+
+% Global parameters for figures
+\tikzset{
+  integration domain/.style = {fill=blue!30}
+}
+
+\tikzset{
+  integration domain2/.style = {fill=red!30}
+}
+
+\tikzset{
+  coordinate grid/.style = {color=gray!40, thin}
+}
+
+\tikzset{
+  every node/.style = {font = \footnotesize}
+}
+
+% Arrowhead, mostly for coordinate axes
+\tikzset{
+    >={Stealth[length=2mm]}
+}
+
+% Arrowtips for vector fields; should provided \scale is defined locally
+\tikzset{
+  vector field/.style={
+    ->, blue,
+    >={Straight Barb[length={1.5pt}, width={1.5pt}]}
+  },
+  vector field/.default=\scale
+}
+
+\newcommand{\drawaxes}[4]{
+  \draw[->,>={Stealth[length={4pt}]}]
+    ({#1-0.1*(#3-#1)},0) -- ({#3+0.1*(#3-#1)},0) node[below] {$x$};
+  \draw[->,>={Stealth[length={4pt}]}] 
+    (0,{#2-0.1*(#4-#2)}) -- (0,{#4+0.1*(#4-#2)}) node[left] {$y$};
+}
+
+\newcommand{\drawaxeslabelled}[6]{
+  \draw[->,>={Stealth[length={4pt}]}]
+    ({#1-0.1*(#3-#1)},0) -- ({#3+0.1*(#3-#1)},0) node[below] {#5};
+  \draw[->,>={Stealth[length={4pt}]}] 
+    (0,{#2-0.1*(#4-#2)}) -- (0,{#4+0.1*(#4-#2)}) node[left] {#6};
+}
+
+\newcommand{\drawxaxis}[3][$x$]{
+  \draw[->,>={Stealth[length={4pt}]}]
+    ({#2-0.1*(#3-#2)},0) -- ({#3+0.1*(#3-#2)},0) node[below] {#1};
+}
+
+\newcommand{\drawyaxis}[3][$y$]{
+  \draw[->,>={Stealth[length={4pt}]}] 
+    (0,{#2-0.1*(#3-#2)}) -- (0,{#3+0.1*(#3-#2)}) node[left] {#1};
+}
+
+\newcommand{\drawxlabels}[2][fill]{
+  \foreach \x/\xtext in {#2} {
+    \ifthenelse{\equal{#1}{fill}}
+    {
+      \draw[shift={(\x,0)}] (0pt,{2.5pt/\scale}) -- (0pt,{-2.5pt/\scale}) 
+        node[below,fill=white] {$\xtext$};
+    }
+    {
+      \draw[shift={(\x,0)}] (0pt,{2.5pt/\scale}) -- (0pt,{-2.5pt/\scale}) 
+        node[below] {$\xtext$};
+    }
+  }
+}
+
+\newcommand{\drawylabels}[2][fill]{
+  \foreach \y/\ytext in {#2} {
+    \ifthenelse{\equal{#1}{fill}}
+    {
+      \draw[shift={(0,\y)}] ({2.5pt/\scale},0pt) -- ({-2.5pt/\scale},0pt) 
+        node[left,fill=white] {$\ytext$};
+    }
+    {
+      \draw[shift={(0,\y)}] ({2.5pt/\scale},0pt) -- ({-2.5pt/\scale},0pt) 
+        node[left] {$\ytext$};
+    }
+  }
+}
+
+\newcommand{\drawpoint}[1]{
+ \draw[fill=white] #1 circle [radius=2.5pt/\scale];
+}
+
+% Scale of integration regions
+% (extent of x-axis) * (scale) = 3.75 = 15/4
+
+% Margin for coordinate axes: 10% in each direction
+
+% Baseline for figure to be set at bottom edge of coordinate grid
+
+%--------------------------------------------------------------------
+%--- Global settings for Asymptote graphics
+%--------------------------------------------------------------------
+
+\def\asydir{tmp_asy}
+
+\begin{asydef}
+import palette;
+import three;
+import graph3;
+import grid3;
+import solids;
+
+texpreamble("\usepackage[charter,expert]{mathdesign}");
+
+triple XZplane(pair z) {return (z.x,0,z.y);}
+
+defaultpen(fontsize(8pt));
+
+// Materials for surface patches
+// 0 .. (blue)                emphasized region
+// 1 .. (grey)                nonemphasized region
+// 2 .. (not drawn)
+// 3 .. (light grey, trans)   nonemphasized, transparent
+// 4 .. (light red, trans)    auxilary surface
+material[] surface_pens =
+	new material[] {lightblue+opacity(1.),
+									material(diffusepen=lightgray+opacity(1.), 
+													 emissivepen=gray(0.3),
+													 specularpen=gray(0.2)),
+									lightgrey+opacity(0.),
+									lightgrey+opacity(0.8),
+									red+opacity(0.2)};
+material aux_surface_pen = surface_pens[4];
+
+int emph_ind = 0;
+int grey_ind = 1;
+int trns_ind = 2;
+int grtr_ind = 3;
+int auxs_ind = 4;
+
+// Mesh lines on surface
+pen mesh_pen = black;
+// Color of grid in xy-plane
+pen xygrid_pen = grey;
+// Color of vertical lines
+pen support_lines_pen = grey;
+// Mesh lines on auxilary surface
+pen aux_mesh_pen = white+opacity(1);
+
+// LEGACY NAMES
+// material[] graph_colors = surface_pens;
+// material[] graph_colors2 = new material[] { graph_colors[0], graph_colors[3] };
+// pen graph_meshpen = mesh_pen;
+// pen aux_surface_meshpen = aux_mesh_pen;
+
+settings.prc = false;
+
+// Settings for debugging
+settings.render=1;
+int resx = 20;
+int resy = 20;
+
+// Settings for pdf -- they are toggled below
+// settings.render = 16;
+// settings.prc = false;
+// int resx = 300; // Resolution of spline surfaces
+// int resy = 300;
+
+// Problem with graphic card; if maxtile=(0,0) works, use it
+// Source: tex.stackexchange.com/questions/176539/
+settings.maxtile=(600, 600); 
+
+import "../asy/ma2712.asy" as ma2712;
+\end{asydef}
+
+% Do we want high resolution?
+\newif\ifasyhighres
+\asyhighresfalse
+\input{asy_flags}
+
+\ifasyhighres
+\begin{asydef}
+settings.render = 16;
+int resx = 300;
+int resy = 300;
+\end{asydef}
+\fi
+
+%--------------------------------------------------------------------
+%--- Math Notation
+%--------------------------------------------------------------------
+\newcommand{\al}{\alpha} 
+\newcommand{\be}{\beta} 
+\newcommand{\ga}{\gamma} 
+\newcommand{\de}{\delta} 
+\newcommand{\ep}{\varepsilon} 
+\newcommand{\ze}{\zeta} 
+\newcommand{\et}{\eta} 
+\renewcommand{\th}{\theta} % Already defined by T1 encoding
+\newcommand{\io}{\iota} 
+\newcommand{\ka}{\kappa} 
+\newcommand{\la}{\lambda} 
+\newcommand{\rh}{\varrho} 
+\renewcommand{\si}{\sigma} % Already defined by siunitx
+\newcommand{\ta}{\tau} 
+\newcommand{\ph}{\varphi} 
+\newcommand{\ch}{\chi} 
+\newcommand{\ps}{\psi} 
+\newcommand{\om}{\omega} 
+\newcommand{\Ga}{\Gamma} 
+\newcommand{\De}{\Delta} 
+\newcommand{\Th}{\Theta}
+\newcommand{\La}{\Lambda} 
+\newcommand{\Si}{\Sigma} 
+\newcommand{\Ph}{\Phi} 
+\newcommand{\Ps}{\Psi} 
+\newcommand{\Om}{\Omega}
+ 
+\def\inv{^{-1}} 
+\def\x{\times}
+\def\p{\partial} 
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\exp{\operatorname{exp}}
+\def\one{\mathbbm{1}}
+
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+
+\let\on=\operatorname
+\let\wt=\widetilde
+\let\wh=\widehat
+\let\ol=\overline
+
+\let\mb=\mathbb
+\let\mc=\mathcal
+\let\mf=\mathfrak
+
+\newcommand{\ud}{\,\mathrm{d}}
+\renewcommand{\vec}[1]{\bm{\mathrm{#1}}}

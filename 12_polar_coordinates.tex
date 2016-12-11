@@ -1,0 +1,907 @@
+\begin{question}
+Sketch the following regions in polar coordinates.
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \node[below right] at (45:.4) {$y=x$};
+  \node[below left] at (135:.4) {$y=-x$};
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (45:1) -- (1,1);
+  \draw[dashed] (135:1) -- (-1,1);
+
+  \draw[integration domain] (0,0) -- (45:1)
+    arc[radius=1, start angle=45, end angle=135] -- cycle;
+
+  \drawxlabels[fill]{1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (0,0) circle (0.5);
+
+  \draw[integration domain] (0,0.5) -- (0,1)
+    arc[radius=1, start angle=90, end angle=-90] -- (0,-.5)
+    arc[radius=.5, start angle=-90, end angle=90];
+
+  \drawylabels{.5/\frac{1}{2}, 1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain]
+    plot[parametric, domain=0:2*3.1416, samples=100]
+      function {sin(t)**2*cos(t), sin(t)**3};
+
+  \node[right] at (75:1) {$r=\sin^2 \th$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+\end{question}
+
+\begin{solution}
+In polar coordinates the domains are as follows.
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{0}{2};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain] (0.5,0) -| (1.5,1) -| cycle;
+
+  \draw[dotted] (0,1) -- (0.5,1);
+
+  \drawylabels{1/1}
+  \drawxlabels{.5/\frac{\pi}{4}, 1.5/\frac{3\pi}4}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{-1}{1};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain] (-1,0.5) -| (1,1) -| cycle;
+
+  \draw[dotted] (-1,0) -- (-1,0.5)
+                (1,0) -- (1,0.5);
+
+  \drawylabels[nofill]{.5/\frac{1}{2}, 1/1}
+  \drawxlabels{-1/-\pi, 1/\pi}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{-1}{1};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain]
+    plot[parametric, domain=-1:1, samples=100]
+      function {t, sin(t*pi)**2} -- cycle;
+
+  %\node[above] at (0.5,1) {$r=\sin^2 \th$};
+
+  \drawxlabels{-1/-\pi, 1/\pi}
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+\end{solution}
+
+\begin{question}
+Sketch the following regions in cartesian coordinates.
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{-1}{1};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain] (-.8,0) |- (.8,1) |- cycle;
+
+  \drawxlabels{-.8/\frac{-\pi}{4}, .8/\frac{3\pi}{4}}
+  \drawylabels[nofill]{1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{0}{2};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain] (0.5,0.25) -| (2,1) -| cycle;
+
+  \draw[dotted] (0.5,0) -- (0.5,0.25)
+                (2,0) -- (2,0.25)
+                (0,0.25) -- (0.5,0.25)
+                (0,1) -- (0.5,1);
+
+  \drawylabels{.25/\frac{1}{4}, 1/1}
+  \drawxlabels{.5/\frac{\pi}{4}, 2/\pi}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawxaxis[$\th$]{-1}{1};
+  \drawyaxis[$r$]{-.08}{1.08};
+
+  \draw[integration domain]
+    plot[parametric, domain=-1:1, samples=100]
+      function {t, 0.5*(1+cos(pi*t))} -- cycle;
+
+  \node[right] at (0.3,0.8) {$r=1 + \cos \th$};
+
+  \drawxlabels{-1/-\pi, 1/\pi}
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+\end{question}
+
+\begin{solution}
+In cartesian coordinates the domains are as follows.
+\begin{center}
+\begin{figuretable}{3}
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  %\node[left] at (-55:.8) {$\th=-\frac \pi 4$};
+  %\node[left] at (145:.4) {$\th=\frac {3\pi}4$};
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (-45:1) -- (1,-1);
+  \draw[dashed] (135:1) -- (-1,1);
+
+  \draw[integration domain] (0,0) -- (-45:1)
+    arc[radius=1, start angle=-45, end angle=135] -- cycle;
+
+  \drawxlabels[nofill]{1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (0,0) circle (0.25);
+
+  \draw[integration domain] (45:0.25) -- (45:1)
+    arc[radius=1, start angle=45, end angle=180] -- (-0.25,0)
+    arc[radius=.25, start angle=180, end angle=45];
+
+  \drawxlabels{.25/\frac{1}{4}, 1/1}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1}{-1.5}{2}{1.5};
+
+  \draw[integration domain]
+    plot[parametric, domain=0:2*pi, samples=100]
+      function {(1+cos(t))*cos(t), (1+cos(t))*sin(t)};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{figuretable}
+\end{center}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source={Thomas 12th, 15.4}}
+Find the limits for integrating $f(x,y)$ over the region $D$ using polar coordinates.
+\begin{center}
+\begin{tabu} to \linewidth {*3{X[1,c]}}
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1}{-1.5}{2}{1.5};
+
+  \draw[dashed] (0,1) arc[radius=1, start angle=90, end angle=270];
+  \draw[dashed] plot[parametric, domain=3.1416/2:3*3.1416/2, samples=100]
+          function {(1+cos(t))*cos(t), (1+cos(t))*sin(t)};
+
+  \draw[integration domain]
+    plot[parametric, domain=-3.1416/2:3.1416/2, samples=100]
+      function {(1+cos(t))*cos(t), (1+cos(t))*sin(t)}
+    arc[radius=1, start angle=90, end angle=-90];
+
+  \node at (1.5,0) {$D$};
+
+  \node[above right] at (60:1.5) {$r=1+\cos \th$};
+  \node[above left] at (120:1) {$r=1$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[dashed] (45:2) arc[radius=2, start angle=45, end angle=0];
+  
+  \draw[integration domain] (0,2) 
+    arc[radius=2, start angle=90, end angle=45] -| cycle;
+
+  \node at (0.4,1.7) {$D$};
+
+  \drawxlabels{2/2};
+  \drawylabels{2/2, 1.414/\sqrt{2}};
+
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+
+  \draw[integration domain]
+    (0,0) -- ({sqrt(3)},1) |- cycle;
+
+  \draw[dashed] (0,1) -- ({sqrt(3)},1);
+
+  \node at (1.2,0.4) {$D$};
+
+  \drawxlabels{1.732/\sqrt{3}}
+  \drawylabels{1/1};
+\end{tikzpicture}
+\\
+(a) & (b) & (c)
+\end{tabu}
+\end{center}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The integral is
+\[
+\int_{-\pi/2}^{\pi/2} \int_1^{1+\cos \th} f(r,\th) r \ud r \ud \th\,.
+\]
+\item
+The line $y=\sqrt{2}$ in polar coordinates is given by
+\[
+r \sin \th = \sqrt{2}
+\quad\Leftrightarrow\quad
+r = \frac{\sqrt 2}{\sin \th}\,.
+\]
+It intersects the circle in the point $\left(\sqrt 2, \sqrt 2\right)$, which corresponds to $\th = \frac \pi 4$. Therefore the integral is
+\[
+\int_{\pi/4}^{\pi/2} \int_{\sqrt 2/\sin \th}^2 f(r,\th) r \ud r \ud \th\,.
+\]
+\item
+The line $x=\sqrt{3}$ in polar coordinates is given by
+\[
+r \cos \th = \sqrt 3
+\quad\Leftrightarrow\quad
+r = \frac{\sqrt 3}{\cos \th}\,,
+\]
+and the hypothenuse of the triangle has slope $\frac{1}{\sqrt 3}$, which corresponds to $\th=\frac \pi 6$. Therefore the integral is
+\[
+\int_0^{\pi/6} \int_0^{\sqrt 3/\cos \th} f(r,\th) r \ud r \ud \th\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Evaluate the given integrals using polar coordinates.
+\begin{tasks}(1)
+\task
+$\iint_D 3x-y + 4 \ud x \ud y$, where $D$ is the region enclosed by the circle $x^2 + y^2 = 1$.
+\task
+$\iint_D 2x - y \ud x \ud y$, where $D$ is the region in the first quadrant enclosed by the circle $x^2 + y^2 = 4$ and the lines $x=0$ and $y=x$.
+\task
+$\iint_D x^2 y \ud x \ud y$, where $D$ is the top half of the disk with center the origin and radius $3$.
+\task
+$\iint_D \ln \left(x^2 + y^2\right) \ud x \ud y$, where $D$ is the region between the circles $x^2 + y^2 = 1$ and $x^2 + y^2 = 4$.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The domains of integration are shown below.
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain] (0,0) circle (1);
+
+  \node at (0,0) {$D$};
+  \node[right] at (60:1.05) {$r=1$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+  \drawxlabels[nofill]{2/2};
+  \clip (0,0) rectangle (2,2);
+
+  \draw[integration domain] (0,0) -- (2,0)
+    arc[radius=2, start angle=0, end angle=45] 
+    -- cycle;
+
+  \draw[dashed] (45:2) -- (45:4);
+  \draw[dashed] 
+    (45:2) arc[radius=2, start angle=45, end angle=90];
+
+  \node at (1.2,0.5) {$D$};
+  \node[left] at (45:1.6) {$y=x$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \draw[dashed]
+    (1,0) arc[radius=1, start angle=0, end angle=-180];
+
+  \drawxlabels{1/1}
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain] 
+    (1,0) arc[radius=1, start angle=0, end angle=180] -- cycle;
+
+  \node at (0,0.4) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain, even odd rule]
+    (0,0) circle (1)
+    (0,0) circle (0.5);
+
+  \node at (45:0.75) {$D$};
+  \node[left] at (20:0.5) {$r=1$};
+  \node[right] at (60:1.05) {$r=2$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c) & (d)
+\end{figuretable}
+\end{center}
+
+\begin{enumerate}
+\item
+\begin{alignenum}
+\iint_D 3x-y + 4 \ud x \ud y 
+&= \int_0^1 \int_0^{2\pi} \left( 3r \cos \th - r \sin \th + 4 \right) r \ud \th \ud r \\
+&= \int_0^1 3r^2 \sin \th + r^2 \cos \th + 4r\th \bigg|_{\th=0}^{2\pi} \ud r 
+= \int_0^1 8\pi r \ud r = 4\pi\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\iint_D 2x-y \ud x \ud y
+&= \int_0^2 \int_0^{\pi/4} \left( 2r \cos \th - r \sin \th \right) r \ud \th \ud r \\
+&= \int_0^2 2r^2 \sin \th + r^2 \cos \th \bigg|_{\th=0}^{\pi/4} \ud r
+= \int_0^2 \left( \frac 32 \sqrt{2} - 1\right) r^2 \ud r
+= 4 \sqrt{2} - \frac 83 \,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\iint_D x^2 y \ud x \ud y
+&= \int_0^3 \int_0^\pi r^4 \cos^2 \th \sin \th \ud \th \ud r \\
+&= \int_0^3 - \frac 13 r^4 \cos^3 \th \bigg|_{\th=0}^\pi \ud r
+= \int_0^3 \frac 23 r^4 \ud r = \frac{162}{5}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\iint_D \ln \left(x^2 + y^2 \right) \ud x \ud y
+&= \int_1^2 \int_0^{2\pi} \ln\left(r^2\right) r \ud \th \ud r
+= 2\pi \int_1^{\sqrt{2}} \frac 12 \ln u \ud u \\
+&= \pi \left( u \ln u \bigg|_{u=1}^{\sqrt{2}} - \int_1^{\sqrt 2} 1 \ud u \right)
+= \pi \left( \frac {\sqrt 2}2 \ln 2 + 1 - \sqrt 2 \right)\,.
+\end{alignenum}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Evaluate the given integrals.
+\begin{tasks}(2)
+\task
+$\int_{-1}^1 \int_0^{\sqrt{1-x^2}} 1 \ud y \ud x$
+\task
+$\int_0^1 \int_0^{\sqrt{1-x^2}} \sqrt{x^2 + y^2} \ud y \ud x$
+\task
+$\int_0^{1/2} \int_{\sqrt{3}y}^{\sqrt{1-y^2}} y^2 \ud x \ud y$
+\task
+$\int_0^1 \int_x^{\sqrt{2-x^2}} x+2y \ud y \ud x$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The domains of integration are shown below.
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \draw[dashed]
+    (1,0) arc[radius=1, start angle=0, end angle=-180];
+
+  \drawxlabels{1/1}
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain] 
+    (1,0) arc[radius=1, start angle=0, end angle=180] -- cycle;
+
+  \node at (0,0.4) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \draw[integration domain] (0,0) -- (2,0)
+    arc[radius=2, start angle=0, end angle=90] 
+    -- cycle;
+
+  \drawaxes{0}{0}{2}{2}
+  \drawxlabels[nofill]{2/1};
+
+  \node at (45:1.33) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+  \drawxlabels[nofill]{2/1};
+  \drawylabels{1/\textstyle\frac 12};
+  \clip (0,0) rectangle (2,2);
+
+  \draw[integration domain] (0,0) -- (2,0)
+    arc[radius=2, start angle=0, end angle=30] 
+    -- cycle;
+
+  \draw[dashed] (30:2) -- (30:4);
+  \draw[dashed] 
+    (30:2) arc[radius=2, start angle=30, end angle=90];
+
+  \draw[dotted] (0,1) -- (30:2);
+
+  \node at (15:1.333) {$D$};
+  \node[left] at (33:1.3) {$\textstyle \th=\frac \pi 6$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{2}{2}
+  \drawxlabels[nofill]{1.414/1, 2/};
+  \node[below] at (1.95,0) {$\sqrt 2$}; % Manual alignment
+
+  \node[left] at (46:2.6) {$\textstyle\th=\frac \pi 4$};
+
+  \clip (0,0) rectangle (2,2);
+
+  \draw[integration domain] (0,0) -- (45:2)
+    arc[radius=2, start angle=45, end angle=90] 
+    -- cycle;
+
+  \draw[dashed] (45:2) -- (45:4);
+  \draw[dashed] 
+    (0:2) arc[radius=2, start angle=0, end angle=45];
+
+  \draw[dotted] (45:2)|-(0,0) -- (45:2);
+
+  \node at (67.5:1.333) {$D$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c) & (d)
+\end{figuretable}
+\end{center}
+We evaluate the integrals using polar coordinates.
+\begin{enumerate}
+\item
+\begin{alignenum}
+\int_{-1}^1 \int_0^{\sqrt{1-x^2}} 1 \ud y \ud x
+&= \int_0^\pi \int_0^1 r \ud r \ud \th
+= \int_0^\pi \frac 12 r^2 \bigg|_{r=0}^1 \ud \th = \frac \pi 2\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_{0}^1 \int_0^{\sqrt{1-x^2}} \sqrt{x^2 + y^2} \ud y \ud x
+= \int_0^{\pi/2} \int_0^1 r^2 \ud r \ud \th
+= \int_0^{\pi/2} \frac 13 r^3 \bigg|_{r=0}^1 \ud \th
+= \frac \pi 6\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_{0}^{1/2} \int_{\sqrt 3 y}^{\sqrt{1-y^2}} y^2 \ud x \ud y
+&= \int_0^{\pi/6} \int_0^1 r^3 \sin^2 \th \ud r \ud \th 
+= \frac 14 \int_0^{\pi/6} \sin^2 \th \ud \th \\
+&= \frac 18 \int_0^{\pi/6} 1 - \cos 2\th \ud \th
+= \frac 18 \left( \th - \frac 12 \sin 2\th \right) \bigg|_{\th=0}^{\pi/6}
+%= \frac \pi{48} - \frac 1{16} \sin \frac \pi 3 
+= \frac \pi{48} - \frac 1{32}\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+\int_0^1 \int_x^{\sqrt{2-x^2}} &x + 2y \ud y \ud x
+= \int_{\pi/4}^{\pi/2} \int_0^{\sqrt 2} \left( r \cos \th + 2r \sin \th \right) 
+\cdot r \ud r \ud \th \\
+&= \int_{\pi/4}^{\pi/2} \frac 13 r^3 \left( \cos \th + 2 \sin \th \right)
+\bigg|_{r=0}^{\sqrt 2} \ud \th
+= \frac 23 \sqrt 2 \int_{\pi/4}^{\pi/2} \cos \th + 2 \sin \th \ud \th \\
+&= \frac 23 \sqrt 2 \left( \sin \th - 2 \cos \th \right) \bigg|_{\th=\pi/4}^{\pi/2}
+= \frac 23 \sqrt 2 \left( 1- \frac{\sqrt 2}2 + 2 \frac{\sqrt{2}}2 \right)
+= \frac 23 \left(1 + \sqrt 2\right)\,.
+\end{alignenum}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source={Ex. 27, 29, 30; Thomas 12th, 15.4}}
+Find the following areas.
+\begin{tasks}(1)
+\task
+The area enclosed by the positive $x$-axis and the spiral $r=\frac 32 \th$ with $0 \leq \th \leq 2\pi$. The area looks like a snail shell.
+\task
+The area enlosed by the cardioid $r = 1 + \cos \th$.
+\task
+The area cut from the first quadrant by the curve $r=2\sqrt{2-\sin 2\th}$.
+\task
+The area enclosed by one leaf of the rose $r = 12 \cos 3\th$.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The areas can be seen below.
+\begin{center}
+\begin{figuretable}{4}
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+ 
+  \clip (-1,-1) rectangle (1.1,1.1);
+
+  \draw[integration domain] 
+    plot[parametric, domain=0:2*pi, samples=100] 
+      function {1.5*t*cos(t)/(3*pi), 1.5*t*sin(t)/(3*pi)}
+    -- cycle;
+
+  \draw[dashed]
+    plot[parametric, domain=2*pi:2.5*pi, samples=100] 
+      function {1.5*t*cos(t)/(3*pi), 1.5*t*sin(t)/(3*pi)};
+
+  \node at (0.333,-0.33) {$D$};
+  \node[above left] at (100:0.25) {$\textstyle r=\frac 32 \th$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.8666, baseline=(X.base)]
+  \def\scale{0.8666}
+  \node at (0,-1.5) (X) {};
+
+  \drawaxes{-1}{-1.5}{2}{1.5};
+
+  \draw[integration domain]
+    plot[parametric, domain=0:2*pi, samples=100]
+      function {(1+cos(t))*cos(t), (1+cos(t))*sin(t)};
+
+  \node at (1,0) {$D$};
+
+  \node[above right] at (80:1.3) {$r=1+\cos \th$};
+\end{tikzpicture}
+&
+
+\begin{tikzpicture}[scale=0.3714, baseline=(X.base)]
+  \def\scale{0.3714}
+  \node at (0,-3.5) (X) {};
+
+  \drawaxes{-3.5}{-3.5}{3.5}{3.5};
+
+  \node[below right, fill=white] at (-3.5,-2.8) 
+    {$r=2\sqrt{2-\sin 2\th}$};
+
+  \draw[integration domain]
+    plot[parametric, domain=0:2*pi, samples=100]
+      function {2*sqrt(2-sin(2*t))*cos(t), 2*sqrt(2-sin(2*t))*sin(t)};
+
+  \node at (0,0) {$D$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=1.3, baseline=(X.base)]
+  \def\scale{1.3}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \draw[integration domain]
+    plot[parametric, domain=-pi/6:pi/6, samples=100]
+      function {cos(3*t)*cos(t), cos(3*t)*sin(t)};
+
+  \draw[dashed]
+    plot[parametric, domain=pi/6:5*pi/6, samples=100]
+      function {cos(3*t)*cos(t), cos(3*t)*sin(t)};
+
+  \node at (0.6,0) {$D$};
+  \node at (0.5,0.35) {$r=12 \cos 3\th$};
+\end{tikzpicture}
+\\
+(a) & (b) & (c) & (d)
+\end{figuretable}
+\end{center}
+We denote the area by $A$.
+\begin{enumerate}
+\item
+\begin{alignenum}
+A &= \int_0^{2\pi} \int_0^{3\th/2} r \ud r \ud \th
+= \int_0^{2\pi} \frac 12 r^2 \bigg|_{r=0}^{3\th/2} \ud \th
+= \int_0^{2\pi} \frac 98 \th^2 \ud \th
+= 3\pi^3\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+A &= \int_0^{2\pi} \int_0^{1 + \cos \th} r \ud r \ud \th
+= \int_0^{2\pi} \frac 12 \left( 1 + \cos \th\right)^2 \ud \th
+= \frac 12 \int_0^{2\pi} 1 + 2 \cos \th + \cos^2 \th \ud \th \\
+&= \pi + \frac 14 \int_0^{2\pi} 1 + \cos 2\th \ud \th
+= \frac {3\pi}2 + \frac 18 \sin 2\th \bigg|_{\th=0}^{2\pi} = \frac {3\pi}2\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+A &= \int_0^{\pi 4} \int_0^{2\sqrt{2-\sin 2\th}} r \ud r \ud \th 
+= \int_0^{\pi 4} \frac 12 \cdot 4 
+\left( 2 - \sin 2\th \right) \ud \th
+= \pi - \int_0^{\pi/4} 2 \sin 2 \th \ud \th \\
+&= \pi + \cos 2 \th \bigg|_{\th=0}^{\pi/4}
+= \pi - 1\,.
+\end{alignenum}
+\item
+\begin{alignenum}
+A &= \int_{-\pi/6}^{\pi/6} \int_0^{12 \cos 3\th} r \ud r \ud \th
+= \int_{-\pi/6}^{\pi/6} \frac 12 r^2 \bigg|_{\th=0}^{12 \cos 3 \th} \ud \th
+= 72 \int_{-\pi/6}^{\pi/6} \cos^2 3\th \ud \th \\
+&= 36 \int_{-\pi/6}^{\pi/6} 1 - \cos 6 \th \ud \th
+= 12\pi - 6 \sin 6\th \bigg|_{\th=-\pi/6}^{\pi/6} = 12 \pi\,.
+\end{alignenum}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{difficulty={*}}
+Evaluate the following integrals using polar coordinates.
+\begin{tasks}(1)
+\task
+$\iint_D \arctan \frac y x \ud x \ud y$;
+$D = \{ (x,y)\,:\, 1 \leq x^2 + y^2 \leq 4,\, y \leq x \}$.
+\task
+$\iint_D \frac{x-y}{x+y} \ud x \ud y$; $D$ is the region enclosed by the lines $y=x$, $y=0$ and the circle $x^2 + y^2 = 1$ in the first quadrant.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+\begin{adjustbox}{valign=T,raise=\strutheight,minipage={\linewidth}}
+  \begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \node[left] at (45:1.4) {$y=x$};
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (0,0) circle (0.5);
+  \draw[dashed] (-1,-1) -- (1,1);
+
+  \draw[integration domain] (45:0.5) -- (45:1)
+    arc[radius=1, start angle=45, end angle=-90] -- (-90:0.5)
+    arc[radius=.5, start angle=-90, end angle=45];
+
+  \draw[integration domain2] (-90:0.5) -- (-90:1)
+    arc[radius=1, start angle=-90, end angle=-135] -- (-135:0.5)
+    arc[radius=.5, start angle=-135, end angle=-90];
+
+  \drawylabels[fill]{.5/1, 1/2}
+\end{tikzpicture}
+\end{wrapfigure}
+\strut{}
+The line $y=x$ splits the plane into two regions. 
+In polar coordinates we can describe the regions as follows: the region above the line consists of points with $\frac \pi 4 \leq \th \leq \frac {5\pi}4$ and the region below the line consists of those points with $-\frac{3\pi}{4} \leq \th \leq \frac \pi 4$. Thus the domain $D$ is a rectangle in polar coordinates,
+\[
+D' = \left\{ (r,\th) \,:\, 1 \leq r \leq 2,\, -\frac{3\pi}4 \leq \th \leq \frac \pi 4 \right\}\,.
+\]
+To rewrite the function in polar coordinates we use that
+\[
+\tan \th = \frac y x\,,
+\]
+and so 
+\end{adjustbox}
+\[
+f(r,\th) = \arctan \tan \th\,.
+\]
+Before we make the simplification $\arctan \tan \th = \th$ we have to be careful that $\arctan$ chooses the right branch of $\tan$. Indeed, since by convention $\arctan$ takes values in the interval $\left[-\frac \pi 2, \frac \pi 2\right]$, we find that
+\[
+\arctan \tan \th = \begin{cases}
+\th & \th \in \left[-\frac \pi 2, \frac \pi 4\right] \\
+\th + \pi & \th \in \left[-\frac {3\pi} 4, -\frac \pi 2\right]
+\end{cases}
+\]
+So we split domain into two parts and recombine the integrals to get
+\begin{align*}
+\iint_D \arctan \frac y x \ud x \ud y &= \int_{\pi/2}^{\pi/4} \int_1^2\th r \ud r \ud \th
++ \int_{-3\pi/4}^{-\pi/2} \int_1^2(\th+\pi)r \ud r \ud \th \\
+&=\int_{-3\pi/4}^{\pi/4} \int_1^2\th r \ud r \ud \th
++ \pi \int_{-3\pi/4}^{-\pi/2} \int_1^2 r \ud r \ud \th
+\end{align*}
+Both integrals can be calculated without too much difficulty,
+\begin{align*}
+\int_{-3\pi/4}^{\pi/4} \int_1^2\th r \ud r \ud \th
+&= \int_{-3\pi/4}^{\pi/4} \left. \frac {r^2}2 \th \right|_{r=1}^2 \ud \th
+= \frac 32 \int_{-3\pi/4}^{\pi/4} \th \ud \th
+= \frac 32 \left. \frac {\th^2} 2 \right|_{\th = -3\pi/4}^{\pi/4} \\
+&= \frac 34 \left( \frac {\pi^2}{16} - \frac{9\pi^2}{16} \right)
+= -\frac {3\pi^2}8\,,
+\end{align*}
+and the second one
+\begin{align*}
+\pi \int_{-3\pi/4}^{-\pi/2} \int_1^2 r \ud r \ud \th &= \pi \left( -\frac \pi 2 + \frac{3\pi}4 \right)
+\left. \frac{r^2}2 \right|_{r=1}^2 = \frac{3\pi^2}8\,.
+\end{align*}
+Thus we obtain
+\[
+\iint_D \arctan \frac y x \ud x \ud y = 0\,.
+\]
+
+\item
+\begin{adjustbox}{valign=T,raise=\strutheight,minipage={\linewidth}}
+  \begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \node at (0,-1) (X) {};
+
+  \drawaxes{-1}{-1}{1}{1}
+
+  \node[left] at (45:1.4) {$y=x$};
+
+  \draw[dashed] (0,0) circle (1);
+  \draw[dashed] (45:1) -- (1,1);
+
+  \draw[integration domain] (0,0) -- (1,0)
+    arc[radius=1, start angle=0, end angle=45] -- cycle;
+
+  \drawylabels[fill]{1/1}
+\end{tikzpicture}
+\end{wrapfigure}
+\strut{}
+In polar coordinates the integral becomes
+\begin{align*}
+\iint_D \frac{x-y}{x+y} \ud x \ud y
+&= \int_0^{\pi/4} \int_0^1 \frac{\cos \th - \sin \th}{\cos \th + \sin \th} 
+r \ud r \ud \th \\
+&= \frac 12 \int_0^{\pi/4} \frac{\cos \th - \sin \th}{\cos \th + \sin \th} \ud \th\,.
+\end{align*}
+To continue we multiply the both parts of the fraction by $\cos \th + \sin \th$, we leads to
+\begin{align*}
+\iint_D \frac{x-y}{x+y} \ud x \ud y
+&= \frac 12 \int_0^{\pi/4} \frac{\cos^2 \th - \sin^2 \th}{1 + 2\cos \th \sin \th} \ud \th \\
+&= \frac 12 \int_0^{\pi/4} \frac{\cos 2\th}{1+\sin 2\th} \ud \th \\
+&= \frac 14 \ln \left(1 + \sin 2\th\right) \bigg|_{\th=0}^{\pi/4} \\
+&= \frac 14 \ln 2\,.
+\end{align*}
+\end{adjustbox}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Using the general change of variables formula und $u=x+y$, $y=uv$, show that
+\[
+\int_0^1 \int_0^{1-x} e^{y/(x+y)} \ud y \ud x = \frac{e-1}2\,.
+\]
+\end{question}
+
+\begin{solution}
+The change of variables can be expressed as
+\begin{align*}
+x &= u(1-v) & u &= x+y \\
+y &= uv & v &= \frac{y}{x+y}\,.
+\end{align*}
+The domain in $xy$-coordinates is the triangle with vertices $(0,0)$, $(1,0)$ and $(0,1)$. The side $x=0$ gets mapped to $v=1$, the side $y=0$ to $v=0$ and the side $y=1-x$ to $u=1$. Note also that the point $(0,0)$ becomes the line $u=0$ in the new coordinates. Thus the domain $D'$ in $uv$-coordinates is
+\[
+D' = [0,1] \x [0,1]\,.
+\]
+The derivative matrix is
+\[
+\frac{\p(x,y)}{\p(u,v)} = \begin{pmatrix}
+1-v & -u \\ v & u
+\end{pmatrix}\,,
+\]
+and its determinant is $\left| \frac{\p(x,y)}{\p(u,v)} \right| = u$. Thus the integral becomes
+\[
+\int_0^1 \int_0^{1-x} e^{y/(x+y)} \ud y \ud x = 
+\int_0^1 \int_0^1 e^v u \ud u \ud v = \frac{e-1}{2}\,.
+\]
+\end{solution}
+
+\begin{question}
+Let $D$ be the region bounded by $x+y=1$, $x=0$, $y=0$. Use the general change of variables formula to show that
+\[
+\iint_D \cos\left(\frac{x-y}{x+y}\right) \ud x \ud y = \frac 12 \sin 1\,,
+\]
+and graph $D$ on an $xy$-plane and a $uv$-plane, with $u=x-y$ and $v=x+y$.
+\end{question}
+
+\begin{solution}
+The change of variables can be expressed as
+\begin{align*}
+x &= \frac 12(v+u) & u &= x-y \\
+y &= \frac 12(v-u) & v &= x+y\,.
+\end{align*}
+To transform the region we observe that the edge $x+y=1$ transforms to $v=1$; the edge $x=0$ becomes $v=-u$ and the edge $y=0$ becomes $v=u$. Thus we are integrating over the triangle with vertices $(-1,1)$, $(1,1)$ and $(0,0)$. This triangle can be parametrized as
+\[
+D' = \left\{ (u,v) \,:\, 0 \leq v \leq 1,\, -v \leq u \leq v \right\}\,.
+\]
+The derivative matrix is
+\[
+\frac{\p(x,y)}{\p(u,v)} = \begin{pmatrix}
+\frac 12  & \frac 12 \\
+-\frac 12 & \frac 12
+\end{pmatrix}\,,
+\]
+and its determinant is $\left| \frac{\p(x,y)}{\p(u,v)} \right| = \frac 12$. Thus the integral becomes
+\begin{align*}
+\iint_D \cos\left(\frac{x-y}{x+y}\right) \ud x \ud y &= 
+\int_0^1 \int_{-v}^v \cos\left(\frac uv\right) \cdot \frac 12 \ud u \ud v
+= \frac 12 \int_0^1 v \sin\left(\frac uv\right) \bigg|_{u=-v}{v} \ud v \\
+&= \int_0^1 v \sin 1 \ud v = \frac 12 \sin 1\,.
+\end{align*}
+\end{solution}
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

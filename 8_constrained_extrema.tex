@@ -1,0 +1,549 @@
+\begin{question}
+Find the extreme values of the function $f(x,y)$ on the disk $x^2 + y^2 \leq 1$ without using the method of Lagrange multipliers.
+\begin{tasks}(2)
+\task
+$f(x,y) = 2x^2 + 3y^2$.
+\task
+$f(x,y) = xy + 5y$.
+{\itshape (Requires a calculator)}
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+We first consider the function on the interiour of the disc. Since
+\begin{align*}
+f_x(x,y) &= 4x &
+f_y(x,y) &= 6y\,,
+\end{align*}
+the only critical point of $f(x,y)$ is $(0,0)$ and $f(0,0) = 0$. Next we consider the function on the boundary $x^2+y^2 = 1$. We parametrize the boundary via
+\[
+\vec \si(t) = \left( \cos t, \sin t \right)\,,
+\]
+and consider the composition
+\begin{align*}
+g(t) &= f(\vec\si(t))
+= 2\cos^2 t + 3\sin^2 t
+= 2 + \sin^2 t\,.
+\end{align*}
+Since
+\[
+g'(t) = 2\sin t \cos t\,,
+\]
+the critical points of $g(t)$ are $0, \displaystyle \frac \pi 2, \pi, \frac{3\pi}2, 2\pi, \dots$. They correspond to the points
+\begin{align*}
+(1,0) && (0,1) && (-1,0) && (0,-1)
+\end{align*}
+on the circle and
+\begin{align*}
+f(1,0) &= 2 &
+f(0,1) &= 3 &
+f(-1,0) &= 2 &
+f(0,-1) &= 3\,.
+\end{align*}
+Thus the minimum of $f(x,y)$ is $0$, attained at $(0,0)$ and the maximum is $3$, attained at the two points $(0,\pm 1)$.
+
+\item
+We first consider the function on the interiour of the disc. Since
+\begin{align*}
+f_x(x,y) &= y &
+f_y(x,y) &= x+5\,,
+\end{align*}
+the only critical point of $f(x,y)$ is $(0,-5)$, which lies outside the disc. Next we consider the function on the boundary $x^2+y^2 = 1$. We parametrize the boundary via
+\[
+\vec \si(t) = \left( \cos t, \sin t \right)\,,
+\]
+and consider the composition
+\begin{align*}
+g(t) &= f(\vec \si(t)) = \sin t \cos t + 5\sin t\,.
+\end{align*}
+Since
+\[
+g'(t) = \cos^2 t - \sin^2 t + 5 \cos t\,,
+\]
+critical points are solutions of the equation
+\begin{align*}
+\cos^2t - \sin^2 t + 5 \cos t &= 0 \\
+\cos^2 t + \frac 52 \cos t - \frac 12 &= 0
+\quad\Leftrightarrow\quad
+\cos t = -\frac 54 \pm \frac{\sqrt{33}}4\,.
+\end{align*}
+Since $\displaystyle -\frac 54 - \frac{\sqrt{33}}4 < -1$, we only need to consider the other solution. If
+\[
+\cos t = -\frac 54 + \frac{\sqrt{33}}4 = 0.1861\,,
+\]
+then
+\[
+\sin t = \pm \sqrt{1 - \cos^2 t} = \pm 0.9825\,,
+\]
+and thus
+\[
+f(0.1861, \pm 0.9825) = \pm 5.0955\,.
+\]
+Thus the minimum of $f(x,y)$ is $-5.0955$ and the maximum is $5.0955$, each attained at one point.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find the extrema of the function $f(x,y)$ subject to the stated constraints using the method of Lagrange multipliers.
+\begin{tasks}(2)
+\task
+$f(x,y) = x+y$; $x^2+y^2=1$.
+\task
+$f(x,y) = \cos^2 x + \cos^2 y$; $\displaystyle x+y = \frac \pi 4$.
+\task
+$f(x,y) = x^2 + y^2$; $x^4 + y^4 = 2$.
+\task
+$f(x,y) = e^{-xy}$; $x^2 + 4y^2 = 1$.
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+Using the method of Lagrange multipliers, the equations for critical points are
+\begin{align*}
+1 &= 2x\la &
+1 &= 2y\la &
+x^2 + y^2 &= 1\,.
+\end{align*}
+From the first two equations we obtain -- note that none of the variables can equal $0$ --
+\begin{align*}
+x &= \frac 1{2\la} &
+y &= \frac{1}{2\la}\,,
+\end{align*}
+which we substitute into the third equation,
+\begin{align*}
+\frac{1}{4\la^2} + \frac{1}{4\la^2} & = 1\\
+\la^2 &= \frac 12 \quad\Leftrightarrow\quad
+\la = \pm \frac{\sqrt{2}}2\,.
+\end{align*}
+This leads to the two solutions $\left(\frac{\sqrt{2}}2, \frac{\sqrt{2}}2\right)$ and
+$\left(-\frac{\sqrt{2}}2, -\frac{\sqrt{2}}2\right)$. To find the minimum and maximum of $f(x,y)$, we evaluate the function
+\begin{align*}
+f\left(\frac{\sqrt{2}}2, \frac{\sqrt{2}}2\right) &= \sqrt 2 &
+f\left(-\frac{\sqrt{2}}2, -\frac{\sqrt{2}}2\right) &= -\sqrt 2\,.
+\end{align*}
+Thus the minimum is $-\sqrt{2}$ and the maximum is $\sqrt{2}$.
+
+\item
+Using the method of Lagrange multipliers, the equations for critical points are
+\begin{align*}
+-2 \cos x \sin x &= \la &
+-2 \cos y \sin y &= \la &
+x + y &= \frac \pi 4\,.
+\end{align*}
+From the first two equations we obtain 
+\begin{align*}
+-2 \cos x \sin x &= -2 \cos y \sin y \\
+\sin 2x &= \sin 2y\,.
+\end{align*}
+It follows, using the constraint equation, that
+\begin{align*}
+\sin 2x = \sin 2\left(\frac \pi 4 - x \right) \quad\Leftrightarrow\quad
+\sin 2x &= \sin \left(\frac \pi 2 - 2x \right) \quad\Leftrightarrow\quad
+\sin 2x = \cos 2x \\
+\tan 2x &= 1\,.
+\end{align*}
+Thus
+\begin{align*}
+2x &= \frac \pi 4 + k \pi\,,\text{ with } k \in \mathbb Z\,.
+\end{align*}
+From this we obtain an infinite number of critical points,
+\[
+\left(\frac \pi 8 + k \frac \pi 2,
+\frac \pi 8 - k \frac \pi 2\right) \,,\text{ with } k \in \mathbb Z\,.
+\]
+The function $\cos x$ is $2\pi$-periodic, but $\cos^2 x$ has a period of $\pi$, so we only have to consider the values $k=0,1$, when evaluating the function.
+\begin{align*}
+f\left( \frac \pi 8, \frac \pi 8 \right) &= 2 \cos^2 \frac \pi 8 &
+f\left( \frac {5\pi} 8, -\frac {3\pi} 8 \right) &= \cos^2 \frac {5\pi} 8 + \cos^2 \frac {3\pi} 8 = 2 \cos^2\frac {3\pi} 8\,.
+\end{align*}
+Because $\cos x$ is a decreasing and nonnegative on the interval $\left[0,\frac \pi 2\right]$, it follows that the maximum value is $2 \cos^2 \frac \pi 8$ and the minimum value is $\displaystyle 2 \cos^2 \frac {3\pi} 8$.
+
+\item
+Using the method of Lagrange multipliers, the equations for critical points are
+\begin{align*}
+2x &= 4x^3 \la &
+2y &= 4y^3 \la &
+x^4 + y^4 &= 2\,.
+\end{align*}
+The first equation leads to the two cases 
+\[
+x=0 \quad\text{or}\quad
+\frac 12 = x^2 \la\,.
+\]
+
+If $x=0$, then the constraint equation simplifies to
+\begin{align*}
+y^4 &= 2 \quad\Leftrightarrow\quad
+y = \pm \sqrt[4]{2}\,,
+\end{align*}
+and thus we obtain the two solutions $\left(0, \sqrt[4] 2\right)$ and $\left(0, -\sqrt[4] 2\right)$.
+
+If $x \neq 0$, the second equation similarly leads to the two cases
+\[
+y=0 \quad\text{or}\quad
+\frac 12 = y^2 \la\,.
+\]
+The case $y=0$ gives, via the constraint equation, the two solutions $\left(\sqrt[4] 2, 0\right)$ and $\left(-\sqrt[4] 2, 0\right)$.
+
+Now consider the final case $x \neq 0$ and $y \neq 0$. Then we have
+\[
+\frac 12 = x^2 \la 
+\quad\text{and}\quad
+\frac 12 = y^2 \la\,.
+\]
+We square both equations and add them to obtain
+\begin{align*}
+\left(x^4 + y^4 \right) \la^2 &= \frac 12 \quad\Leftrightarrow\quad
+2 \la^2 = \frac 12 \quad\Leftrightarrow\quad
+\la = \pm \frac 12\,.
+\end{align*}
+When $\la = \displaystyle \frac 12$, we obtain $x^2 = 1$ and $y^2=1$, which gives the four solutions $(1,1)$, $(1,-1)$, $(-1,1)$ and $(-1,-1)$. When $\la = \displaystyle -\frac 12$, we arrive at $x^2 = -1$, which has no solutions. 
+
+Now that we have found eight possible critical points, we shall evaluate the function at them,
+\begin{align*}
+f\left(0, \pm\sqrt[4] 2\right) &= \sqrt{2} &
+f\left(\pm\sqrt[4] 2, 0\right) &= \sqrt{2} &
+f(\pm 1, \pm 1) &= 2\,.
+\end{align*}
+In total we see that the maximum value is $2$, attained at four points and the minimum value is $\sqrt{2}$, also attained at four points.
+
+\item
+The Lagrange equations are
+\begin{align*}
+-y e^{-xy} &= 2x\la &
+-x e^{-xy} &= 8y\la &
+x^2 + 4y^2 &= 1\,.
+\end{align*}
+If we multiply the first equation by $x$ and the second one by $y$, we obtain
+\[
+2x^2\la = 8y^2 \la
+\quad\Leftrightarrow\quad
+\la(4y^2 - x^2) = 0\,.
+\]
+Thus either $\la = 0$ or $x^2 = 4y^2$. If $\la = 0$, then the first two equations imply $y=0$ and $x=0$, which contradicts the constraint equation $x^2 + 4y^2 = 1$. Thus we are left with $x^2 = 4y^2$. We substitute this into the constraint equation to obtain $2x^2 = 1$ or $x = \pm \frac{\sqrt 2}{2}$. Next, note that
+\[
+x^2 = 4y^2
+\quad\Leftrightarrow\quad
+y = \pm \frac 12 x\,,
+\]
+and thus we have the four solutions 
+$\left( \pm \frac{\sqrt 2}{2}, \pm \frac{\sqrt 2}{4} \right)$, with all four possible sign combinations. We evaluate $f$ at these points
+\begin{align*}
+f\left( \frac{\sqrt 2}{2}, \frac{\sqrt 2}{4} \right)
+= f\left( -\frac{\sqrt 2}{2}, -\frac{\sqrt 2}{4} \right) 
+&= e^{-1/4} &
+f\left( \frac{\sqrt 2}{2}, -\frac{\sqrt 2}{4} \right)
+= f\left( -\frac{\sqrt 2}{2}, \frac{\sqrt 2}{4} \right) 
+&= e^{1/4}\,.
+\end{align*}
+Thus the minimum value of $f$ is $e^{-1/4}$ and the maximum value is $e^{1/4}$, both are attained at two points.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find the points on the sphere $x^2+y^2+z^2=4$, that are closest to and furthest away from the point $(3,3,-1)$.
+\end{question}
+
+\begin{solution}
+We want to find the minima and maxima of the squared distance function
+\[
+f(x,y,z) = (x-3)^2 + (y-3)^2 + (z+1)^2\,,
+\]
+subject to the constraint $g(x,y,z) = 4$, where
+$g(x,y,z) = x^2 + y^2 + z^2$.
+Using Lagrange multipliers the equations for critical points are
+\begin{align*}
+2(x-3) &= 2x\la &
+2(y-3) &= 2y\la &
+2(z+1) &= 2z\la &
+x^2 + y^2 + z^2 &= 4\,.
+\end{align*}
+We rewrite the first three equations as
+\begin{align*}
+x(1-\la) &= 3 &
+y(1-\la) &= 3 &
+z(1-\la) &= -1\,.
+\end{align*}
+Now we multiply the constraint equation by $(1-\la)^2$ to obtain
+\begin{align*}
+x^2(1-\la)^2 + y^2(1-\la)^2 + z^2(1-\la)^2 &= 4(1-\la)^2 \\
+9 + 9 + 1 &= 4(1-\la)^2 \quad\Leftrightarrow\quad
+1-\la = \pm \frac{\sqrt{19}}2\,.
+\end{align*}
+Note that we only need the value of $1-\la$ to find $x$, $y$ and $z$.
+
+When $1-\la = \displaystyle \frac{\sqrt{19}}2$, we obtain
+\[
+x = \frac 6{\sqrt{19}}\,,\quad
+y = \frac 6{\sqrt{19}}\,,\quad
+z = -\frac 2{\sqrt{19}}\,,
+\]
+and when $1-\la = -\displaystyle \frac{\sqrt{19}}2$, we obtain
+\[
+x = -\frac 6{\sqrt{19}}\,,\quad
+y = -\frac 6{\sqrt{19}}\,,\quad
+z = \frac 2{\sqrt{19}}\,.
+\]
+We can check by evaluating the distance function that the point
+$\displaystyle\left(\frac 6{\sqrt{19}}, \frac 6{\sqrt{19}}, -\frac 2{\sqrt{19}}\right)$
+is the point closest to and
+$\displaystyle\left(-\frac 6{\sqrt{19}}, -\frac 6{\sqrt{19}}, \frac 2{\sqrt{19}}\right)$
+is the point furthest away from $(3,3,-1)$.
+\end{solution}
+
+\begin{question}
+ The Baraboo, Sheffield, plant of International Widget Ltd. uses aluminium, iron and magnesium to produce high-quality widgets. The quantity of widgets that may be produced using $x$ tons of aluminium, $y$ tons of iron and $z$ tons of magnesium is $Q(x,y,z) = xyz$. The cost of raw materials is aluminium \pounds6 per ton; iron \pounds4 per ton; and magnesium \pounds8 per ton. How many tons each of aluminium, iron and magnesium should be used to manufacture $1000$ widgets at the lowest possible price?
+
+\begin{hint*}
+You want an extreme value for what function? Subject to what constraint?
+\end{hint*}
+\end{question}
+
+\begin{solution}
+We are looking for minima of the cost function
+\[
+f(x,y,z) = 6x + 4y + 8z
+\]
+subject to the constraint $Q(x,y,z) = 1000$, where
+$Q(x,y,z) = xyz$.
+Using Lagrange multipliers the equations for critical points are
+\begin{align*}
+6 &= yz\la &
+4 &= xz \la &
+8 &= xy \la &
+xyz &= 1000\,.
+\end{align*}
+We multiply the first equation by $x$, the second by $y$ and the third by $z$ to obtain
+\begin{align*}
+6x &= xyz \la \quad\Rightarrow\quad x = \frac{500}3 \la \\
+4y &= xyz \la \quad\Rightarrow\quad y = 250 \la \\
+8z &= xyz \la \quad\Rightarrow\quad z = 125 \la\,.
+\end{align*}
+We substitute this into the constraint equation to obtain
+\begin{align*}
+\frac{500}3 \la \cdot 250\la \cdot 125 \la &= 1000
+\quad\Leftrightarrow\quad
+\la^3 = \frac{3}{25^3} 
+\quad\Leftrightarrow\quad
+\la = \frac{\sqrt[3]{3}}5\,.
+\end{align*}
+Hence the solution is
+\begin{align*}
+x &= \frac{20}3 \sqrt[3]{3} &
+y &= 10 \sqrt[3]{3} &
+z &= 5 \sqrt[3]{3}\,.
+\end{align*}
+Therefore the least cost for producing $1000$ widgets is achieved using $\frac{20}3 \sqrt[3]{3}$ tons of aluminium, $\sqrt[3]{3}$ tons of iron and $\sqrt[3]{3}$ tons of magnesium.
+\end{solution}
+
+\begin{question}
+A firm uses wool and cotton fiber to produce cloth. The amount of cloth produced is given by $Q(x,y) = xy-x-y+1$, where $x$ is the number of pounds of wool, $y$ is the number of pounds of cotton and $x \geq 1$ and $y \geq 1$. If wool costs $p$ dollars per pound, cotton costs $q$ dollars per pound, and the firm can spend $B$ dollars on material, what should the mix of cotton and wool be to produce the most cloth?
+\end{question}
+
+\begin{solution}
+We are looking for maximum of the function
+\[
+Q(x,y) = xy - x- y + 1
+\]
+subject to the constraint
+\[
+px + qy = B\,,
+\]
+as well as the additional constraints $x \geq 1$ and $y \geq 1$.
+
+We use the method of Lagrange multipliers, which results in the set of equations
+\begin{align*}
+y - 1 &= p\la &
+x - 1 &= q\la &
+px + qy &= B\,.
+\end{align*}
+Substituting the first two equations into the third one yields
+\begin{align*}
+p(q\la + 1) + q(p\la + 1) &= B \quad\Leftrightarrow\quad
+2pq\la = B - p - q \quad\Leftrightarrow\quad
+\la = \frac{B-p-q}{2pq}\,.
+\end{align*}
+Hence we obtain the solution
+\begin{align*}
+x_0 &= \frac{B+p-q}{2p} &
+y_0 &= \frac{B-p+q}{2q}\,,
+\end{align*}
+and
+\[
+Q(x_0, y_0) = Q\left(\frac{B+p-q}{2p}, \frac{B-p+q}{2q}\right) = \frac{\left(B-p-q\right)^2}{4pq}\,.
+\]
+
+We also have to check that this solution satisfies the additional constraints $x \geq 1$ and $y \geq 1$ and that there are no extrema on the edge, that is with $x=1$ or $y=1$. First we note that
+\[
+Q(1,y) = y-1-y+1 = 0 \quad\text{and}\quad Q(x, 1) = x-x-1+1 = 0\,,
+\]
+while $Q(x_0, y_0) \geq 0$, provided $p > 0$ and $q > 0$. We see that we need some additional assumptions on $p$, $q$ and $B$. Since $p$ and $q$ are prices of cotton and wool respectively, it makes sense to assume that $p > 0$ and $q > 0$. The conditions $x \geq 1$ and $y \geq 1$ express that we want to buy at least one pound each of cotton and wool; in order to be able to afford this, we need $B \geq p + q$. So we make the following assumptions
+\[
+p > 0\,,\quad q > 0 \quad\text{and}\quad B \geq p+q\,.
+\]
+With these assumptions it is easy to check that $x_0 \geq 1$ and $y_0 \geq 1$ as well as $Q(x_0, y_0) \geq 0$. This means that we have indeed found a maximum satisfying the required constraints.
+
+Therefore most cloth can be produced by buying $\displaystyle \frac{B+p-q}{2p}$ pounds of wool and $\displaystyle \frac{B-p+q}{2q}$ pounds of cotton yielding $\displaystyle \frac{\left(B-p-q\right)^2}{4pq}$ pounds of cloth.
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {MA2712 Tests 2015, 2016}}
+Find the minimum and maximum values of the following functions subject to the given constraints using the method of Lagrange multipliers. Where are the minimum and maximum attained?
+\begin{tasks}(2)
+\task
+$f(x,y) = xy$; $x^2 + y^2 = 4$
+\task
+$f(x,y) = x^3 - y^3$; $x^2 + y^2 = 2$
+\task
+$f(x,y) = 2x^3 - y^3$; $x^2 + y^2 = 5$
+\task
+$f(x,y) = x e^y$; $x^2 + y^2 = 2$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The Lagrange function is $xy-\lambda(x^2+y^2-4)$ and
+the equations for Lagrange multipliers are
+\begin{align*}
+y &= 2x \lambda &
+x &= 2y\lambda &
+x^2 + y^2 &= 4\,.
+\end{align*}
+We substitute the second equation into the first to obtain $y = 4y\lambda^2$,
+which can be rewritten as
+\[
+y(4\lambda^2 - 1) = 0.
+\]
+This leads to the three cases $y=0$, $\lambda = \frac 12$ and $\lambda = - \frac 12$.
+
+\begin{itemize}
+\item
+If $y=0$, then the second equation gives $x=0$, but this is not compatible with the constraint $x^2 + y^2 = 4$.
+
+\item
+If $\lambda = \frac 12$, then the first equation becomes $y=x$ and the constraint gives $2x^2 = 4$ or $x = \pm \sqrt{2}$, leading to the two solutions $(\sqrt{2}, \sqrt{2})$ and $(-\sqrt{2}, -\sqrt{2})$.
+
+\item
+If $\lambda = - \frac 12$, then the first equation becomes $y = -x$ and the constraint gives again $x = \pm \sqrt{2}$, leading to the two solutions $(-\sqrt{2}, \sqrt{2})$ and $(\sqrt{2}, -\sqrt{2})$.
+\end{itemize}
+
+From
+\begin{align*}
+f(\sqrt{2}, \sqrt{2}) &= 2 & f(-\sqrt{2}, -\sqrt{2}) &= 2 & f(-\sqrt{2}, \sqrt{2}) &= -2 & f(\sqrt{2}, -\sqrt{2}) = -2\,,
+\end{align*}
+we see that the minimum value of $f$ is $-2$ and the maximum value of $f$ is $2$, both are attained at two points.
+
+\item
+The equations for Lagrange multipliers are
+\begin{align*}
+3x^2 &= 2x \lambda &
+-3y^2 &= 2y\lambda &
+x^2 + y^2 &= 2 \,.
+\end{align*}
+The first two equations can be rewritten as
+\begin{align*}
+x(2\lambda-3x) &= 0 &
+y(2\lambda+3y) &= 0\,.
+\end{align*}
+which leads to the three cases $x=0$, $y=0$ or both $x,y \neq 0$.
+
+\begin{itemize}
+\item
+If $x=0$, then the constraint implies $y^2 = 2$ or $y = \pm \sqrt{2}$, giving us the two solutions $(0,\sqrt{2})$ and $(0,-\sqrt{2})$.
+
+\item
+If $y=0$, then the constraint implies $x^2 = 2$ or $x = \pm \sqrt{2}$, giving us the two solutions $(\sqrt{2},0)$ and $(-\sqrt{2},0)$.
+
+\item
+In the third case we have $x=\frac 23 \lambda$ and $y=-\frac 23 \lambda$. Inserting this into the constraint equation gives $\frac 49 \lambda^2 + \frac 49 \lambda^2 = 2$ or $\lambda^2 = \frac 94$. Hence $\lambda = \pm \frac 32$, leading to the two solutions $(1,-1)$ and $(-1, 1)$.
+\end{itemize}
+
+From
+\begin{align*}
+f(0,\sqrt{2}) &= f(-\sqrt{2}, 0) = -2\sqrt{2} & f(1,-1) &= 2 \\
+f(\sqrt{2}, 0) &= f(0,-\sqrt{2}) = 2\sqrt{2} & f(-1,1) &= -2
+\end{align*}
+we see that the minimum value of $f$ is $-2\sqrt{2}$ and the maximum value of $f$ is $2\sqrt{2}$, both are attained at two points.
+
+\item
+The equations for Lagrange multipliers are
+\begin{align*}
+6x^2 &= 2x \lambda &
+-3y^2 &= 2y\lambda &
+x^2 + y^2 &= 5 \,.
+\end{align*}
+The first two equations can be rewritten as
+\begin{align*}
+2x(\lambda-3x) &= 0 &
+y(2\lambda+3y) &= 0\,.
+\end{align*}
+which leads to the three cases $x=0$, $y=0$ or both $x,y \neq 0$.
+
+\begin{itemize}
+\item
+If $x=0$, then the constraint implies $y^2 = 5$ or $y = \pm \sqrt{5}$, giving us the two solutions $(0,\sqrt{5})$ and $(0,-\sqrt{5})$.
+
+\item
+If $y=0$, then the constraint implies $x^2 = 5$ or $x = \pm \sqrt{5}$, giving us the two solutions $(\sqrt{5},0)$ and $(-\sqrt{5},0)$.
+
+\item
+In the third case we have $x=\frac 13 \lambda$ and $y=-\frac 23 \lambda$. Inserting this into the constraint equation gives $\frac 19 \lambda^2 + \frac 49 \lambda^2 = 5$ or $\lambda^2 = 9$. Hence $\lambda = \pm 3$, leading to the two solutions $(1,-2)$ and $(-1, 2)$
+\end{itemize}
+
+From
+\begin{align*}
+f(0,\sqrt{5}) &= -5\sqrt{5} & f(0,-\sqrt{5}) &= 5\sqrt{5} & f(1,-2) &= 10 \\
+f(\sqrt{5}, 0) &= 10\sqrt{5} & f(-\sqrt{5},0) &= -10\sqrt{5} & f(-1,2) &= -10
+\end{align*}
+we see that the minimum value of $f$ is $-10\sqrt{5}$ and the maximum value of $f$ is $10\sqrt{5}$, both are attained at one point.
+
+\item
+The equations for Lagrange multipliers are
+\begin{align*}
+e^y &= 2x \lambda &
+xe^y &= 2y\lambda &
+x^2 + y^2 &= 2 \,.
+\end{align*}
+The first equation shows that $x \neq 0$ and $\lambda \neq 0$. We divide the second equation by the first to obtain $x^2 = y$, which we substitute into the constraint equation, leading to the quadratic equation
+\[
+y^2 + y - 2 = 0\,.
+\]
+This equation has the two solutions $y=1$ and $y=-2$. If $y=-2$, then we have no real solutions for $x$ in the equation $x^2=y$. Thus the only solutions are $(1,1)$ and $(-1,1)$. From
+\begin{align*}
+f(1,1) &= e & f(-1,1) &= -e\,,
+\end{align*}
+we see that the minimum value of $f$ is $-e$ and the maximum value of $f$ is $e$, both are attained at one point.
+\end{enumerate}
+\end{solution}
+
+% \begin{question}
+% Find the points on the surface 
+% \[
+% x^2-yz=5
+% \]
+% that are closest to the origin using the method of Lagrange multipliers.
+
+% \hfill
+% [Exercise 14.8.36, Anton, 8th ed.]
+% \end{question}
+
+% \begin{question}
+% Find the points on the curve
+% \[
+% x^2 + xy + y^2 = 1\,,
+% \]
+% that are closest to and furthest away from the origin using the method of Lagrange multipliers.
+
+% \hfill
+% [Exercise 14.8.8, Thomas, 11th ed.]
+% \end{question}
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

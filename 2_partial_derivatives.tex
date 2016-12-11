@@ -1,0 +1,448 @@
+\begin{question}
+How is the partial derivative $\frac{\p g}{\p v}$ of the function $g(u, v, w)$ defined?
+\end{question}
+
+\begin{solution}
+The partial derivative is defined as the limit
+\[
+\frac{\p g}{\p v}(u, v, w) = \lim_{h \to 0} \frac{g(u, v + h, w) - g(u, v, w)}{h}\,.
+\]
+\end{solution}
+
+\begin{question}
+Which of the following show correct notation for the partial derivative of a function $f(x,y)$?
+\begin{tasks}(4)
+\task
+$f_x(x,y)$
+\task
+$\frac{df}{dx}(x,y)$
+\task
+$\frac{\p f}{\p x}(x,y)$
+\task
+$f'(x)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+(a) and (c).
+
+The notation $\frac{d f}{dx}$ is reserved for derivatives of functions, that depend only on one variable. For functions of several variables we replace $d$ by $\p$ and write $\frac{\p f}{\p x}$ instead.
+
+The notation $f'(x)$ is also used only for functions of one variable. By itself $f'$ does not show, which partial derivative is mean ($f_x$ or $f_y$). Writing $f'(x)$ is wrong, because $f$ and its partial derivatives are functions of both $x$ and $y$.
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 1--5; MW, III.15.1}}
+Compute $f_x$ and $f_y$ for the following functions and evaluate them at the indicated points.
+\begin{tasks}(2)
+\task
+$f(x,y) = xy + x -y;\, (1,1)$
+\task
+$f(x,y) = x/y;\, (1,1)$
+\task
+$f(x,y) = \arctan(x-3y^2);\, (1,0)$
+\task
+$f(x,y) = x + \sqrt{x^2+y^2};\, (1,-1)$
+\task
+$f(x,y) = e^{xy}\sin(x+y);\, (0,0)$
+\task
+$f(x,y) = x^y;\, (e,2)$
+% \task
+% $f(x,y) = \ln(x^2+y^2+1);\, (0,0)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+We have
+\begin{align*}
+f_x(x,y) &= y +1 &
+f_y(x,y) &= x-1\,,
+\end{align*}
+and so $f_x(1,1) = 2$ and $f_y(1,1) = 0$.
+\item
+We have
+\begin{align*}
+f_x(x,y) &= \frac{1}{y} &
+f_y(x,y) &= -\frac{x}{y^2}\,,
+\end{align*}
+and so $f_x(1,1) = 1$ and $f_y(1,1) = -1$.
+\item
+We have
+\begin{align*}
+f_x(x,y) &= \frac{1}{1+\left(x-3y^2\right)^2} &
+f_y(x,y) &= \frac{-6y}{1+\left(x-3y^2\right)^2}\,,
+\end{align*}
+and so $f_x(1,0) = \frac 12$ and $f_y(1,0) = 0$.
+\item
+We have
+\begin{align*}
+f_x(x,y) &= 1 + \frac{x}{\sqrt{x^2+y^2}} &
+f_y(x,y) &= \frac{y}{\sqrt{x^2+y^2}} \,,
+\end{align*}
+and so $f_x(1,-1) = 1 + \frac{\sqrt{2}}{2}$ and $f_y(1,-1) = -\frac{\sqrt{2}}2$.
+\item
+We have
+\begin{align*}
+f_x(x,y) &= y e^{xy} \sin(x+y) + e^{xy} \cos(x+y) \\
+f_y(x,y) &= x e^{xy} \sin(x+y) + e^{xy} \cos(x+y)\,,
+\end{align*}
+and so $f_x(0,0) = 1$ and $f_y(0,0) = 1$.
+\item
+To compute the $y$-derivative we write $f(x,y) = x^y = e^{y \ln x}$. We have
+\begin{align*}
+f_x(x,y) &= y x^{y-1} &
+f_y(x,y) &= x^y \ln x\,,
+\end{align*}
+and so $f_x(e, 2) = 2e$ and $f_y(e, 2) = e^2$.
+% \item
+% We have
+% \begin{align*}
+% f_x(x,y) &= \frac{2x}{x^2 + y^2 + 1} \\
+% f_y(x,y) &= \frac{2y}{x^2 + y^2 + 1} \,,
+% \end{align*}
+% and so $f_x(0,0) = 0$ and $f_y(0,0) = 0$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 21, 22, 37--40; MW, III.15.1}}
+Compute the indicated partial derivatives.
+\begin{tasks}(2)
+\task
+$\frac{\p}{\p y}\left( \frac{x e^y - 1}{y e^x + 1}\right)$
+\task
+$\frac{\p}{\p u} \big( uvw - \sin(uvw) \big)$
+\task
+$\frac{\p}{\p s} e^{stu^2}$
+\task
+$\frac{\p}{\p r} \left( \frac 13 \pi r^2 h \right)$ 
+\task
+$\frac{\p}{\p \la} \left( \frac{\cos \la\mu}{1+\la^2 + \mu^2} \right)$
+\task
+$\frac{\p}{\p a} \left( bcd \right)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+\begin{align*}
+\frac{\p}{\p y}\left( \frac{x e^y - 1}{y e^x + 1} \right)
+&= \frac{xe^y \left(y e^x + 1\right) - \left(xe^y - 1\right) e^x}
+{\left( ye^x + 1\right)^2}
+= \frac{xy e^{x+y}  - x e^{x+y} + xe^y + e^x}
+{\left( ye^x + 1\right)^2}\,.
+\end{align*}
+\item
+\begin{align*}
+\frac{\p}{\p u} \left( uvw - \sin(uvw) \right)
+&= vw - vw \cos(uvw) = vw( 1 - \cos(uvw))\,.
+\end{align*}
+\item
+\[
+\frac{\p}{\p s} e^{stu^2} = tu^2 e^{stu^2}\,.
+\]
+\item
+\[
+\frac{\p}{\p r}\left(\frac 13 \pi r^2 h\right) = \frac 23 \pi r h\,.
+\]
+\item
+\begin{align*}
+\frac{\p}{\p \la} \left( \frac{\cos \la\mu}{1+\la^2 + \mu^2} \right)
+&= \frac{ - \mu \sin (\la \mu) \left( 1+ \la^2+\mu^2\right)
+- 2\la \cos(\la \mu)}
+{\left(1+\la^2+\mu^2\right)^2} \\
+&=  -\frac{\mu \sin \la \mu}
+{1+\la^2+\mu^2} - \frac{2\la \cos \la\mu}{\left(1+\la^2+\mu^2\right)^2}\,.
+\end{align*}
+\item
+\[
+\frac{\p}{\p a} \left( bcd \right) = 0\,,
+\]
+because the function $bcd$ does not depend on the variable $a$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 45; MW, III.15.1}}
+If three resistors $R_1$, $R_2$ and $R_3$ are connected in parallel, the total electrical resistance is determined by the equation
+\[
+\frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}\,.
+\]
+\begin{enumerate}
+\item
+What is $\p R/\p R_1$?
+\item
+Suppose that $R_1$, $R_2$ and $R_3$ are variable resistors set at 100, 200 and 300 ohms respectively. How fast is $R$ changing with respect to $R_1$?
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+First we express $R$ as a function of $R_1$, $R_2$ and $R_3$,
+\[
+R = \frac{1}{R_1\inv + R_2\inv + R_3\inv}\,,
+\]
+and then we differentiate
+\[
+\frac{\p R}{\p R_1} = \frac{R_1^{-2}}{\left(R_1\inv + R_2\inv + R_3\inv\right)^2} \,.
+\]
+To simplify the expression note that
+\[
+\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} = \frac{R_1R_2 + R_1R_3 + R_2 R_3}{R_1R_2 R_3}\,.
+\]
+Thus
+\[
+\frac{\p R}{\p R_1} = \frac{1}{R_1^2} \frac{R_1^2R_2^2 R_3^2}{\left(R_1R_2 + R_1R_3 + R_2 R_3\right)^2}
+= \frac{R_2^2 R_3^2}{\left(R_1R_2 + R_1R_3 + R_2 R_3\right)^2}\,.
+\]
+
+If $R_1$, $R_2$ and $R_3$ are set at 100, 200 and 300 ohms, then
+\[
+\frac{\p R}{\p R_1}(100,200,300) = \frac{36}{121}\,.
+\]
+\end{solution}
+
+\begin{question}
+Consider the contour plot for the function $f(x,y)$. Determine whether the following quantities are \emph{positive}, \emph{negative} or \emph{zero}.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8, baseline=0]
+  \def\scale{0.8}
+  \draw[coordinate grid, step=0.5] (-4,-4) grid (4,4);
+
+  \drawxlabels{-4/-4, -3/-3, -2/-2, -1/-1, 1/1, 2/2, 3/3, 4/4}
+  \drawylabels{-4/-4, -3/-3, -2/-2, -1/-1, 1/1, 2/2, 3/3, 4/4}
+  \drawaxes{-3.8}{-3.8}{3.8}{3.8}
+
+  \draw[name path=c1] (0,0) circle (1.);
+  \draw[name path=c2] (0,0) circle (1.8);
+  \draw[name path=c2] (0,0) circle (2.1);
+  \draw[name path=c3] (0,0) circle (2.5);
+  \draw[name path=c4] (0,0) circle (3);
+  \draw[name path=c5] (0,0) circle (3.8);
+
+  \node[fill=white] at (15:1.8) {$3.5$};
+  \node[fill=white] at (30:2.1) {$2$};
+  \node[fill=white] at (40:2.5) {$1$};
+  \node[fill=white] at (50:3) {$0$};
+  \node[fill=white] at (60:3.8) {$-0.5$};
+\end{tikzpicture}
+\end{center}
+
+\begin{tasks}(3)
+\task
+$\frac{\p f}{\p x}(2,-1.5)$
+\task
+$\frac{\p^2 f}{\p x^2}(2,-1.5)$
+\task
+$\frac{\p f}{\p y}(3,0)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+We can read off the contour plot that
+\begin{align*}
+f(1.5, -1.5) &= 2 &
+f(2,-1.5) &= 1 &
+f(2.5, 1.5) &\approx 0\,.
+\end{align*}
+In particular $f(x,-1.5)$ is decreasing around $x=2$. Therefore $\frac{\p f}{\p x}(2,-1.5) < 0$.
+
+\item
+From the figure we see that the function $f(x,-1.5)$ is convex around $x=2$. Therefore $\frac{\p^2 f}{\p x^2}(2,-1.5) > 0$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9375, baseline=0]
+ \def\scale{0.9375}
+
+ \draw[coordinate grid, step=0.5] (0, -0.5) grid (4, 3.5);
+ \drawaxeslabelled{0}{-0.5}{4}{3.5}{$x$}{$z$}
+
+ \drawpoint{(1,3.5)};
+ \drawpoint{(1.5,2)};
+ \drawpoint{(2,1)};
+ \drawpoint{(2.6,0)};
+ \drawpoint{(3.5,-0.5)};
+
+ \draw[dashed] (1,3.5) -- node[pos=0.2, right] {$z = f(x,-1.5)$} (1.5,2) -- (2,1)
+   -- (2.6,0) -- (3.5,-0.5);
+
+ \drawxlabels[nofill]{1/1, 1.5/1.5, 2/2, 2.5/2.5, 3.5/3.5}
+ \drawylabels[nofill]{1/1, 2/2, 3/3}
+\end{tikzpicture}
+\end{center}
+
+\item
+We can see that $f(3,0) = 0$ and that $y=0$ is a local maximum for the function $f(3,y)$. In particular this implies that $\frac{\p f}{\p y}(3,0) = 0$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 54,55; MW, III.15.1}}
+Compute the derivatives 
+$\displaystyle\frac{\p^2 u}{\p x^2}$, 
+$\displaystyle\frac{\p^2 u}{\p y \p x}$, 
+$\displaystyle\frac{\p^2 u}{\p y^2}$ and 
+$\displaystyle\frac{\p^2 u}{\p x \p y}$ for the following functions and check directly the equality of the mixed partial derivatives.
+\begin{tasks}(2)
+% \task
+% $\displaystyle
+% u = \frac{2xy}{(x^2+y^2)^2}
+% $
+\task
+$u = \cos(xy^2)$
+\task
+$u = e^{-xy^2} + y^3x^4$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+% \item
+% The function is $\displaystyle
+% u = \frac{2xy}{(x^2+y^2)^2}
+% $.
+% We have
+% \begin{align*}
+% u_x &= \frac{2y}{(x^2+y^2)^2} - \frac{8x^2 y}{(x^2+y^2)^3}
+% = \frac{ -6x^2 y + 2y^3}{(x^2+y^2)^3} \\
+% u_y &= \frac{2x}{(x^2+y^2)^2} - \frac{8x y^2}{(x^2+y^2)^3}
+% = \frac{2x^3 -6x y^2}{(x^2+y^2)^3} \\
+% \end{align*}
+% and so
+% \begin{align*}
+% u_{xx} &= \frac{24xy(x^2-y^2)}{(x^2+y^2)^4} &
+% u_{yx} &= \frac{-6(x^4 - 6x^2y^2 + y^4)}{(x^2+y^2)^4} \\
+% u_{xy} &= \frac{-6(x^4 - 6x^2y^2 + y^4)}{(x^2+y^2)^4} &
+% u_{yy} &= \frac{-24xy(x^2-y^2)}{(x^2+y^2)^4}\,.
+% \end{align*}
+\item
+The function is $u = \cos(xy^2)$.
+We have
+\begin{align*}
+u_x &= -y^2 \sin(xy^2) &
+u_y &= -2xy \sin(xy^2)\,,
+\end{align*}
+and so
+\begin{align*}
+u_{xx} &= -y^4 \cos(xy^2) &
+u_{yx} &= -2y \sin(xy^2) - 2xy^3 \cos(xy^2) \\
+u_{xy} &= -2y \sin(xy^2) - 2xy^3 \cos(xy^2) &
+u_{yy} &= -2x \sin(xy^2) - 4x^2y^2 \cos(xy^2)\,.
+\end{align*}
+\item
+The function is $u = e^{-xy^2} + y^3x^4$. We have
+\begin{align*}
+u_{x} &= -y^2 e^{-xy^2} + 4y^3x^3 &
+u_{y} &= -2xy e^{-xy^2} + 3y^2x^4\,,
+\end{align*}
+and so
+\begin{align*}
+u_{xx} &= y^4 e^{-xy^2} + 12 y^3x^2 &
+u_{yx} &= (-2y + 2xy^3) e^{-xy^2} + 12y^2x^3 \\
+u_{xy} &= (-2y + 2xy^3) e^{-xy^2} + 12y^2x^3 &
+u_{yy} &= (-2x + 4x^2y^2)e^{-xy^2} + 6yx^4\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Let $g(u, v, w)$ be a function with continuous third partial derivatives. Which of the following partial derivatives are equal?
+\begin{tasks}(4)
+\task
+$\frac{\p^3 g}{\p u \p v \p w}$
+\task
+$\frac{\p^3 g}{\p v \p v \p w}$
+\task
+$\frac{\p^3 g}{\p v \p u \p w}$
+\task
+$\frac{\p^3 g}{\p w \p u \p u}$
+\task
+$\frac{\p^3 g}{\p w \p v \p u}$
+\task
+$\frac{\p^3 g}{\p w \p u \p v}$
+\task
+$\frac{\p^3 g}{\p v \p w \p v}$
+\task
+$\frac{\p^3 g}{\p u \p u \p u}$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The derivatives (a), (c), (e) and (f) are all equal; so are (b) and (g).
+
+As a practical rule, it does not matter in what order we apply partial derivatives, provided the derivatives exist and are continuous.
+
+To give a rigorous argument, why (a), (c), (e) and (f) coincide, we can argue as follows: First we apply the equality of mixed partial derivatives to the function $g_w$, leading to
+$\frac{\p^2}{\p u \p v} g_w = \frac{\p^2}{\p v \p u} g_w$. This shows the equality of (a) and (c). Next, we know that $g_{vu} = g_{uv}$ and therefore their $w$-derivatives are also equal, $\frac{\p}{\p w} g_{vu} = \frac{\p}{\p w} g_{uv}$, showing that (e) and (f) coincide. Finally, to show that (c) equals (e) we need to proceed in two steps as follows:
+\[
+\frac{\p}{\p v} g_{uw} = \frac{\p}{\p v} g_{wu}
+= \frac{\p^2}{\p v \p w} g_{u} = \frac{\p^2}{\p w \p v} g_{u}\,.
+\]
+This concludes the proof.
+\end{solution}
+
+\begin{question}
+Let
+\[
+g(u, v, w) = \frac{e^{u^4 + v}}{ 1+ u^2} \sin\left(u + 3v \right) + u^2 \cos \frac w2\,.
+\]
+Compute the following partial derivatives in the most efficient way.
+\begin{tasks}(2)
+\task
+$g_{uw}$
+\task
+$g_{vuu} - g_{uuv}$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The function $g$ is the sum of two terms and we can observe that the first term does not depend on $w$ at all. It will therefore disappear, when we take the $w$-derivative. Thus we compute
+\begin{align*}
+g_{w}(u,v,w) &= -\frac{u^2}{2} \sin \frac w 2 \\
+g_{wu}(u,v,w) &= -u \sin \frac w2\,,
+\end{align*}
+and note that $g_{uw} = g_{wu}$.
+
+\item
+In this case we don't have to do any computations at all, since
+\[
+g_{vuu} - g_{uuv} = 0\,,
+\]
+because of the equality of mixed partial derivatives.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+The 3-dimensional Laplace equation is
+\[ \frac{\p^2 f}{\p x^2} + \frac{\p^2 f}{\p y^2} + \frac{\p^2 f}{\p z^2}=0\,. \]
+Determine the constant $k$ such that the function
+\[ f(x,y,z) = \frac 32 z^3 -k\left(x^2 -\frac 45 y^2 \right) z\,, \]
+satisfies the Laplace equation.
+\end{question}
+
+\begin{solution}
+The second partial derivatives of $f$ are
+\begin{align*}
+\frac{\p^2 f}{\p x^2} &= -2kz &
+\frac{\p^2 f}{\p y^2} &= \frac 85 kz &
+\frac{\p^2 f}{\p z^2} &= 9z\,,
+\end{align*}
+and hence
+\[ \frac{\p^2 f}{\p x^2} + \frac{\p^2 f}{\p y^2} + \frac{\p^2 f}{\p z^2} =
+\left(9 - \frac 25 k \right) z \,. \]
+The function $f$ satisfies the Laplace equation, if
+\[ 9 - \frac 25 k = 0\,. \]
+Therefore
+\[ k = \frac {45}2\,. \]
+\end{solution}
+
+%%% Local Variables:
+%%% TeX-master: "solutions_sect_0203"
+%%% End:

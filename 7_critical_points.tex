@@ -1,0 +1,765 @@
+\begin{question}
+True or false: if $(a,b)$ is a critical point of $f(x,y)$, then $(a,b)$ is a local extremum of $f(x,y)$.
+\end{question}
+
+\begin{solution}
+False.
+
+It is true, that if $(a,b)$ is a local extremum of $f(x,y)$ and the partial derivatives of $f(x,y)$ exist at $(a,b)$, then $(a,b)$ is a critical point of $f(x,y)$. However, the other implication is not true in general, since a critical point can also be a saddle point.
+\end{solution}
+
+\begin{question}
+True or false: a point $(a,b)$ is a critical point of $f(x,y)$ if $f_x(a,b)=0$ and $f_y(a,b) = 0$.
+\end{question}
+
+\begin{solution}
+True.
+
+This is the definition of a critical point.
+\end{solution}
+
+\begin{question}
+True or false: a point $(a,b)$ is a critical point of $f(x,y)$ if $f_x(a,b)$ and $f_y(a,b)$ are undefined.
+\end{question}
+
+\begin{solution}
+False.
+
+A point is a critical point, if both partial derivatives are defined at the point and equal to $0$.
+\end{solution}
+
+\begin{question}
+Find the critical points of each of the functions. Decide by inspection whether each of the critical points is a maximum, minimum or a saddle point.
+\begin{tasks}(3)
+\task
+$f(x,y) = x^2+2y^2$
+\task
+$f(x,y) = x^2-2y^2$
+\task
+$f(x,y) = e^{-x^2-7y^2+3}$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+We have
+\begin{align*}
+f_x &= 2x &
+f_y &= 4y\,,
+\end{align*}
+and hence the only critical point is $(0,0)$. We have $f(0,0) = 0$ and because
+\[
+f(x,y) = x^2 + 2y^2 \geq 0\,,
+\]
+we have the inequality $f(x,y) \geq f(0,0)$ for all points $(x,y)$. Thus $(0,0)$ is a global minimum.
+\item
+We have
+\begin{align*}
+f_x &= 2x &
+f_y &= -4y\,,
+\end{align*}
+and hence the only critical point is $(0,0)$ with $f(0,0) = 0$. We note however that for $x \neq 0$ we have $f(x,0) =x^2 > 0$, while for $y \neq 0$ we have $f(y,0) = -2y^2 < 0$. In particular $f(1,0) > f(0,0)$, while $f(0,1) < f(0,0)$. Thus $(0,0)$ is neither a maximum nor a minimum; hence it has to be a saddle point.
+\item
+We have
+\begin{align*}
+f_x &= -2x e^{-x^2-7y^2+3} &
+f_y &= -14y e^{-x^2-7y^2+3}\,,
+\end{align*}
+and hence the only critical point is $(0,0)$ with $f(0,0) = e^3$. Since $-x^2 -7^2 \leq 0$, we have
+\[
+f(x,y) = e^{-x^2-7y^2+3} = e^{-x^2-7y^2} \cdot e^3 \leq e^3 = f(0,0)\,.
+\]
+This implies that the point $(0,0)$ is a global maximum.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Use the maximum-minimum test for quadratic functions to decide whether $(0,0)$ is a maximum, minimum or a saddle point.
+\begin{tasks}(2)
+\task
+$f(x,y) = x^2+xy+y^2$
+\task
+$f(x,y) = y^2-x^2+3xy$
+\task
+$f(x,y) = 3+2x^2-xy+y^2$
+\task
+$f(x,y) = 1-x^2+2xy-6y^2$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+Note that the general form of a quadratic function is
+\[
+g(x,y) = Ax^2 + 2B xy + C y^2\,;
+\]
+pay particular attention to the factor $2$ in $2B$.
+\begin{enumerate}
+\item
+$A=1$, $B=\frac 12$, $C=1$. We have
+$A > 0$ and $AC-B^2= \frac 34 > 0$
+and thus $(0,0)$ is a minimum.
+
+\item
+$A=-1$, $B=\frac 32$, $C=1$. We have 
+$AC-B^2 = -\frac {13}4 < 0$ 
+and thus $(0,0)$ is a saddle point.
+
+\item
+$A=2$, $B=-\frac 12$, $C=1$. We have 
+$A > 0$ and $AC-B^2 = \frac {7}4 > 0$
+and thus $(0,0)$ is a minimum.
+
+\item
+$A=-1$, $B = 1$, $C=-6$. We have
+$A < 0$ and $AC-B^2 = 1 > 0$
+and thus $(0,0)$ is a maximum.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Explain, why the maximum-minimum test for quadratic functions is a special case of the second derivative test.
+\end{question}
+
+\begin{solution}
+Consider the quadratic function
+\[
+g(x,y) = Ax^2 + 2Bxy + Cy^2\,.
+\]
+The only critical point is $(0,0)$ and the second derivatives of $g(x,y)$ are
+\begin{align*}
+g_{xx} &= 2A &
+g_{xy} &= 2B &
+g_{yy} &= 2C\,.
+\end{align*}
+The second derivative test states that if at $(0,0)$ we have $g_{xx} < 0$ and $g_{xx}g_{yy} - g_{xy}^2 > 0$, then $(0,0)$ is a local minimum. For our function $g(x,y)$ this means
+\[
+2A < 0 \text{ and } 4AC - 4B^2 > 0\,.
+\]
+When we divive the first inequality by $2$ and the second one by $4$, we recover the maximum-minimum test for quadratic functions. The same argument can be used for the other types of critical points.
+
+\begin{note*}
+There is one slight difference between the two tests though. The second derivative test tells us when a critical point is a \emph{local} maximum or minimum. For a quadratic function it is true that a local maximum or minimum is in fact a \emph{global} one.
+\end{note*}
+\end{solution}
+
+\begin{question}
+Find the critical points of the following functions and classify them using the second derivative test.
+\begin{tasks}(2)
+\task
+$f(x,y) = 2x^2-2xy+y^2-2x+1$
+\task
+$f(x,y) = x^3 + 3xy + y^3$
+\task
+$f(x,y) = 5 + 3x^2 + x^3 + 3y^2$
+\task
+$f(x,y) = x^3 - 2x^2 - 4y^2$
+\task
+$f(x,y) = -1 + 2x^2 - \frac 12 y^2 + y^4 + 2x^3$
+\task
+$f(x,y) = \frac 1x + xy + \frac 1y$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= 4x - 2y - 2 &
+f_y(x,y) &= -2x + 2y\,.
+\end{align*}
+Critical point are solutions to the equations
+\begin{align*}
+4x - 2y - 2 &= 0 \\
+-2x + 2y &= 0\,.
+\end{align*}
+The second equation gives $x=y$ and the first equation leads to $y=1$. Thus the only critical point is $(1,1)$. To determine the type of the critical point we compute
+\begin{align*}
+f_{xx}(x,y) &= 4 &
+f_{xy}(x,y) &= -2 &
+f_{yy}(x,y) &= 2\,,
+\end{align*}
+and so
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(1, 1\right)$ & $4$ & $-2$ & $2$ & $4$ & Local minimum
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x &= 3x^2+3y &
+f_y &= 3x+3y^2\,.
+\end{align*}
+Critical points are solutions to the equations
+\begin{align*}
+x^2+y &= 0 \\
+x+y^2 &=0\,.
+\end{align*}
+We use the first equation to substitute $y=-x^2$ into the second equation to obtain
+\[
+x+x^4 = 0\,.
+\]
+This can be factorized into $x(1+x^3) =0$ leading to two solutions $x=0$ and $x=-1$. Thus we obtain the two critical points $(0,0)$ and $(-1,-1)$. To determine their type we compute
+\begin{align*}
+f_{xx} &= 6x &
+f_{xy} &= 3 &
+f_{yy} &= 6y\,.
+\end{align*}
+Evaluated at the critical points we get
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $0$ & $3$ & $0$ & $-9$ & Saddle point \\
+$\left(-1, -1\right)$ & $6$ & $3$ & $6$ & $27$ & Local minimum
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x &= 6x + 3x^2 &
+f_y &= 6y\,.
+\end{align*}
+Critical points are solutions of
+\begin{align*}
+2x + x^2 &= 0 \\
+y &=0\,.
+\end{align*}
+We have two critical points at $(0,0)$ and $(-2,0)$. To determine their type we compute
+\begin{align*}
+f_{xx} &= 6+6x &
+f_{xy} &= 0 &
+f_{yy} &= 6 \,.
+\end{align*}
+Thus we have
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $6$ & $0$ & $6$ & $36$ & Local minimum \\
+$\left(-2, 0 \right)$ & $-6$ & $0$ & $6$ & $-36$ &  Saddle point \\
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x &= 3x^2 - 4x &
+f_y &= -8y\,.
+\end{align*}
+Critical points are solutions of
+\begin{align*}
+3x^2 -4x &= 0 \\
+y &=0\,.
+\end{align*}
+We have two critical points at $(0,0)$ and $\left(\frac 43,0\right)$. To determine their type we compute
+\begin{align*}
+f_{xx} &= 6x-4 &
+f_{xy} &= 0 &
+f_{yy} &= -8 \,.
+\end{align*}
+Thus we have
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $-4$ & $0$ & $-8$ & $32$ & Local maximum \\
+$\left(4/3, 0 \right)$ & $4$ & $0$ & $-8$ & $-32$ &  Saddle point \\
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x &= 4x + 6x^2 &
+f_y &= -y + 4y^3\,.
+\end{align*}
+Critical points are solutions of
+\[
+\begin{aligned}
+2x + 3x^2 &= 0 \\
+-y + 4y^3 &=0
+\end{aligned}
+\quad\Leftrightarrow\quad
+\begin{aligned}
+x(2+3x) &= 0 \\
+y(4y^2-1) &= 0\,.
+\end{aligned}
+\]
+We have six solutions $(0,0)$, $\left(0,\frac 12\right)$, $\left(0,-\frac 12\right)$, $\left(-\frac 23,0\right)$, $\left(-\frac 23,\frac 12\right)$, $\left(-\frac 23,-\frac 12\right)$.
+To determine their type we compute
+\begin{align*}
+f_{xx} &= 4 + 12x &
+f_{xy} &= 0 &
+f_{yy} &= -1 + 12y^2\,.
+\end{align*}
+Thus we have
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $4$ & $0$ & $-1$ & $-4$ &  Saddle point \\
+$\left(0, \pm 1/2 \right)$ & $4$ & $0$ & $2$ & $8$ & Local minimum \\
+$\left(-2/3, 0 \right)$ & $-4$ & $0$ & $-1$ & $4$ & Local maximum\\
+$\left(-2/3, \pm 1/2 \right)$ & $-4$ & $0$ & $2$ & $-8$ & Saddle point
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x &= -\frac 1{x^2} + y & 
+f_y &= x - \frac{1}{y^2}\,.
+\end{align*}
+Critical points are solutions of
+\begin{align*}
+-\frac 1{x^2} + y &= 0 \\
+x - \frac{1}{y^2} &=0\,.
+\end{align*}
+The only critical point is $(1,1)$. To determine its type we compute
+\begin{align*}
+f_{xx} &= \frac{2}{x^3} &
+f_{xy} &= 1 &
+f_{yy} &= \frac{2}{y^3}\,.
+\end{align*}
+Evaluated at $(1,1)$ we get
+\begin{center}
+%\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(1, 1 \right)$ & $2$ & $1$ & $2$ & $3$ & Local minimum
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find and classify the critical points of the following functions.
+\begin{tasks}(2)
+\task
+$f(x,y) = x^3+3xy^2-15x+y^3-15y$
+\task
+$f(x,y) = (x^2+y^2)e^{x^2-y^2}$
+\task
+$f(x,y) = \ln(ax^2 + by^2 + 1)$ with $a,b > 0$
+\task
+$f(x,y) = \frac{x^3-3x}{1+y^2}$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= 3x^2+3y^2-15 &
+f_y(x,y) = 6xy+3y^2-15 \,.
+\end{align*}
+Critical point are solutions to the equations
+\begin{align*}
+3x^2+3y^2-15 &= 0 \\
+6xy+3y^2-15 &= 0\,.
+\end{align*}
+We subtract the second equation from the first to obtain
+\[
+3x^2 - 6xy = 0
+\quad\Leftrightarrow\quad
+3x \left(x-2y\right) = 0\,.
+\]
+We have two cases two consider.
+\begin{itemize}
+\item
+If $x=0$, then the first equation gives
+\[
+3y^2 - 15 = 0\;\Rightarrow\; y = \pm \sqrt{5}\,,
+\]
+leading to the two critical points $\left(0, \sqrt 5\right)$ and $\left(0, -\sqrt 5\right)$.
+\item
+If $x=2y$, then the first equation becomes
+\[
+15y^2 = 15\;\Rightarrow\; y = \pm 1\,,
+\]
+leading to two more critical points $(1, 2)$ and $-1, -2)$.
+\end{itemize}
+To determine the type of the critical points we need the second derivatives
+\begin{align*}
+f_{xx}(x,y) &= 6x &
+f_{xy}(x,y) &= 6y &
+f_{yy}(x,y) &= 6x+6y\,.
+\end{align*}
+Thus we have
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, \sqrt 5\right)$ & $0$ & $6\sqrt{5}$ & $6\sqrt{5}$ & $-180$ & Saddle point \\
+$\left(0, -\sqrt 5\right)$ &  $0$ & $-6\sqrt{5}$ & $-6\sqrt{5}$ & $-180$ & Saddle point \\
+$\left(2,1 \right)$ &  $12$ & $6$ & $18$ & $180$ & Local minimum \\
+$\left(-2,-1 \right)$ &  $-12$ & $-6$ & $-18$ & $180$ & Local maxmimum \\
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= e^{x^2-y^2} \left( 2x + 2x\left(x^2 + y^2\right)\right) &
+f_y(x,y) &= e^{x^2-y^2} \left( 2y - 2y\left(x^2 + y^2\right)\right) \,.
+\end{align*}
+Critical point are solutions to the equations
+\begin{align*}
+e^{x^2-y^2} \left( 2x + 2x\left(x^2 + y^2\right)\right) &= 0\\
+e^{x^2-y^2} \left( 2y - 2y\left(x^2 + y^2\right)\right) &= 0 \,.
+\end{align*}
+This system is equivalent to
+\begin{align*}
+2x\left(x^2 + y^2 + 1 \right) &= 0\\
+2y\left(x^2 + y^2 - 1 \right) &= 0 \,.
+\end{align*}
+In the first equation we see that $x^2 + y^2 + 1 \neq 0$ and so $x=0$. From the second equation we obtain
+\[
+y=0 \text{ or } x^2 + y^2 = 1\,.
+\]
+This leads to the three solutions $(0,0)$, $(0,1)$ and $(0,-1)$.
+
+To determine the type of the critical points we need the second derivatives
+\begin{align*}
+f_{xx}(x,y) &= e^{x^2-y^2}\left(2 + 6x^2 + 2y^2 + 4x^2 + 4x^2\left(x^2 + y^2\right)\right) \\
+f_{xy}(x,y) &= e^{x^2-y^2}\left(4xy - 4xy - 4xy\left(x^2 + y^2\right)\right) \\
+f_{yy}(x,y) &= e^{x^2-y^2}\left(2 - 2x^2 - 6y^2 - 4y^2 + 4y^2 \left(x^2 + y^2\right)\right)
+\end{align*}
+Thus we have
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $2$ & $0$ & $2$ & $4$ & Local minimum \\
+$\left(0, 1\right)$ &  $4e^{-1}$ & $0$ & $-4e^{-1}$ & $-16e^{-2}$ & Saddle point \\
+$\left(0, -1\right)$ &  $4e^{-1}$ & $0$ & $-4e^{-1}$ & $-16e^{-2}$ & Saddle point
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= \frac{2ax}{ax^2 + by^2 + 1} &
+f_y(x,y) &= \frac{2by}{ax^2 + by^2 + 1} \,.
+\end{align*}
+Critical point are solutions to the equations
+\begin{align*}
+\frac{2ax}{ax^2 + by^2 + 1} &= 0 \\
+\frac{2ay}{ax^2 + by^2 + 1} &= 0\,.
+\end{align*}
+Because $ax^2 + by^2 + 1 \neq 0$, the only critical point is $(0,0)$. To determine the type of the critical point we need the second derivatives
+\begin{align*}
+f_{xx}(x,y) &= \frac{2a}{ax^2 + by^2 + 1} - \frac{4a^2x^2}{\left(ax^2 + by^2 + 1\right)^2}\\
+f_{xy}(x,y) &= - \frac{4abxy}{\left(ax^2 + by^2 + 1\right)^2}\\
+f_{yy}(x,y) &= \frac{2b}{ax^2 + by^2 + 1} - \frac{4b^2y^2}{\left(ax^2 + by^2 + 1\right)^2}
+\end{align*}
+Thus we have
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(0, 0\right)$ & $2a$ & $0$ & $2b$ & $4ab > 0$ & Local minimum
+\end{tabular}
+\end{center}
+
+\item
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= \frac{3x^2-3}{1+y^2} &
+f_y(x,y) &= -2y \frac{x^3-3x}{\left(1+y^2\right)^2} \,.
+\end{align*}
+Critical point are solutions to the equations
+\begin{align*}
+\frac{3x^2-3}{1+y^2} &= 0 \\
+-2y \frac{x^3-3x}{\left(1+y^2\right)^2} &= 0\,.
+\end{align*}
+We can multiply both equations by $(1+y^2)$ and $\left(1+y^2\right)^2$ respectively to obtain
+\begin{align*}
+3\left(x^2 - 1\right) &= 0\;\Rightarrow\; x = \pm 1 \\
+-2xy\left(x^2 - 3 \right) &= 0\;\Rightarrow\; y = 0 \text{ or }x = 0 \text{ or } x = \pm \sqrt{3}\,.
+\end{align*}
+Note however that since the first equation specifies $x= \pm 1$, it follows that we have $y=0$, because the other cases in the second equation cannot happen. Thus we have the two critical points $(1,0)$ and $(-1,0)$. To determine the type of the critical points we need the second derivatives
+\begin{align*}
+f_{xx}(x,y) &= \frac{6x}{1+y^2}\\
+f_{xy}(x,y) &= -2y \frac{3x-3}{\left(1 + y^2\right)^2}\\
+f_{yy}(x,y) &= -2\frac{x^3-3x}{\left(1+y^2\right)^2} +8y^2 \frac{x^3-3x}{\left(1+y^2\right)^3}
+\end{align*}
+Thus we have
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|ccc|cc}
+ & $A$ & $B$ & $C$ & $AC-B^2$ & Type \\ \hline
+$\left(1, 0\right)$ & $6$ & $0$ & $4$ & $24$ & Local minimum \\
+$\left(-1, 0\right)$ & $-6$ & $0$ & $-4$ & $24$ & Local maximum
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Find the point on the plane $x+2y+3z-10=0$, that minimizes the distance
+\begin{tasks}(2)
+\task
+to the origin;
+\task
+to the point $(1,1,1)$.
+\end{tasks}
+
+\begin{hint*}
+Minimize the squared distance to simplify calculations.
+\end{hint*}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+It is easiest to express each point on the plane in the form
+\[
+(10-2y-3z, y, z) \text{ with } (y,z) \text{ a point in the $yz$-plane.}
+\]
+The function we want to minimize is the squared distance
+\[
+f(y,z) = (10-2y-3z)^2 + y^2 + z^2\,.
+\]
+Critical points are solutions of
+\begin{align*}
+2y - 4(10-2y-3z) &= 0 \\
+2z - 6 (10-2y-3z) &= 0\,.
+\end{align*}
+The only solution is $\displaystyle y=\frac{10}7$, $\displaystyle z=\frac{15}7$. The corresponding $x$-coordinate is
+\[
+x = 10-2\frac {10}7 -3\frac{15}7 = \frac 5 7\,.
+\]
+Hence the point on the plane, closest to the origin, is $\displaystyle \left(\frac 57, \frac{10}7, \frac{15}7 \right)$.
+
+\item
+In this case the function we want to minimize is
+\[
+f(y,z) = (10-2y-3z-1)^2 + (y-1)^2 + (z-1)^2\,.
+\]
+Critical points are solutions of
+\begin{align*}
+2y-2 - 4(9-2y-3z) &= 0 \\
+2z-2 - 6 (9-2y-3z) &= 0\,.
+\end{align*}
+The only solution is $\displaystyle y=\frac{11}7$, $\displaystyle z=\frac{13}7$. The corresponding $x$-coordinate is
+\[
+x = 10-2\frac {11}7 -3\frac{13}7 = \frac 9 7\,.
+\]
+Hence the point on the plane, closest to $(1,1,1)$, is $\displaystyle \left(\frac 97, \frac{11}7, \frac{13}7 \right)$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Let $f(x,y) > 0$ for all $x$, $y$. Show that the functions $f(x,y)$ and $g(x,y) = [f(x,y)]^2$ have the same critical points with the same type (local maximum, minimum or saddle point).
+\end{question}
+
+\begin{solution}
+The partial derivatives of $g(x,y)$ are
+\begin{align*}
+g_x(x,y) &= 2f(x,y)f_x(x,y) &
+g_y(x,y) &= 2f(x,y)f_y(x,y) \,.
+\end{align*}
+The critical points of $g(x,y)$ are solutions of
+\begin{align*}
+2f(x,y)f_x(x,y) &= 0 \\
+2f(x,y)f_y(x,y) &= 0\,.
+\end{align*}
+Since we assume that $f(x,y) > 0$, we can divide both equations by $2f(x,y)$. Thus $(a,b)$ is a solution to the above system of equations if and only if $f_x(a,b) = 0$ and $f_y(a,b) =0$. In other words, $(a,b)$ is a critical point of $g(x,y)$ if and only if it is a critical point of $f(x,y)$.
+
+Let us consider the type of the critical point. The second partial derivatives of $g(x,y)$ are
+\begin{align*}
+g_{xx}(x,y) &= 2f_x(x,y)^2 + 2f(x,y)f_{xx}(x,y) \\
+g_{xy}(x,y) &= 2f_x(x,y)f_y(x,y) + 2f(x,y)f_{xy}(x,y) \\
+g_{yy}(x,y) &= 2f_y(x,y)^2 + 2f(x,y)f_{yy}(x,y)\,.
+\end{align*}
+However, at a critical point $(a,b)$ they simplify to
+\begin{align*}
+g_{xx}(a,b) &= 2f(a,b)f_{xx}(a,b) &
+g_{xx}(a,b) &= 2f(a,b)f_{xy}(a,b) &
+g_{xx}(a,b) &= 2f(a,b)f_{yy}(a,b)\,.
+\end{align*}
+Because $f(a,b) > 0$, we see that $g_{xx}(a,b)$ and $f_{xx}(a,b)$ have the same sign, and because at a critical point
+\[
+g_{xx}g_{yy} - g_{xy}^2 = 4f^2 (f_{xx}f_{yy} - f_{xy}^2)\,,
+\]
+also the signs of $g_{xx}g_{yy} - g_{xy}^2$ and $f_{xx}f_{yy} - f_{xy}^2$ coincide at $(a,b)$. Therefore the type of $(a,b)$ as a critical point of $f(x,y)$ is the same as a critical point of $g(x,y)$.
+
+\begin{note*}
+How would the result change, if we assumed $f(x,y) < 0$ for all $x$, $y$ instead?
+\end{note*}
+\end{solution}
+
+\begin{question}
+For which values of $k$ does
+\[
+f(x,y) = x^2 + kxy + 4y^2
+\]
+have a local minimum at $(0,0)$?
+\end{question}
+
+\begin{solution}
+To study the type of a critical point we look at second derivatives.
+\begin{align*}
+f_{xx} &= 2 &
+f_{xy} &= k &
+f_{yy} &= 8\,.
+\end{align*}
+We see that $(0,0)$ is a minimum, when $16-k^2 > 0$ or equivalently $|k| < 4$. When $|k| > 4$, the point $(0,0)$ is a saddle point.
+
+What happens for $k=\pm 4$? Then the second derivative test is inconclusive and we have to take a closer look at the function. We have
+\[
+f(x,y) = x^2 \pm 4xy + 4y^2 = (x \pm 2y)^2 \geq 0\,.
+\]
+Thus $(0,0)$ is a minimum for $k =\pm 4$.
+\end{solution}
+
+\begin{question}
+Find two numbers $a$ and $b$, such that
+\[
+\int_a^b (6-x-x^2) \ud x
+\]
+has its largest value.
+\end{question}
+
+\begin{solution}
+The problem asks us to find the interval $[a,b]$, that maximizes the value of the integral
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.46875, baseline=(X.base)]
+ \def\scale{0.46875}
+
+ \draw[coordinate grid, step=1] (-4, -4) grid (4, 4);
+ \node at (0,-2) (X) {};
+ \drawaxes{-4}{-4}{4}{4}
+
+ \clip (-4, -4) rectangle (4, 4);
+
+ \fill[pattern=north east lines, pattern color=blue!30] 
+   (-2, 0) -- (-2, 2)
+   -- plot[parametric, domain={-2:2}, samples=100] 
+        function {t, 0.5*(6-t-t**2)}
+   -- (-2, 0);
+
+ \fill[pattern=north east lines, pattern color=red!30] 
+   (2, 0) -- (3, 0) -- (3,-3)
+   -- plot[parametric, domain={3:2}, samples=100] 
+        function {t, 0.5*(6-t-t**2)} -- (2,0);
+
+ \draw[draw=black, domain=-4:4, samples=100]
+      plot[parametric] function {t, 0.5*(6-t-t**2)};
+
+ \drawxlabels[]{-3/-3, -2/a, 2/2, 3/b}
+ \drawylabels[]{3/6}
+
+ \node at (-0.5,1.5) {+};
+ \node at (2.75,-1.25) {--};
+\end{tikzpicture}
+\end{wrapfigure}
+\[
+\int_a^b (6-x-x^2) \ud x\,.
+\]
+Because the integral computes the \emph{signed} area between the graph of a function and the $x$-axis, it is clear from the figure that the integral is maximal for $a=-3$ and $b=2$, which are the two roots of the polynomial $6-x-x^2$.
+
+We can check our result using multivariable calculus. Consider the function
+\[
+F(a,b) = \int_a^b (6-x-x^2) \ud x\,.
+\]
+Its partial derivatives are
+\begin{align*}
+F_a(a,b) &= -(6-a-a^2) &
+F_b(a,b) &= 6-b-b^2\,,
+\end{align*}
+and we see that $(-3,2)$ is indeed a critical point of $F(a,b)$.
+\end{solution}
+
+\begin{question}
+The discriminant $f_{xx}f_{yy} - f_{xy}^2$ is $0$ at the origin for each of the following functions, so the second derivative test fails to determine the type of the critical point. Determine whether the function has a local maximum, minimum, or neither at the origin by imagining what the surface $z=f(x,y)$ looks like. Briefly justify your reasoning in each case.
+\begin{tasks}(2)
+\task
+$f(x,y) = x^2y^2$
+\task
+$f(x,y) = 1 - x^2y^2$
+\task
+$f(x,y) = xy^2$
+\task
+$f(x,y) = x^3y^3$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+We have $f(0,0) = 0$ and $f(x,y) = x^2y^2 \geq 0$ for all $x$, $y$. Therefore $(0,0)$ is a minimum.
+\item
+We have $f(0,0) = 1$ and 
+\[
+f(x,y) = 1 - x^2y^2 \leq 1
+\]
+for all $x$, $y$. Therefore $(0,0)$ is a maximum.
+\item
+We have $f(0,0) = 0$. If $x > 0$ and $y \neq 0$, then $f(x,y) > 0$, while for $x < 0$ and $y \neq 0$ we have $f(x,y) < 0$. Thus $(0,0)$ is a saddle point.
+\item
+We have $f(0,0) = 0$. If $x > 0$ and $y > 0$, then $f(x,y) > 0$, while for $x > 0$ and $y < 0$ we have $f(x,y) < 0$. Thus $(0,0)$ is a saddle point.
+\end{enumerate}
+\end{solution}
+
+
+\begin{question}
+Consider the general problem of finding the points on a graph $z = g(x,y)$ closest to a given point $(a,b,c)$. Show that $(x_0, y_0)$ is a critical point for the distance from $(x,y,g(x,y))$ to $(a,b,c)$ if and only if the line from $(a,b,c)$ to $(x_0,y_0,g(x_0,y_0))$ is orthogonal to the graph at $(x_0,y_0,g(x_0,y_0))$.
+\end{question}
+
+\begin{solution}
+Write the squared distance function
+\[
+d(x,y) = (x-a)^2 + (y-b)^2 + \left(g(x,y) - c\right)^2\,.
+\]
+Critical points are solutions to the equations
+\begin{align*}
+x-a + \left(g(x,y) - c\right) g_x(x,y) &= 0 \\
+y-b + \left(g(x,y) - c\right) g_y(x,y) &= 0\,.
+\end{align*}
+Assume $(x_0,y_0)$ is a critical point of $d(x,y)$. The line from $(a,b,c)$ to $(x_0,y_0,g(x_0,y_0))$ can be parametrized by
+\[
+\ell(t) = \begin{pmatrix}
+a \\ b \\ c \end{pmatrix}
++ t \begin{pmatrix}
+x_0 - a \\ y_0 - b \\ g(x_0, y_0) - c \end{pmatrix}\,.
+\]
+As $(x_0, y_0)$ is a critical point, we can rewrite the direction vector of the line $\ell$ in the following way
+\[
+\begin{pmatrix} x_0 - a \\ y_0 - b \\ g(x_0, y_0) - c \end{pmatrix}
+= -\left(g(x_0,y_0) - c\right) 
+\begin{pmatrix} g_x(x_0,y_0) \\ g_y(x_0,y_0) \\ -1 \end{pmatrix}\,.
+\]
+We recognise the vector on the right hand side as a normal vector to the graph of $g(x,y)$ at the point $(x_0,y_0)$. In other words, the line $\ell(t)$ is orthogonal to the graph of $g(x,y)$.
+
+There is one special case to be considered: What if $g(x_0,y_0) - c = 0$? If $(x_0,y_0)$ is a critical point of $d(x,y)$ and $g(x_0,y_0) = c$, then the equations for a critical point imply also $x_0 = a$ and $y_0 = b$; in other words, the points $(a,b,c)$ and $(x_0,y_0,g(x_0,y_0))$ coincide. But then $(a,b,c)$ already lies on the graph of $g(x,y)$ and the distance minimization problem is trivial.
+\end{solution}
+
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=.48\textwidth]{figures/problems10_4b.png}
+% \includegraphics[width=.48\textwidth]{figures/problems10_4c.png}
+% \end{center}
+% \caption{Contour plot of the function in 4b and a surface plot of the function in 4c.}
+% \end{figure}
+
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=.48\textwidth]{figures/problems10_5.png}
+% \end{center}
+% \caption{Surface plot of the function in 5.}
+% \end{figure}
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

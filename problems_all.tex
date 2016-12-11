@@ -1,0 +1,162 @@
+\documentclass[a4paper, 11pt]{article}
+
+%--------------------------------------------------------------------
+%--- Title, author, date
+%--------------------------------------------------------------------
+
+\newcommand{\docauthor}{Martins Bruveris}
+\newcommand{\docdate}{2016 $|$ November $|$ 24}
+\newcommand{\docclass}{MA2712}
+\newcommand{\doctitle}{Problems}
+
+%--------------------------------------------------------------------
+%--- Input custom header
+%--------------------------------------------------------------------
+
+\input{header}
+
+%--------------------------------------------------------------------
+%--- Formatting commands
+%--------------------------------------------------------------------
+
+% Pagebreak after each problem section
+\setboolean{sectionnewpage}{false}
+
+% Print solutions or not
+\SetupExSheets{solution/print=false}
+
+%--------------------------------------------------------------------
+%--- The document
+%--------------------------------------------------------------------
+
+\begin{document}
+
+%--------------------------------------------------------------------
+%--- Titlepage
+%--------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newlength{\dropp}
+\setlength{\dropp}{0.1\textheight}
+\vspace*{1.5\dropp}
+\centering
+
+{\fontsize{24}{24}\rmfamily\selectfont MA2712} \\%[12pt]
+{\color{Red} \fontsize{60}{60}\rmfamily\selectfont 
+MULTIVARIABLE \\[12pt]
+CALCULUS} \\[24pt]
+{\fontsize{24}{24}\rmfamily Problems }\par
+\vfill
+{\fontsize{18}{18}\rmfamily Martins Bruveris}\par
+\vfill
+{\scshape 2016}\par
+\vspace*{\dropp}
+\end{titlepage}
+\addtocounter{page}{1}
+
+\null\thispagestyle{empty}\newpage
+
+%--------------------------------------------------------------------
+%--- Dedication
+%--------------------------------------------------------------------
+
+\thispagestyle{empty}
+%\phantomsection 
+\refstepcounter{dummy}
+\pdfbookmark[1]{Dedication}{Dedication}
+
+\vspace*{6cm}
+
+
+\begin{center}
+\Large\itshape
+Manu vecmāmiņu pieminot.% \\ \smallskip
+%1916\,--\,2016
+\end{center}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%--------------------------------------------------------------------
+%--- Table of contents
+%--------------------------------------------------------------------
+
+\thispagestyle{firstpage}
+
+\vspace*{3cm}
+
+\tableofcontents
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%--------------------------------------------------------------------
+%--- The problems
+%--------------------------------------------------------------------
+
+\section{Functions, Graphs, and Level Surfaces}
+\input{1_functions}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v2
+
+\section{Introduction to Partial Derivatives}
+\input{2_partial_derivatives}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v2
+
+\section{Linear Approximations and Tangent Planes}
+\input{3_linear_approximations}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{The Chain Rule}
+\input{4_chain_rule}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{Gradients and Directional Derivatives}
+\input{5_gradients}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{Gradients and Level Surfaces}
+\input{6_level_surfaces}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{Maxima and Minima}
+\input{7_critical_points}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1 (add 3d pictures, contour plots)
+
+\section{Constrained Extrema and Lagrange Multipliers}
+\input{8_constrained_extrema}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{Review Exercises}
+\input{9_diff_review}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\section{The Double Integral and Iterated Integrals}
+\input{10_iterated_integral}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+
+\section{The Double Integral over General Regions}
+\input{11_general_regions}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+
+\section{Polar Coordinates and the Change of Coordinates}
+\input{12_polar_coordinates}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+
+\section{Applications of the Double Integral}
+\input{13_double_integral_applications}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

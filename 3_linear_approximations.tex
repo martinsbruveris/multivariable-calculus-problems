@@ -1,0 +1,562 @@
+\begin{question}
+True or false: there exists a differentiable function $f(x,y)$ whose tangent plane at $(1, 2)$ is $2x + z= 3$?
+\end{question}
+
+\begin{solution}
+True.
+
+One such function is given by $f(x,y) = 3 - 2x$.
+\end{solution}
+
+\begin{question}
+True or false: there exists a differentiable function $f(x,y)$ whose tangent plane at $(1,2)$ is $x + 2y = 5$?
+\end{question}
+
+\begin{solution}
+False.
+
+The plane $x + 2y = 5$ is a vertical plane, but tangent planes of differentiable functions are never vertical, i.e., they contain a $z$-term.
+\end{solution}
+
+\begin{question}
+True or false: there exists a differentiable function $f(x,y)$, whose tangent plane at $(0,0)$ is the $xz$-plane?
+\end{question}
+
+\begin{solution}
+False.
+
+The $xz$-plane has the equation $y=0$. Since each tangent plane of a differentiable functions has a $z$-term, the $xz$-plane cannot be the tangent plane of a differentiable function.
+\end{solution}
+
+\begin{question}
+True or false: if both partial derivatives of $f(x,y)$ vanish at $(a,b)$, then its tangent plane at this point is parallel to the $xy$-plane?
+\end{question}
+
+\begin{solution}
+True.
+
+If both partial derivatives of $f$ vanish at $(a,b)$, then the linear approximation of $f$ at $(a,b)$ is
+\begin{align*}
+\ell(x,y) &= f(a,b) + \underbrace{f_x(a,b)}_{=0}(x-a) + \underbrace{f_y(a,b)}_{=0}(y-b) \\
+&= f(a,b)\,.
+\end{align*}
+Therefore the tangent plane is $z=f(a,b)$, which is a plane, that is parallel to the $xy$-plane.
+\end{solution}
+
+\begin{question}
+How is the linear approximation $\ell(x,y)$ to a function $f(x,y)$ at a point $(a,b)$ related to the tangent plane at the same point?
+\end{question}
+
+\begin{solution}
+The tangent plane to a function is the graph of the linear approximation at the same point. The linear approximation is the function
+\[
+\ell(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)\,.
+\]
+The tangent plane is the plane given by the equation
+\[
+z = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)\,.
+\]
+It is the collection of all points satisfying the above equation.
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 9--12, 13--16; MW, III.15.2}}
+Find
+\begin{enumerate}[label=(\roman*)]
+\item
+the equation of the tangent plane to the graph of $f$ at the point $(x_0, y_0)$ and
+\item
+a unit normal vector to the graph at the same point.
+\end{enumerate}
+for the following functions.
+\begin{tasks}(2)
+\task
+$f(x,y) = x-y+2$; $(x_0,y_0) = (1,1)$
+\task
+$f(x,y) = x^2 + 4y^2$; $(x_0,y_0) = (2,-1)$
+\task
+$\displaystyle
+f(x,y) = \frac{x}{x+y}$; $(x_0,y_0) = (1,0)$
+\task
+$f(x,y) = \frac 1{xy}$; $(x_0,y_0) = (1,1)$
+\task
+$f(x,y) = x^2 + y^3 + \frac{2x}{y}$; $(x_0, y_0) = (2,1)$
+\task
+$f(x,y) = \ln \left(\frac x{y-1}\right)$; $(x_0, y_0) = (e, 2)$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The tangent plane to the graph of $f$ at the point $(x_0,y_0)$ is given by the equation
+\[
+\ell(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\,.
+\]
+So in order to compute the equation for the tangent plane, we need to evaluate the partial derivatives $f_x$, $f_y$ of $f$ at the point $(x_0,y_0)$. A normal vector to the tangent plane is given by
+\[
+f_x(x_0,y_0)\,\bm{i} + f_y(x_0,y_0)\,\bm{j} -\bm{k}
+\]
+and we can obtain a unit normal vector by rescaling this vector.
+
+\begin{enumerate}
+\item
+We have
+\[
+f_x(x,y) = 1, \quad f_y(x,y) = -1
+\]
+and so $f(1,1) = 2$, $f_x(1,1) = 1$ and $f_y(1,1) = -1$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 2 + (x-1) -1 (y-1) \\
+&= x-y+2
+\end{align*}
+and a unit normal vector is $\frac{\sqrt{3}}3 \left(\bm i - \bm j - \bm k\right)$.
+
+\item
+We have
+\[
+f_x(x,y) = 2x, \quad f_y(x,y) = 8y
+\]
+and so $f(2,-1) = 8$, $f_x(2,-1) = 4$ and $f_y(2,-1) = -8$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 8 + 4(x-2) -8 (y+1) \\
+&= 4x-8y - 8
+\end{align*}
+and a unit normal vector is $(4/9, -8/9, -1/9)$.
+
+\item
+We have
+\[
+f_x(x,y) = \frac{y}{(x+y)^2}, \quad f_y(x,y) = \frac{-x}{(x+y)^2}
+\]
+and so $f(1,0) = 1$, $f_x(1,0) = 0$ and $f_y(1,0) = -1$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 1 + 0(x-1) -1(y-0) \\
+&= -y+1
+\end{align*}
+and a unit normal vector is $(0, -\sqrt{2}/2, -\sqrt{2}/2)$.
+
+\item
+We have
+\[
+f_x(x,y) = -\frac{1}{x^2 y}, \quad f_y(x,y) = -\frac{1}{xy^2}
+\]
+and so $f(1,1) = 1$, $f_x(1,1) = -1$ and $f_y(1,1) = -1$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 1 +(-1)\cdot(x-1) +(-1)\cdot(y-1) \\
+&= 3-x-y\,.
+\end{align*}
+
+\item
+We have
+\begin{align*}
+f_x(x,y) &= 2x + \frac{2}{y} &
+f_y(x,y) &= 3y^2 - \frac{2x}{y^2}\,,
+\end{align*}
+and so $f(2,1) = 9$, $f_x(2,1) = 6$ and $f_y(1,1) = -1$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 9 +6\cdot(x-2) +(-1)\cdot(y-1) \\
+&= -2+6x-y\,.
+\end{align*}
+
+\item
+We have
+\begin{align*}
+f_x(x,y) &= \frac{1}{x} &
+f_y(x,y) &= \frac{-1}{y-1}\,,
+\end{align*}
+and so $f(e, 2) = 1$, $f_x(e, 2) = \frac 1e$ and $f_y(e,2) = -1$. The tangent plane is given by
+\begin{align*}
+l(x,y) &= 1 +\frac 1e\cdot(x-e) +(-1)\cdot(y-2) \\
+&= 2+\frac 1e x -y\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+A function $f$ is given along with a local linear approximation $\ell$ to $f$ at a point $P$. Use the information given to determine the point $P$.
+\begin{tasks}(2)
+\task
+$f(x,y) = x^2 + y^2$; $\ell(x,y) = 2y-2x-2$
+\task
+$f(x,y) = x^2y$; $\ell(x,y) = 4y-3x+8$
+\task
+$f(x,y,z) = xy + z^2$; $\ell(x,y,z) = y+2z-1$
+\task
+$f(x,y,z) = xyz$; $\ell(x,y,z) = x-y-z-2$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+We know that the linear approximation has the formula
+\[
+l(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\,.
+\]
+This means that the coefficients in front of $x$ and $y$ are the partial derivatives of $f$ evaluated at the point $P$.
+
+\begin{enumerate}
+\item
+We have
+\begin{align*}
+f_x(x,y) &= 2x &
+f_y(x,y) &= 2y\,,
+\end{align*}
+and therefore at the point $P=(a,b)$ we must have
+\begin{align*}
+2a &= -2 &
+2b &= -2\,.
+\end{align*}
+Hence $P = (-1,1)$ is the only possible solution. Note that we also need to check, that the constant term in the linear approximation is correct, by computing the linear approximation of $f$ at the computed point $P$.
+\[
+\ell(x,y) = 2y-2x-2\,.
+\]
+
+\item
+We have
+\begin{align*}
+f_x(x,y) &= 2xy &
+f_y(x,y) &= x^2\,,
+\end{align*}
+and therefore at the point $P=(a,b)$ we must have
+\begin{align*}
+2ab &= -3 &
+a^2 &= 4\,.
+\end{align*}
+The second equation has two solutions $a = \pm 2$ and hence we obtain two candidates $P_1=\left(2,-\frac 34\right)$ and $P_2=\left(-2,\frac 34 \right)$. However the linear approximations at these points are
+\begin{align*}
+\text{At }P_1\,:\, \ell(x,y) &= 6 - 3x + 4y \\
+\text{At }P_2\,:\, \ell(x,y) &= -6 - 3x + 4y\,.
+\end{align*}
+Hence the given linear function cannot be the linear approximation of $f$.
+
+\item
+We have
+\begin{align*}
+f_x(x,y,z) &= y &
+f_y(x,y,z) &= x &
+f_z(x,y,z) &= 2z\,,
+\end{align*}
+and therefore at the point $P=(a,b)$ we must have
+\begin{align*}
+b &= 0 &
+a &= 1 &
+2z &= 2\,.
+\end{align*}
+Hence $P=(1,0,1)$ is the only possible solution and indeed the linear approximation of $f$ at $P$ is
+\[
+\ell(x,y,z) = y+2z-1\,.
+\]
+
+\item
+We have
+\begin{align*}
+f_x(x,y,z) &= yz &
+f_y(x,y,z) &= xz &
+f_z(x,y,z) &= xy \,,
+\end{align*}
+and therefore at the point $P=(a,b,c)$ we must have
+\begin{align*}
+bc &= 1 &
+ac &= -1 &
+ab &= -1\,.
+\end{align*}
+The first equation gives us $b = \frac 1c$ and the second one $a = -\frac 1c$. Hence the third equation becomes $c^2 = 1$, giving us the two solutions $P_1=(1,-1,-1)$ and $P_2=(-1,1,1)$. The linear approximations of $f$ at these points are
+\begin{align*}
+\text{At }P_1\,:\, \ell(x,y,z) &= -2 +x-y-z  \\
+\text{At }P_2\,:\, \ell(x,y,z) &= 2 +x-y-z \,.
+\end{align*}
+Therefore $P_1$ is the only solution.
+\end{enumerate}
+\end{solution}
+
+
+\begin{question}
+Find the linear approximation of the function
+\[
+f(x,y,z) = \sqrt{x^2 + y^2 + 2z^2}
+\]
+at the point $(9, 1, 3)$ and use it to find an approximate value for 
+$\sqrt{9.03^2 + 0.95^2 + 2\cdot 3.02^2}$.
+\end{question}
+
+\begin{solution}
+The partial derivatives of $f(x,y,z)$ are
+\begin{align*}
+\frac{\p f}{\p x} &= \frac{x}{x^2 + y^2 + 2z^2} &
+\frac{\p f}{\p y} &= \frac{y}{x^2 + y^2 + 2z^2} &
+\frac{\p f}{\p z} &= \frac{2z}{x^2 + y^2 + 2z^2}\,,
+\end{align*}
+and evaluated at $(9,1,3)$ we obtain
+\begin{align*}
+\frac{\p f}{\p x}(9,1,3) &= \frac{9}{10} &
+\frac{\p f}{\p y}(9,1,3) &= \frac{1}{10} &
+\frac{\p f}{\p z}(9,1,3) &= \frac{3}{5}\,,
+\end{align*}
+The linear approximation of a function $f$ at a point $(a,b,c)$ is the linear function
+\[
+\ell(x,y,z) = f(a,b,c) + f_x(a,b,c)(x-a) + f_y(a,b,c)(x-a) + f_z(a,b,c)(z-a)\,.
+\]
+In this example we have
+\[
+\ell(x,y,z) = 10 + \frac 9{10}(x-9) + \frac 1{10}(y-1) + \frac 35 (z-3)\,.
+\]
+Approximating $\sqrt{9.03^2 + 0.95^2 + 2\cdot 3.02^2}$ we obtain
+\begin{align*}
+\sqrt{9.03^2 + 0.95^2 + 2\cdot 3.02^2} &\approx
+\ell(9.03, 0.95, 3.02) \\
+&= 10 + \frac{9}{10} \cdot 0.03 + \frac{1}{10} \cdot (-0.05) + \frac {6}{10} \cdot 0.02 \\
+&= 10.034\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 17, 18; MW, III.15.2}}
+Find an appropriate value for each of the quantities using the linear approximation
+\begin{tasks}(2)
+\task
+$(1.01)^2 \left( 1 - \displaystyle\sqrt{1.98} \right)$ \\
+{\itshape Hint:} $1.96 = (1.4)^2$
+\task
+$\tan \left(\displaystyle\frac{\pi + 0.01}{3.97}\right)$
+\end{tasks}
+\end{question}
+
+\begin{solution} In these problems it is important to identify the correct function and the right point, where to approximate the function.
+\begin{enumerate}
+\item
+We use the linear approximation to the function
+\[
+f(x,y) = x^2 \left( 1- \sqrt{y}\right)
+\]
+at the point $(x_0,y_0) = (1, 1.96)$. The value we are interested in is 
+\[
+(1.01)^2 \left( 1 - \displaystyle\sqrt{1.98} \right) = f(1.01, 1.98).
+\]
+We chose the function in such a way, that it is easy to evaluate $f$ at the nearby point $(1,1.96)$: because $1.96=(1.4)^2$, it follows that $f(1,1.96) = 1-1.4 = -0.4$.
+To compute the linear approximation we need the partial derivatives
+\begin{align*}
+f_x(x,y) &= 2x \left(1 - \sqrt y\right) &
+f_y(x,y) &= -\frac 12 \frac{x^2}{\sqrt y}\,,
+\end{align*}
+and we need to evaluate them at the point $(1, 1.96)$,
+\begin{align*}
+f(1,1.96)&= -0.4 &
+f_x(1,1.96) &= -0.8 &
+f_y(1,1.96) &= -\frac 5{14}\,.
+\end{align*}
+Hence the linear approximation is given by
+\[
+l(x,y) = -0.4 -0.8 (x - 1) - \frac 5{14}(y-1.96)\,.
+\]
+Using the linear approximation we obtain
+\begin{align*}
+(1.01)^2 \left( 1 - \displaystyle\sqrt{1.98} \right) &\approx l(1.01, 1.98) \\
+&= -0.4 - 0.8 \cdot 0.01 - \frac 5{14} \cdot 0.02 \\
+&= -0.408 - \frac 1{140} = -0.41514\dots\,.
+\end{align*}
+We can compare this to the exact result $-0.41538\dots$.
+
+\item
+We use the linear approximation to the function
+\[
+f(x,y) = \tan \left( \frac {x}{y} \right)
+\]
+at the point $(x_0,y_0) = (\pi, 4)$. The value we are interested in is 
+\[
+\tan \left(\displaystyle\frac{\pi + 0.01}{3.97}\right) = f(\pi+0.01, 3.97)\,.
+\]
+Again, $f$ was chosen such that $f(\pi, 4)$ as well as the partial derivatives are easy to evaluate. To compute the linear approximation we need the partial derivatives
+\begin{align*}
+f_x(x,y) &= \left(1 + \tan^2\frac{x}{y}\right) \cdot \frac{1}{y} &
+f_y(x,y) &= \left(1 + \tan^2\frac{x}{y}\right) \cdot \frac{-x}{y^2} \,,
+\end{align*}
+and we need to evaluate them at the point $(\pi, 4)$,
+\begin{align*}
+f(\pi, 4)&= \tan \frac \pi 4 = 1 &
+f_x(\pi, 4) &=  \frac 14 &
+f_y(\pi, 4) &= -\frac \pi{16}\,.
+\end{align*}
+Hence the linear approximation is given by
+\[
+l(x,y) = 1 + \frac 14 (x - \pi) - \frac \pi{16}(y-4)\,.
+\]
+Using the linear approximation we obtain
+\begin{align*}
+\tan \left(\displaystyle\frac{\pi + 0.01}{3.97}\right) &\approx l(\pi+0.01, 3.97)\\
+&= 1+\frac 14 \cdot 0.01 - \frac \pi{16} \cdot (-0.03) \\
+&= 1.0025 + \frac{3\pi}{1600} = 1.0084\dots\,.
+\end{align*}
+We can compare this to the exact result $1.01705\dots$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+In the accompanying figure a rectangle with initial length $x_0$ and initial width $y_0$ has been enlarged, resulting in a rectangle with length $x_0 + \De x$ and width $y_0 + \De y$. What portion of the figure represents the increase in the area of the rectangle? What portion of the figure represents an approximation of the increase in area by the linear approximation?
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\def\w{4}
+\def\h{2.5}
+\def\s{1.3}
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (\w,0);
+\coordinate (C) at (\w,\h);
+\coordinate (D) at (0,\h);
+\coordinate (E) at ({\w*\s},0);
+\coordinate (F) at ({\w*\s},\h);
+\coordinate (G) at ({\w*\s},{\h*\s});
+\coordinate (H) at (\w,{\h*\s});
+\coordinate (K) at (0,{\h*\s});
+
+% Location of points
+% K    H   G
+% D    C   F
+% A    B   E
+
+% The rectangle
+\draw[-] (A) -| (G) -| cycle;
+\draw[dashed] (B) -- (H);
+\draw[dashed] (D) -- (F);
+
+% Line labels, horizontal
+\def\offy{-8pt}
+\draw[<->] ([shift={(0pt,\offy)}]A)  
+  -- node[fill=white,inner sep=1.8pt]{$x_0$} 
+  ([shift={(0pt,\offy)}]B);
+\draw[<->] ([shift={(0pt,{2.2*\offy})}]A)  
+  -- node[fill=white,inner sep=1.8pt]{$x_0+\De x$} 
+  ([shift={(0pt,{2.2*\offy})}]E);
+\draw[-] ([shift={(0pt,{0.5*\offy})}]A) -- ([shift={(0pt,{1.5*\offy})}]A);
+\draw[-] ([shift={(0pt,{0.5*\offy})}]B) -- ([shift={(0pt,{1.5*\offy})}]B);
+\draw[-] ([shift={(0pt,{1.7*\offy})}]A) -- ([shift={(0pt,{2.7*\offy})}]A);
+\draw[-] ([shift={(0pt,{1.7*\offy})}]E) -- ([shift={(0pt,{2.7*\offy})}]E);
+
+% Line labels, vertical
+\def\offx{-8pt}
+\draw[<->] ([shift={(\offx, 0)}]A)  
+  -- node[fill=white,inner sep=1.8pt]{$y_0$} 
+  ([shift={(\offx,0)}]D);
+\draw[<->] ([shift={({4*\offx}, 0)}]A)  
+  -- node[fill=white,inner sep=1.8pt]{$y_0+\De y$} 
+  ([shift={({4*\offx},0)}]K);
+
+\draw[-] ([shift={({0.5*\offx},0pt)}]A) -- ([shift={({1.5*\offx},0pt)}]A);
+\draw[-] ([shift={({0.5*\offx},0pt)}]D) -- ([shift={({1.5*\offx},0pt)}]D);
+\draw[-] ([shift={({3.5*\offx},0pt)}]A) -- ([shift={({4.5*\offx},0pt)}]A);
+\draw[-] ([shift={({3.5*\offx},0pt)}]K) -- ([shift={({4.5*\offx},0pt)}]K);
+\end{tikzpicture}
+\end{center}
+\end{question}
+
+\begin{solution}
+The area function is $f(x,y) = xy$. The area of the new rectangle is
+\[
+f(x_0 + \De x, y_0 + \De y) =  x_0y_0 + y_0 \De x + x_0 \De y + \De x \De y\,,
+\]
+and thus the increase in the area is $y_0 \De x + x_0 \De + \De x \De y$. 
+
+The linear approximation to $f$ at the point $(x_0, y_0)$ is
+\[
+\ell(x,y) = x_0 y_0 + y_0 (x - x_0) + x_0 (y-y_0)\,.
+\]
+Therefore the approximation of the area using the linear approximation is
+\[
+\ell(x_0+ \De x, y_0 + \De y) = x_0 y_0 + y_0 \De x + x_0 \De\,,
+\]
+and the approximation of the increase is $y_0 \De x + x_0 \De$.
+
+\begin{center}
+\begin{tabu} to \linewidth {X[1,c] X[1,c]}
+\begin{tikzpicture}[scale=1]
+\def\w{4}
+\def\h{2.5}
+\def\s{1.3}
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (\w,0);
+\coordinate (C) at (\w,\h);
+\coordinate (D) at (0,\h);
+\coordinate (E) at ({\w*\s},0);
+\coordinate (F) at ({\w*\s},\h);
+\coordinate (G) at ({\w*\s},{\h*\s});
+\coordinate (H) at (\w,{\h*\s});
+\coordinate (K) at (0,{\h*\s});
+
+% Location of points
+% K    H   G
+% D    C   F
+% A    B   E
+
+% The rectangle
+\draw[-] (A) -| (G) -| cycle;
+\draw[dashed] (B) -- (H);
+\draw[dashed] (D) -- (F);
+\fill[pattern color=blue!30, pattern=north east lines] (D) -| (H) -| cycle;
+\fill[pattern color=blue!30, pattern=north east lines] (B) -| (F) -| cycle;
+\fill[pattern color=blue!30, pattern=north east lines] (C) -| (G) -| cycle;
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=1]
+\def\w{4}
+\def\h{2.5}
+\def\s{1.3}
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (\w,0);
+\coordinate (C) at (\w,\h);
+\coordinate (D) at (0,\h);
+\coordinate (E) at ({\w*\s},0);
+\coordinate (F) at ({\w*\s},\h);
+\coordinate (G) at ({\w*\s},{\h*\s});
+\coordinate (H) at (\w,{\h*\s});
+\coordinate (K) at (0,{\h*\s});
+
+% Location of points
+% K    H   G
+% D    C   F
+% A    B   E
+
+% The rectangle
+\draw[-] (A) -| (G) -| cycle;
+\draw[dashed] (B) -- (H);
+\draw[dashed] (D) -- (F);
+\fill[pattern color=blue!30, pattern=north east lines] (D) -| (H) -| cycle;
+\fill[pattern color=blue!30, pattern=north east lines] (B) -| (F) -| cycle;
+\end{tikzpicture} \\
+Increase in area &
+Increase in area using the linear approximation
+\end{tabu}
+\end{center}
+\end{solution}
+
+\begin{question}
+The volume of a right circular cone of radius $r$ and height $h$ is given by $V=\frac 13 \pi r^2 h$. Suppose that the height decreases from $20\six{\cm}$ to $19.95\six{\cm}$ and the radius increases from $4\six{\cm}$ to $4.05\six{cm}$. Compare the change in volume of the cone with the estimate given by the linear approximation.
+\end{question}
+
+\begin{solution}
+Write $V(r,h)$ for the volume of the cone to emphasize that it is a function of both radius $r$ and height $h$. The volume of the old cone is $V(20, 4) = 1675.52\six{cm^3}$ and the volume of the new cone is $V(19.95, 4.05) = 1687.99\six{cm^3}$. The change of volume is thus
+\[
+V(19.95, 4.05) - V(20,4) = 12.47\,.
+\]
+The partial derivatives of $V$ are
+\begin{align*}
+V_r(r,h) &= \frac 23 \pi r h &
+V_h(r,h) &= \frac 13 \pi r^2\,,
+\end{align*}
+and $V_r(20,4) = 167.55$, $V_h(20,4) = 418.88$. The linear approximation of $V$ at $(20,4)$ is
+\begin{align*}
+\ell(r,h) &= V(20,4) + V_r(20,4)(r-20) + V_h(20,4)(h-4)\,.
+\end{align*}
+Therefore the approximate volume of the new cone is
+\[
+\ell(19.95, 4.05) = 1675.52 - 167.55 \cdot 0.05 + 418.88 \cdot 0.05 = 1688.09\,.
+\]
+The approximate change of volume is thus
+\[
+\ell(19.95, 4.05) - V(20,4) = 12.57\,.
+\]
+\end{solution}
+
+
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

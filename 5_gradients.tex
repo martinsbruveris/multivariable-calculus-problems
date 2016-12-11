@@ -1,0 +1,778 @@
+\begin{question}
+True or false: a partial derivative is a specific example of a directional derivative.
+\end{question}
+
+\begin{solution}
+True.
+
+For example, the partial derivative $f_x(a,b)$ at a point $(a,b)$ equals the directional derivative in the direction $\vec i$, since $f_x(a,b) = \nabla f(a,b) \cdot \vec i$.
+\end{solution}
+
+\begin{question}
+True or false: if $f(x,y)$ is a function such that $f_x(1,-3) < 0$ and $f_y(1,-3) < 0$, then all directional derivatives are negative as well.
+\end{question}
+
+\begin{solution}
+False.
+
+For example the directional derivative in the direction $-\mathbf i$ is positive, since 
+\[ \nabla f(1,-3) \cdot (-\mathbf i) = -f_x(1,-3) > 0\,.\]
+\end{solution}
+
+\begin{question}
+Compute the gradients of the following functions
+\begin{tasks}(2)
+\task
+$f(x,y) = x - y$
+\task
+$f(x,y) = \ln \left(x^2 + y^2\right)$
+\task
+$f(x,y) = \sqrt{2x + 3y}$
+\task
+$f(x,y) = xy^2$
+\task
+$f(x,y,z) = \left(x^2 + y^2 + z^2\right)^{-1/2} + \ln(xyz)$
+\task
+$f(x,y,z) = e^{x+y}\cos y$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The gradients are as follows:
+\begin{tasks}(2)
+\task
+$\nabla f(x,y) = \vec i - \vec j$
+\task
+$\nabla f(x,y) = \frac{2x}{x^2 + y^2} \vec i + \frac{2y}{x^2 + y^2} \vec j$
+\task
+$\nabla f(x,y) = \frac{1}{\sqrt{2x+3y}} \left(\vec i + \frac 32 \vec j\right)$
+\task
+$\nabla f(x,y) = y^2 \vec i + 2xy \vec j$
+\task*
+$\nabla f(x,y,z) = \frac{-1}{\left(x^2+y^2+z^2\right)^{3/2}} \left( x\vec i + y\vec j + z\vec k\right) + \frac{1}{x} \vec i + \frac{1}{y} \vec j + \frac{1}{z} \vec k$
+\task*
+$\nabla f(x,y,z) = e^{x+y}\cos y \,\vec i + e^{x+y}\left(\cos y - \sin y\right) \vec j$
+
+Note that the gradient has no $\vec k$-component, because the function does not depend on $z$.
+\end{tasks}
+\end{solution}
+
+\begin{question}
+Sketch the gradient vector field of 
+\begin{tasks}(2)
+\task
+$f(x,y) = \frac{x^2}{8} - \frac{y^2}{12}$
+\task
+$f(x,y) = \frac{x^2}{8} + \frac{y^2}{12} + 6$
+\end{tasks}
+\end{question}
+
+\begin{solution}
+The gradients are
+\begin{tasks}(2)
+\task
+$\nabla f(x,y) = \frac{x}4 \vec i - \frac y6 \vec j$
+\task
+$\nabla f(x,y) = \frac{x}4 \vec i + \frac y6 \vec j$
+\end{tasks}
+and the gradient vector fields are sketched below.
+
+\begin{center}
+\begin{tabu} to \linewidth {X[1,c] X[1,c]}
+\begin{tikzpicture}[scale=0.46875, baseline=(X.base)]
+  \def\scale{0.46875}
+  \node at (0,-4) (X) {};
+
+  \drawaxes{-4}{-4}{4}{4}
+
+  \foreach \x in {-3,-2.5,...,3} {
+    \foreach \y in {-4,-3.5,...,4} {
+      \draw[vector field, shift={(\x,\y)}] (0,0) -- ({\x/4},{-\y/6});
+    }
+  }
+
+  \drawxlabels{-4/-4, -2/-2, 2/2, 4/4}
+  \drawylabels{-4/-4, -2/-2, 2/2, 4/4}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.46875, baseline=(X.base)]
+  \def\scale{0.46875}
+  \node at (0,-4) (X) {};
+
+  \drawaxes{-4}{-4}{4}{4}
+
+  \foreach \x in {-3,-2.5,...,3} {
+    \foreach \y in {-3.5,-3,...,3.5} {
+      \draw[vector field, shift={(\x,\y)}] (0,0) -- ({\x/4},{\y/6});
+    }
+  }
+
+  \drawxlabels{-4/-4, -2/-2, 2/2, 4/4}
+  \drawylabels{-4/-4, -2/-2, 2/2, 4/4}
+\end{tikzpicture} \\
+(a) & (b)
+\end{tabu}
+\end{center}
+\end{solution}
+
+\begin{question}
+Sketch the vector field
+\[
+\vec\Ph(x,y) = \frac 14 \vec {i} + \frac{1}{9 + x^2+y^2} \vec j
+\]
+and explain why $\vec\Ph$ is or is not a gradient vector field of a function.
+\end{question}
+
+\begin{solution}
+The vector field $\vec\Ph$ is not a gradient field. If it were a gradient field, there would exist a function $f(x,y)$ satisfying
+\[
+f_x(x,y) = \frac 14 \text{ and }
+f_y(x,y) = \frac{1}{9+x^2+y^2}\,.
+\]
+For the mixed partial derivatives we would have $f_{xy} = 0$, but $f_{yx} \neq 0$ and hence such a function cannot exist. A sketch of the vector field can be found below.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.46875, baseline=(X.base)]
+  \def\scale{0.46875}
+  \node at (0,-4) (X) {};
+
+  \drawaxes{-4}{-4}{4}{4}
+
+  \def\factor{5}
+  \foreach \x in {-4,-3.5,...,3.5} {
+    \foreach \y in {-4,-3.5,...,3.5} {
+      \draw[vector field, shift={(\x,\y)}] (0,0) --
+        ({\factor*0.1},{\factor/(9+\x*\x+\y*\y)});
+    }
+  }
+
+  \drawxlabels{-4/-4, -2/-2, 2/2, 4/4}
+  \drawylabels{-4/-4, -2/-2, 2/2, 4/4}
+\end{tikzpicture}
+\end{center}
+
+% \begin{figure}[h]
+% \begin{center}
+% \includegraphics[width=.4\textwidth]{figures/problems4_2.eps}
+% \hspace{0.05\textwidth}
+% \includegraphics[width=.4\textwidth]{figures/problems4_3.eps}
+% \end{center}
+% \caption{Graphs of the vector fields in Problem 2 and Problem 3.}
+% \end{figure}
+\end{solution}
+
+\begin{question}
+For a point $(x,y,z)$ we define the position vector
+\[
+\vec r = x\vec i + y\vec j + z \vec k
+\]
+and its length
+\[
+r = \| \vec r \| = \sqrt{x^2 + y^2+z^2}\,.
+\]
+\begin{tasks}(2)
+\task
+Show that $\nabla\left(\frac 1 {r^2}\right) = -\frac{2}{r^4} \vec r$ (for $r\neq 0$).
+\task
+Find $\nabla\left( \frac 1{r^3} \right)$ (for $r\neq 0$).
+\end{tasks}
+\end{question}
+
+\begin{solution}
+We will solve (a) and (b) at once by finding a formula for the gradient $\nabla \left( \frac{1}{r^\al}\right)$ for any $\al \neq 0$. First we compute the partial derivative
+\[
+\frac{\p}{\p x} \frac{1}{r^\al} = \frac{\p}{\p x} \left(x^2 + y^2 + z^2\right)^{-\al/2}
+= -\frac{\al}2 \left(x^2 + y^2 + z^2 \right)^{-\al/2 - 1} \cdot 2x
+= \frac{-\al x}{\left(x^2 + y^2 + z^2 \right)^{\al/2+1}} = -\al \frac{x}{r^{\al+2}}\,.
+\]
+Since the function $ \frac{1}{r^\al} = \left(x^2 + y^2 + z^2\right)^{-\al/2}$ is symmetric in the variables $x$, $y$ and $z$, we don't need to repeat the calculation for the other derivatives,
+\begin{align*}
+\frac{\p}{\p x} \frac{1}{r^\al} &= -\al \frac{x}{r^{\al+2}} &
+\frac{\p}{\p y} \frac{1}{r^\al} &= -\al \frac{y}{r^{\al+2}} &
+\frac{\p}{\p z} \frac{1}{r^\al} &= -\al \frac{z}{r^{\al+2}}\,.
+\end{align*}
+Therefore the gradient is
+\[
+\nabla \left(\frac{1}{r^\al}\right)
+= -\al \frac{x}{r^{\al+2}} \vec i -\al \frac{y}{r^{\al+2}} \vec j 
+-\al \frac{z}{r^{\al+2}} \vec k
+= -\al \frac{1}{r^{\al+2}} \left(x \vec i + y \vec j + z \vec k \right)
+= -\frac{\al}{r^{\al+2}} \vec r\,.
+\]
+Now for the specific cases.
+\begin{enumerate}
+\item
+We set $\al =2$ and obtain
+\[
+\nabla \left( \frac{1}{r^2}\right)
+= - \frac{2}{r^{4}} \vec r\,.
+\]
+\item
+We set $\al =3$ and obtain
+\[
+\nabla \left( \frac{1}{r^3}\right)
+= - \frac{3}{r^{5}} \vec r\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Compute the directional derivatives at the given points in the given directions.
+\begin{enumerate}
+\item
+$f(x,y,z) = x^2 - 2xy + 3z^2$;
+$(x_0,y_0,z_0) = (1,1,2)$;
+$\vec d = \frac 1{\sqrt{3}} 
+\left(\vec i + \vec j - \vec k \right)$.
+\item
+$f(x,y,z) = \sin\left(xyz\right)$;
+$(x_0,y_0,z_0) = \left(1, 1, \frac \pi 4 \right)$;
+$\vec d = \left(\frac{\sqrt 2}2, 0, -\frac{\sqrt 2}2\right)$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The gradient of $f$ is
+\[
+\nabla f(x,y,z) = (2x-2y) \vec i - 2x \vec j + 6z \vec k\,.
+\]
+Therefore the directional derivative is
+\begin{align*}
+\nabla f(1,1,2) \cdot \vec d &= \left( - 2 \vec j + 12 \vec k \right) \cdot
+\frac 1{\sqrt{3}} \left(\vec i + \vec j - \vec k \right) \\
+&= \frac 1{\sqrt 3} \left( -2 -12 \right) = -\frac{14}{\sqrt 3}\,.
+\end{align*}
+
+\item
+The gradient of $f$ is
+\[
+\nabla f(x,y,z) = \cos(xyz) \left( yz \vec i + xz \vec j + xy \vec k \right)\,.
+\]
+Therefore the directional derivative is
+\begin{align*}
+\nabla f\left(1, 1, \frac \pi 4 \right) 
+&= \frac{\sqrt 2}2 \left(\frac \pi 4 \vec i + \frac \pi 4 \vec j + \vec k \right)
+\cdot \frac{\sqrt 2}2 \left(\vec i - \vec k \right) \\
+&= \frac 12 \left( \frac \pi 4 - 1 \right) = \frac \pi 8 - \frac 12\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Let 
+$f(x,y) = \frac{x-y}{x+y}$ and 
+$(x_0,y_0) = \left(-\frac 12, \frac 32\right)$. 
+Find the directions $\vec u$ and the values of $\nabla f(x_0,y_0) \cdot \vec u$ for which
+\begin{tasks}(3)
+\task
+$\nabla f(x_0,y_0) \cdot \vec u$ is largest
+\task
+$\nabla f(x_0,y_0) \cdot \vec u$ is smallest
+\task
+$\nabla f(x_0,y_0) \cdot \vec u = 0$
+\task
+$\nabla f(x_0,y_0) \cdot \vec u = -2$
+\task
+$\nabla f(x_0,y_0) \cdot \vec u = 1$
+\task
+$\nabla f(x_0,y_0) \cdot \vec u = -1$
+\end{tasks}
+Note that direction vectors have unit length.
+\end{question}
+
+\begin{solution}
+We have
+\[
+\nabla f(x,y) = \frac{2y}{(x+y)^2}\vec i + \frac{-2x}{(x+y)^2} \vec j\,,
+\qquad
+\nabla f\left( -\frac 12, \frac 32\right) = 3 \vec i + \vec j\,.
+\]
+
+\begin{enumerate}
+\item
+From the lectures we know that the directional derivative is maximal in the direction of the gradient. Thus
+\[
+\vec u = \frac{1}{\sqrt{10}}\left( 3 \vec i + \vec j \right)\,.
+\]
+Note that we cannot simply set $\vec u = \nabla f\left(-\frac12, \frac 32\right)$, because $\vec u$ has to be a unit vector. Therefore we compute the norm,
+\[ \left\| \nabla f\left( -\frac 12, \frac 32\right) \right\|= \sqrt{3^2 + 1} = \sqrt{10} \]
+and use the normalized gradient as the direction vector.
+\item
+Again, the theory tells us that the directional derivative is minimal in the direction opposite to the gradient. Thus
+\[
+\vec u = -\frac{1}{\sqrt{10}}\left( 3 \vec i + \vec j \right)\,.
+\]
+\item
+The condition $\nabla f(x_0,y_0) \cdot \vec u = 0$ means that $\vec u$ has to be orthogonal to the gradient. In two dimensions it is easy to find these vectors, the two possibilities are
+\[
+\vec u = \frac{1}{\sqrt{10}}\left( \vec i -3 \vec j \right)\text{ and }
+\vec u = -\frac{1}{\sqrt{10}} \left( \vec i -3\vec j \right)\,.
+\]
+\item
+Here we have to do some calculations. Any direction vector $\vec u$ can be written as $\vec u = a\vec i + b\vec j$ with the additional constraint $\| \vec u\|^2 = a^2+b^2 = 1$. Equivalently we can write the constraint as
+\[
+b = \pm \sqrt{1-a^2}\,.
+\]
+The condition $\nabla f(x_0,y_0) \cdot \vec u = -2$ is
+\begin{align*}
+(3\vec i + \vec j) \cdot (a \vec i + b \vec j) &= -2 \\
+3a + b &= -2
+\end{align*}
+and after we substitute for $b$ we get the equation
+\[
+3a \pm \sqrt{1-a^2} = -2\,.
+\]
+This equation can be solved as follows
+\begin{align*}
+3a + 2 &= \mp \sqrt{1-a^2} \\
+9a^2 + 12a + 4 &= 1-a^2 \\
+10a^2 + 12a + 3 &= 0 \\
+a^2 + \frac 65 a + \frac 3{10} &= 0 \\
+a &= -\frac 35 \pm \sqrt{ \frac{9}{25} - \frac{3}{10}} \\
+a &= \frac{1}{10}\left(-6 \pm \sqrt{6}\right)\,.
+\end{align*}
+And we get $b$ from the equation
+\[
+3a + b = -2\,,
+\]
+leading to
+\[
+b = -\frac{1}{10} \left( 2 \pm 3 \sqrt{6}\right)\,.
+\]
+Thus we obtain the two solutions
+\begin{align*}
+\vec u_1 &= \frac{-6 + \sqrt 6}{10} \vec i - \frac{2 + 3\sqrt 6}{10} \vec j &
+\vec u_2 &= \frac{-6 - \sqrt 6}{10} \vec i - \frac{2 - 3\sqrt 6}{10} \vec j
+\end{align*}
+
+\item
+Following the same strategy as before we arrive at the equation
+\begin{align*}
+3a \pm \sqrt{1-a^2} &= 1
+\end{align*}
+Solving it leads to
+\begin{align*}
+3a-1 &= \mp \sqrt{1-a^2} \\
+9a^2 -6a + 1 &= 1 - a^2 \\
+10a^2 - 6a &= 0 \\
+a(5a-3) &= 0\,.
+\end{align*}
+This has two solutions: $a=0$ and $a=\frac 35$. Using the equation
+\[
+3a+b=1\,,
+\]
+we obtain the two direction vectors
+\begin{align*}
+\vec u_1 &= \vec j &
+\vec u_2 &= \frac 35 \vec i -\frac 45 \vec j\,.
+\end{align*}
+
+\item
+To answer this question no new calculations are necessary, merely the observation that multiplying the direction by $-1$, changes the sign in the directional derivative, i.e.,
+\[
+\nabla f(x_0,y_0) \cdot (-\vec u) = - \left( \nabla f(x_0, y_0) \cdot \vec u \right)\,.
+\]
+Therefore the required direction vectors are
+\begin{align*}
+\vec u_1 &= -\vec j &
+\vec u_2 &= -\frac 35 \vec i +\frac 45 \vec j\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+The directional derivative of a function $f(x,y,z)$ at some point is greatest in the direction parallel to $\vec i + \vec j - \vec k$. In this direction, the value of the directional derivative is $2\sqrt{3}$.
+\begin{enumerate}
+\item
+What is $\nabla f$ at this point? Give reasons for your answer.
+\item
+What is the directional derivative of $f$ at the point in the direction $\frac{1}{\sqrt 2}\left(\vec i + \vec j\right)$?
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+This problem asks us to reconstruct a vector given its direction and magnitude. We know that the directional derivative is greatest in the direction of the gradient. The unit vector representing this direction is
+\[
+\vec d = \frac{1}{\sqrt{3}} \left( \vec i + \vec j - \vec k \right)\,.
+\]
+Thus $\vec d$ is the direction of the gradient. Regarding its magnitude, we have the following rule:
+\begin{quote}
+The directional derivative in the direction of the gradient equals its norm.
+\end{quote}
+ In other words, if $\vec d$ points along the gradient, then
+\[
+\nabla f \cdot \vec d = \| \nabla f \|\,.
+\]
+Why is this the case? If $\vec d$ points in the direction of the gradient, then
+\[
+\vec d = \frac{1}{\| \nabla f \|} \nabla f\,,
+\]
+and therefore
+\begin{align*}
+\nabla f \cdot \vec d &= \nabla f \cdot \frac{1}{\| \nabla f \|} \nabla f
+= \frac{1}{\| \nabla f\|} \nabla f \cdot \nabla f
+= \frac{1}{\| \nabla f \|} \| \nabla f \|^2
+= \| \nabla f \|\,.
+\end{align*}
+We know the magnitude of the directional derivative and thus the norm of the gradient,
+\begin{align*}
+\| \nabla f\| &= 2\sqrt{3}\,.
+\end{align*}
+This allows us to reconstruct $\nabla f$ via
+\begin{align*}
+\nabla f &= \| \nabla f \| \vec d
+= \frac{2\sqrt{3}}{\sqrt{3}} \left( \vec i + \vec j - \vec k \right) \\
+&= 2 \left( \vec i + \vec j - \vec k \right)\,.
+\end{align*}
+
+\item
+The unit vector representing the given direction is
+\[
+\vec d = \frac{1}{\sqrt{2}} \left( \vec i + \vec j \right) \,,
+\]
+and the directional derivative is
+\[
+\nabla f \cdot \vec d = 2 \sqrt{2}\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Let $f(x,y)$ be a function. At $(1,0)$ the directional derivative in the direction $\frac{1}{\sqrt 5}\left( \vec i + 2 \vec j \right)$ equals $\frac 32$ and in the direction $\frac{1}{\sqrt 5}\left( -2 \vec i + \vec j \right)$ equals $2$. What is the gradient of $f$ at $(1,0)$?
+\end{question}
+
+\begin{solution}
+We denote the direction vectors by
+\begin{align*}
+\vec d_1 &= \frac{1}{\sqrt 5}\left( \vec i + 2 \vec j \right) &
+\vec d_2 &= \frac{1}{\sqrt 5}\left( -2 \vec i + \vec j \right)\,.
+\end{align*}
+\begin{wrapfigure}{r}{0.35\textwidth}
+\centering
+% Directional derivatives from a point in two directions
+\begin{tikzpicture}[scale=1.875, baseline=(X.base)]
+  \def\scale{1.875}
+  \draw[coordinate grid, step=0.5] (-0.5,0) grid (2,2.5);
+  \node at (0,0) (X) {};
+
+  \drawaxes{-0.5}{0}{2}{2.5}
+
+  \drawxlabels{1/1, 2/2}
+  \drawylabels{1/1, 2/2}
+
+  % Directions
+  \coordinate (or) at (1,0);
+
+  \coordinate (a) at ($(or)+{1/sqrt(5)}*(1,2)$);
+  \coordinate (b) at ($(or)+{1/sqrt(5)}*(-2,1)$);
+  \coordinate (c) at ($(or)+({-sqrt(5)/2},{sqrt(5)})$);
+
+  \draw[color=blue,very thick,->] (or) -- (a);
+  \node[right] at ($(or)!0.5!(a)$) {$\vec {d}_1$};
+
+  \draw[color=blue,very thick,->] (or) -- (b);
+  \node[below] at ($(or)!1!(b)$) {$\vec{d}_2$};
+
+  \draw[ultra thick, ->] (or) -- (c);
+  \node[above right] at ($(or)!0.5!(c)$) {$\nabla f(1,1)$};
+\end{tikzpicture}
+\end{wrapfigure}
+The directional derivatives can now be written as
+\begin{align*}
+\nabla f(1,0) \cdot \vec d_1 &= \frac 32 \\
+\nabla f(1,0) \cdot \vec d_2 &= 2\,.
+\end{align*}
+In coordinates these two equations become
+\begin{align*}
+f_x + 2f_y &= \frac 32 \sqrt{5} \\
+-2f_x + f_y &= 2 \sqrt{5}\,.
+\end{align*}
+To solve the system we add twice the first equation to the second one and subtract twice the second from the first,
+\begin{align*}
+5 f_y &= 5 \sqrt{5} \\
+5 f_x &= -\frac 52 \sqrt{5}\,.
+\end{align*}
+And hence the solution is
+\[
+f_x = -\frac{\sqrt{5}}2 \text{ and } f_y = \sqrt{5}\,.
+\]
+The gradient is
+\[
+\nabla f(1,0) = \frac{\sqrt{5}}{2} \left( -\vec i + 2\vec j \right)\,.
+\]
+\end{solution}
+
+\begin{question}
+Let $f(x,y)$ be a function. At $(1,0)$ the directional derivative of $f$ in the direction towards the point $(2,-2)$ equals $0$ and in the direction towards the point $(-1,1)$ equals $1$. What is gradient of $f$?
+\end{question}
+
+\begin{solution}
+The direction from $(1,0)$ to $(2,-2)$ is
+represented by the unit vector
+\[
+\vec d_1 = \frac 1{\sqrt{5}}\left(\vec i - 2\vec j \right)\,,
+\]
+\begin{wrapfigure}{r}{0.35\textwidth}
+\centering
+% Directional derivatives from a point in two directions
+\begin{tikzpicture}[scale=1.25, baseline=(X.base)]
+  \def\scale{1.25}
+  \draw[coordinate grid, step=.5] (-1,-2) grid (2,1);
+  \node at (-1,-2) (X) {};
+
+  \drawaxes{-1}{-2}{2}{1}
+
+  \drawxlabels{1/1}
+  \drawylabels{1/1}
+
+  % Directions
+  \draw[->] (1,0) -- (2,-2);
+  \draw[->] (1,0) -- (-1,1);
+
+  \coordinate (a) at ($(1,0)+{1/sqrt(5)}*(1,-2)$);
+  \coordinate (b) at ($(1,0)+{1/sqrt(5)}*(-2,1)$);
+  \coordinate (c) at ($(1,0)+{sqrt(5)}*(-0.666,-0.333)$);
+
+  \draw[color=blue,very thick,->] (1,0) -- (a);
+  \node[right] at ($(1,0)!0.5!(a)$) {$\vec {d}_1$};
+
+  \draw[color=blue,very thick,->] (1,0) -- (b);
+  \node[above] at ($(1,0)!0.5!(b)$) {$\vec{d}_2$};
+
+  \draw[ultra thick, ->] (1,0) -- (c);
+  \node[below right] at ($(1,0)!0.9!(c)$) {$\nabla f(1,0)$};
+\end{tikzpicture}
+\end{wrapfigure}
+and the direction from $(1,0)$ to $(-1,1)$ by the unit vector
+\[
+\vec d_2 = \frac 1{\sqrt{5}}\left(-2 \vec i + \vec j\right)\,.
+\]
+The directional derivatives can now be written as
+\begin{align*}
+\nabla f(1,0) \cdot \vec d_1 &= 0 \\
+\nabla f(1,0) \cdot \vec d_2 &= 1.
+\end{align*}
+In coordinates these two equations become
+\begin{align*}
+f_x - 2f_y &= 0 \\
+-2f_x + f_y &= \sqrt{5}\,.
+\end{align*}
+To solve the system we add twice the first equation to the second one and twice the second one to the first one obtaining
+\begin{align*}
+- 3f_y &= \sqrt{5} \\
+-3f_x  &= 2\sqrt{5}\,.
+\end{align*}
+Hence the solution is
+\[
+f_x = -\frac {2\sqrt{5}}{3} \text{ and } f_y = -\frac {\sqrt{5}}{3}\,,
+\]
+giving the gradient
+\[
+\nabla f(1,0) = -\frac{\sqrt{5}}{3} \left( 2\vec i + \vec j\right)\,.
+\]
+\end{solution}
+
+\begin{question}
+Let $f(x,y)$ be a function. At $(1,1)$ the directional derivative in the direction towards the point $(2,4)$ equals $2$ and in the direction towards the point $(2,2)$ equals $3$. Find the directional derivative in the direction towards the point $(2,3)$.
+\end{question}
+
+\begin{solution}
+The direction from $(1,1)$ to $(2,4)$ is represented by the unit vector
+\[
+\vec{d}_1 = \frac 1{\sqrt{10}} \left(\vec i + 3\vec j\right)\,,
+\]
+\begin{wrapfigure}{r}{0.35\textwidth}
+\centering
+% Directional derivatives from a point in two directions
+\begin{tikzpicture}[scale=0.9375, baseline=(X.base)]
+  \def\scale{0.9375}
+  \draw[coordinate grid, step=1] (0,0) grid (4,4);
+  \node at (0,0) (X) {};
+
+  \drawaxes{0}{0}{4}{4}
+
+  \drawxlabels{1/1, 2/2, 3/3, 4/4}
+  \drawylabels{1/1, 2/2, 3/3, 4/4}
+
+  % Directions
+  \coordinate (or) at (1,1);
+
+  \draw[->] (or) -- (2,4);
+  \draw[->] (or) -- (2,2);
+
+  \coordinate (a) at ($(or)+{1/sqrt(10)}*(1,3)$);
+  \coordinate (b) at ($(or)+{1/sqrt(2)}*(1,1)$);
+  \coordinate (c) at ($(or)+({-sqrt(10) + 4.5*sqrt(2)},{sqrt(10)-1.5*sqrt(2)})$);
+
+  \draw[color=blue,very thick,->] (or) -- (a);
+  \node[left] at ($(or)!0.9!(a)$) {$\vec {d}_1$};
+
+  \draw[color=blue,very thick,->] (or) -- (b);
+  \node[above] at ($(or)!0.9!(b)$) {$\vec{d}_2$};
+
+  \draw[ultra thick, ->] (or) -- (c);
+  \node[below right] at ($(or)!0.5!(c)$) {$\nabla f(1,1)$};
+\end{tikzpicture}
+\end{wrapfigure}
+and the direction from $(1,1)$ to $(2,2)$ by the unit vector
+\[
+\vec{d}_2 = \frac 1{\sqrt{2}} \left(\vec i + \vec j\right)\,,
+\]
+The directional derivatives can now be written as
+\begin{align*}
+\nabla f(1,0) \cdot \vec d_1 &= 2 \\
+\nabla f(1,0) \cdot \vec d_2 &= 3.
+\end{align*}
+In coordinates these equations become the following sytem of linear equations
+\begin{align*}
+f_x + 3f_y &= 2\sqrt{10} \\
+f_x + f_y &= 3\sqrt{2}\,,
+\end{align*}
+where we have omitted the argument $(1,1)$ from $f_x$ and $f_y$. The unique solution of this system is
+\begin{align*}
+f_x &= -\sqrt{10} + \frac 92 \sqrt{2} &
+f_y &= \sqrt{10} - \frac 32 \sqrt{2}\,.
+\end{align*}
+Thus 
+\[
+\nabla f(1,1) = \left(-\sqrt{10} + \frac 92 \sqrt{2}\right) \vec i + 
+\left(\sqrt{10} - \frac 32 \sqrt{2}\right) \vec j\,.
+\]
+The direction towards $(2,3)$ is given by the direction vector
+\[
+\vec{d}_3 = \frac 1{\sqrt{5}} \left( \vec i + 2 \vec j\right)\,,
+\]
+and the directional derivative is
+\[
+\nabla f(1,1) \cdot \vec{d}_3 = \sqrt{2} + \frac 3{10} \sqrt{10}\,.
+\]
+\end{solution}
+
+% \begin{question}
+% Let $f(x,y)$ be a function. At $(1,0)$ the directional
+% derivative of $f$ towards the point $(3,-3)$ equals $1$
+% and the directional derivative towards the point $(-2,2)$
+% equals $-4$.
+
+% What is gradient of $f$ at $(1,0)$?
+
+% \hfill[MA2712 Test, January 2015]
+% \end{question}
+
+% \begin{solution}
+% The direction from $(1,0)$ to $(3,-3)$ is
+% represented by the unit vector
+% \[
+% \vec d_1 = \frac 1{\sqrt{13}}\left(2 \vec i - 3\vec j \right)\,,
+% \]
+% and the direction from $(1,0)$ to $(-2,2)$ is represented by the unit vector
+% \[
+% \vec d_2 = \frac 1{\sqrt{13}}\left(-3 \vec i + 2\vec j\right)\,.
+% \]
+% The directional derivatives can now be written as
+% \begin{align*}
+% \nabla f(1,0) \cdot \vec d_1 &= 1 \\
+% \nabla f(1,0) \cdot \vec d_2 &= -4.
+% \end{align*}
+% In coordinates these two equations become
+% \begin{align*}
+% 2f_x - 3f_y &= \sqrt{13} \\
+% -3f_x + 2f_y &= -4\sqrt{13}\,.
+% \end{align*}
+% To solve the system we add and subtract the equations from each other to obtain
+% \begin{align*}
+% -f_x - f_y &= -3\sqrt{13} \\
+% f_x - f_y &= \sqrt{13}
+% \end{align*}
+% From here we get
+% \[
+% -2f_y = -2\sqrt{13}
+% \]
+% and hence the solution is
+% \[
+% f_x = 2\sqrt{13} \text{ and } f_y = \sqrt{13}\,.
+% \]
+% The gradient is
+% \[
+% \nabla f(1,0) = \sqrt{13} \left( 2\vec i + \vec j\right)\,.
+% \]
+% \end{solution}
+
+\begin{question}
+Suppose that a mountain has the shape of an elliptic paraboloid $z = c - ax^2 - by^2$, where $a,b,c$ are positive constants, $x$ and $y$ are the east-west and north-south map coordinates, and $z$ is the altitude above sea level ($x$, $y$ and $z$ are all measured in meters). 
+\begin{enumerate}
+\item
+At the point $(1,1)$, in what direction is the altitude increasing most rapidly? If a marble were released at $(1,1)$, in what direction would it begin to roll?
+\item
+An engineer wishes to build a railroad up the mountain. Straight up the mountain is much too steep for the power of the engines. At the point $(1,1)$, in what directions may the track be laid so that it will be climbing with a 3\% grade---that is, an angle whose tangent is 0.03. (There are two possibilities.) 
+%Make a sketch of the situation indicating the two possible directions for a 3\% grade at $(1,1)$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+Denote by $f(x,y) = c - ax^2 - by^2$ the height of the mountain at the point $(x,y)$. 
+We have
+\[
+\nabla f(x,y) = \begin{pmatrix} -2ax \\ -2by \end{pmatrix}
+\qquad
+\nabla f\left( 1,1 \right) = \begin{pmatrix} -2a \\ -2b \end{pmatrix}\,.
+\]
+
+\begin{enumerate}
+\item
+At the point $(1,1)$ the altitude is increasing most rapidly in the direction of the gradient of $f$, which is
+\[
+\nabla f(x,y) = -2ax \vec i - 2by \vec j\,.
+\]
+The gradient at $(1,1)$ is
+\[
+\nabla f\left( 1,1 \right) = -2a\vec i - 2b \vec j\,.
+\]
+The direction vector has to have unit length and so
+\[
+\vec d = -\frac{1}{\sqrt{a^2+b^2}} \left( a \vec i + b \vec j \right)\,,
+\]
+is the direction of the most rapid increase.
+
+A marble released at this point would roll in the direction of the greatest decrease, which is the direction opposite to $\nabla f$. This direction is described by the vector
+\[
+-\vec d = \frac{1}{\sqrt{a^2+b^2}} \left( a \vec i + b \vec j \right)\,.
+\]
+
+\item
+The tangent of an angle is exactly the slope of the corresponding line and we have seen in the lecture, that the slope is given by the directional derivative. This means that we are looking for a direction $\vec d = \la \vec i + \mu \vec j$, where $\la, \mu$ have to be found, such that $\nabla f(1,1) \cdot \vec d = 0.03$, leading to the equation,
+\[
+-2a\la -2b\mu = 0.03\,.
+\]
+Now we use that $\la^2 + \mu^2 = 1$ (because $\| \vec d \|=1$) to get the equation
+\begin{align*}
+2a\sqrt{1-\mu^2} + 2b\mu &= -0.03 \\
+a\sqrt{1-\mu^2} &= -(b\mu + 0.015) \\
+a^2\left(1-\mu^2\right) &= b^2\mu^2 + 0.03b\mu + 0.015^2 \\
+\left(a^2+ b^2\right)\mu^2 + 0.03b\mu + 0.015^2 - a^2 &= 0\,.
+\end{align*}
+Then we can compute $\la$ from the first equation
+\[
+\la = -\frac{1}{a}\left( b\mu + 0.015\right)\,.
+\]
+The two direction vectors then are
+\[
+\vec d_1 = \frac{1}{a} \begin{pmatrix} -b\mu_1 - 0.015 \\ a\mu_1 \end{pmatrix}
+\text{ and }
+\vec d_2 = \frac{1}{a} \begin{pmatrix} -b\mu_2 - 0.015 \\ a\mu_2 \end{pmatrix}\,,
+\]
+where $\mu_1,\mu_2$ are solutions of the quadratic equation
+\[
+\left(a^2+ b^2\right)\mu^2 + 0.03b\mu + 0.015^2 - a^2 = 0\,.
+\]
+\end{enumerate}
+\end{solution}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "problems"
+%%% End:

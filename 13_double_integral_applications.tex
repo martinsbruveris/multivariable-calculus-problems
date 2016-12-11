@@ -1,0 +1,478 @@
+\begin{question}
+Find the volume under the graph of
+\[
+f(x,y) = xy\sqrt{x^2 -y^2}
+\]
+between the planes $x=1$, $x=2$, $y=0$ and $y=1$.
+\end{question}
+
+\begin{solution}
+The volume $V$ can be computed as the integral
+\begin{align*}
+V
+&= \int_1^2 \int_0^1 xy \sqrt{x^2-y^2} \ud y \ud x
+= \int_0^1 -\frac 13 x \left( x^2-y^2\right)^{3/2} \bigg|_{y=0}^1 \ud x \\
+&= \frac 13 \int_1^2 x^4 - x \left(x^2-1\right)^{3/2} \ud x
+= \frac 1{15} \left( x^5 - \left(x^2-1\right)^{5/2} \right) \bigg|_{x=1}^2
+= 2\,.
+\end{align*}
+Therefore the volume is $2$.
+\end{solution}
+
+\begin{question}
+Find the volume under the graph of
+\[
+f(x,y) = 1+\sin\left( \frac{\pi y}{2}\right) +2x
+\]
+on the domain enclosed by the parallelogram with the vertices $(0,0)$, $(1,2)$, $(2,0)$ and $(3,2)$.
+\end{question}
+
+\begin{solution}
+The domain $D$ enclosed by the parallelogram is of type $2$ domain and can be written as
+\[
+D = \left\{ (x,y) \,:\, 0 \leq y \leq 2\,,\; \frac y2 \leq x \frac y2 + 2 \right\}\,.
+\]
+Thus the volume is given by the integral
+\begin{align*}
+V
+&=\int_0^2 \int_{y/2}^{y/2+2} 1 + \sin \left(\frac{\pi y}2 \right) + 2x \ud x \ud y\,,
+= \int_0^2 2 + 2 \sin \left( \frac{\pi y}{2} \right) + \left( \frac y2 + 2\right)^2 - \frac{y^2}4 \ud y \\
+&= \int_0^2 6 + 2y + 2 \sin \left( \frac{\pi y}2 \right) \ud y
+= 6y + y^2 - \frac 4\pi \cos \left(\frac {\pi y}2 \right) \bigg|_{y=0}^2
+= 16 + \frac 8\pi\,.
+\end{align*}
+Therefore the volume is $16 + \frac 8\pi$.
+\end{solution}
+
+\begin{question}
+Find the volume between the graphs of the functions 
+\[
+f(x,y) = 2x+1
+\qquad\text{and}\qquad
+g(x,y)=-x-3y-5
+\]
+on the region bounded by the $y$-axis and the curve $x=4-y^2$.
+\end{question}
+
+\begin{solution}
+We write region $D$ as a type 1 domain,
+\[
+D = \left\{ (x,y) \,:\, 0 \leq x \leq 4\,,\; -\sqrt{4-x} \leq y \leq \sqrt{4-x} \right\}\,.
+\]
+The volume $V$ is given by the integral
+\begin{align*}
+V &= \iint_D 2x+1 - (-x-3y-5) \ud x \ud y
+= \int_0^4 \int_{-\sqrt{4-x}}^{\sqrt{4-x}} 3x+3y+6 \ud y \ud x \\
+&= \int_0^4 6(x+2) \sqrt{4-x} \ud x
+= -4(x+2) \left(4-x\right)^{3/2}\bigg|_{x=0}^4 + \int_0^4 4 \left(4-x\right)^{3/2} \ud x \\
+&= -64 - \frac 85 \left(4-x\right)^{5/2} \bigg|_{x=0}^4
+= -\frac{64}5\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+Find the average value of the function
+\[
+f(x,y) = x \sin xy\,,
+\]
+over the region $D = [0,\pi] \x [0,\pi]$.
+\end{question}
+
+\begin{solution}
+The region is a rectangle with area
+\[
+\on{area}(D) = \pi^2\,.
+\]
+Next we need to compute the integral
+\begin{align*}
+\int_0^\pi \int_0^\pi x \sin xy \ud y \ud x
+&= \int_0^\pi -\cos xy \bigg|_{y=0}^\pi \ud x
+= \int_0^\pi 1 - \cos \pi x \ud x
+= x - \frac 1\pi \sin \pi x \bigg|_{x=0}^\pi \\
+&= \pi - \frac 1\pi \sin \pi^2\,.
+\end{align*}
+Therefore the average value is $\frac 1\pi - \frac 1{\pi^3} \sin \pi^2$.
+\end{solution}
+
+\begin{question}
+%\SetQuestionProperties{source = {Ex. 13; MW, III.17.3}}
+Find the average value of the function
+\[
+f(x,y) = e^{x+y}
+\]
+on the triangle with vertices at $(0,0)$, $(0,1)$ and $(1,0)$.
+\end{question}
+
+\begin{solution}
+Denote the domain of integration by $D$. We can represent it as
+\[
+D = \left\{ (x,y) \,:\, 0 \leq x \leq 1\,,\; 0 \leq y \leq 1-x \right\}\,.
+\]
+The area of the triangle is
+\[
+\on{area}(D) = \frac 12\,.
+\]
+Next we need to compute the integral
+\begin{align*}
+\int_0^1 \int_0^{1-x} e^{x+y} \ud y \ud x 
+&= \int_0^1 e^{x+y} \bigg|_{y=0}^1 \ud x
+= \int_0^1 e - e^x \ud x
+= ex - e^x \bigg|_{x=0}^1 = e - e + 1 = 1\,.
+\end{align*}
+Hence the average value is $2$.
+\end{solution}
+
+\begin{question}
+Find the average height of the hemispherical surface $z = \sqrt{c^2 - x^2 - y^2}$ above the disk $x^2 + y^2 \leq c^2$, where $c$ is a constant.
+\end{question}
+
+\begin{solution}
+The area of the disk $D$ is
+\[
+\on{area}(D) = c^2 \pi\,.
+\]
+We need to compute the integral, which we do using polar coordinates,
+\begin{align*}
+\iint_D \sqrt{c^2 - x^2 - y^2} \ud x \ud y
+&= \int_0^c \int_0^{2\pi} \sqrt{c^2 - r^2} \cdot r \ud \th \ud r
+= 2\pi \int_0^c \sqrt{c^2 - r^2} \cdot r \ud r \\
+&= -\frac 23 \pi \left(c^2 - r^2\right)^{3/2} \bigg|_{r=0}^c
+= \frac 23 c^3 \pi\,.
+\end{align*}
+Therefore the average value is $\frac 2{3} c$.
+\end{solution}
+
+\begin{question}
+Find the average distance from a point $(x,y)$ in the disk $x^2 + y^2 \leq c^2$ to the origin.
+\end{question}
+
+\begin{solution}
+The distance of a point to the origin is given by the function
+\[
+d(x,y) = \sqrt{x^2 + y^2}\,.
+\]
+Denote the disk by $D$. To compute the average we need to evaluate the integral, for which we use polar coordinates,
+\begin{align*}
+\iint_D \sqrt{x^2 + y^2} \ud x \ud y
+= \int_0^c \int_0^{2\pi} r \cdot r \ud \th \ud r
+= 2\pi \int_0^c r^2 \ud r
+= \frac 23 \pi r^3 \bigg|_{r=0}^c
+= \frac 23 c^3 \pi\,.
+\end{align*}
+Because the area of the disk is $c^2\pi$, the average distance is $\frac 23 c$.
+\end{solution}
+
+\begin{question}
+Find the center of mass of the triangular region cut from the first quadrant by the line $x+y=3$.
+\end{question}
+
+\begin{solution}
+Denote the region by $D$. Its area is
+\[
+\on{area}(D) = \frac {3\cdot 3}{2} = \frac 92\,.
+\]
+Next we calculate the integral
+\begin{align*}
+\iint_D x \ud x \ud y 
+&= \int_0^3 \int_0^{3-x} x \ud y \ud x
+= \int_0^3 x(3-x) \ud x = \frac 32 x^2 - \frac 13 x^3 \bigg|_{x=0}^3
+= \frac 92\,.
+\end{align*}
+Because the region $D$ remains unchanged when we swap $x$ and $y$ coordinates, the other integral has the same value,
+\[
+\iint_D y \ud x \ud y = \frac 92.
+\]
+Therefore the center of mass has the coordinates
+\[
+\bar x = 1
+\quad\text{and}\quad
+\bar y = 1\,.
+\]
+\end{solution}
+
+\begin{question}
+Find the center of mass cut from the first quadrant by the circle $x^2 + y^2 = a^2$.
+\end{question}
+
+\begin{solution}
+Denoting the region by $D$ we find that its area is
+\[
+\on{area} (D) = \frac 14 a^2 \pi\,.
+\]
+Next we calculate the integral
+\begin{align*}
+\iint_D x \ud x \ud y
+&= \int_0^a \int_0^{\sqrt{a^2-x^2}} x \ud y \ud x
+= \int_0^a x \sqrt{a^2-x^2} \ud x
+= -\frac 13 \left(a-x^2\right)^{3/2} \bigg|_{x=0}^a
+= \frac 13 a^3\,.
+\end{align*}
+Because the region $D$ remains unchanged when we swap $x$ and $y$ coordinates, the other integral has the same value,
+\begin{align*}
+\iint_D y \ud x \ud y = \frac 13 a^3\,.
+\end{align*}
+Therefore the center of mass has the coordinates
+\[
+\bar x = \frac {4a}{3\pi}
+\quad\text{and}\quad
+\bar y = \frac {4a}{3\pi}\,.
+\]
+\end{solution}
+
+\begin{question}
+Find the centre of mass of the region between $y=0$, $y=x^2$, where $0 \leq x \leq \frac 12$.
+\end{question}
+
+\begin{solution}
+First we need to find the mass $m$ of the domain. We have
+\begin{align*}
+m = \int_0^{1/2} \int_0^{x^2} 1 \ud y \ud x
+= \int_0^{1/2} x^2 \ud x = \frac 13 x^3 \bigg|_{x=0}^{1/2} = \frac 1{24}\,.
+\end{align*}
+Next we calculate the integral
+\begin{align*}
+\int_0^{1/2} \int_0^{x^2} x \ud y \ud x = \int_0^{1/2} x^3 \ud x = \frac 14 x^4 \bigg|_{x=0}^{1/2} = \frac{1}{64}\,,
+\end{align*}
+as well as
+\begin{align*}
+\int_0^{1/2} \int_0^{x^2} y \ud y \ud x = \int_0^{1/2} \frac 12 x^4 \ud x = \frac 1{10} x^5 \bigg|_{x=0}^{1/2} = \frac{1}{320}\,.
+\end{align*}
+Hence the centre of mass has the coordinates
+\[
+\bar x = 24 \cdot \frac 1{64} = \frac 38
+\quad\text{and}\quad
+\bar y = 24 \cdot \frac 1{320} = \frac 3{40} \,.
+\]
+\end{solution}
+
+\begin{question}
+Find the centre of mass of the region between $y=x^2$ and $y=x$ if the density is $x+1$.
+\end{question}
+
+\begin{solution}
+First we compute the mass $m$ of the domain.
+\begin{align*}
+m &= \int_0^1 \int_{x^2}^x x+1 \ud y \ud x
+= \int_0^1 x \left(x-x^2\right) + \left(x - x^2\right) \ud x
+= \int_0^1 x-x^3 \ud x
+= \frac 12 - \frac 14 = \frac 14\,.
+\end{align*}
+Next we calculate the integral
+\begin{align*}
+\int_0^1 \int_{x^2}^x x\left(x+1\right) \ud y \ud x
+&= \int_0^1 x^2\left(x - x^2 \right) + x \left( x - x^2 \right) \ud x
+= \int_0^1 x^2 - x^4 \ud x
+= \frac 13 - \frac 15 = \frac{2}{15}\,,
+\end{align*}
+as well as
+\begin{align*}
+\int_0^1 \int_{x^2}^x y\left(x + 1 \right) \ud y \ud x
+&= \int_0^1 \frac 12 x\left(x^2 - x^4 \right) + \frac 12 \left(x^2 - x^4\right) \ud x
+= \frac 12 \int_0^1 x^2 + x^3 - x^4 - x^5 \ud x \\
+&= \frac 12 \left( \frac 13 + \frac 14 - \frac 15 - \frac 16\right)
+= \frac {13}{120}\,.
+\end{align*}
+Hence the centre of mass has the coordinates
+\[
+\bar x = \frac{8}{15}
+\quad\text{and}\quad
+\bar y = \frac {13}{30}\,.
+\]
+\end{solution}
+
+\begin{question}
+Calculate the area of that part of the plane
+\[
+3x + 3y + 2z = 6\,,
+\]
+that lies in the first octant.
+\end{question}
+
+\begin{solution}
+The first octant consists of points satisfying $x \geq 0$, $y \geq 0$ and $z \geq 0$. The given surface intersects the coordinate axes in the points $(2,0,0)$, $(0,2,0)$ and $(0,0,3)$. Thus a point in the plane lies in the first octant, if its projection to the $xy$-plane lies inside the triangle with vertices $(0,0)$, $(2,0)$ and $(0,2)$. Denote this triangle by $D$.
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{center}
+\asyinclude{asy/surface_area_plane.asy}
+\end{center}
+\end{wrapfigure}
+
+We consider the function
+\[
+f(x,y) = 3 - \frac 32 x - \frac 32 y\,,
+\]
+whose graph is precisely the given plane. If $A$ is the area we want to calculate, then
+\[
+A = \iint_D \sqrt{1 + f_x(x,y)^2 + f_y(x,y)^2} \ud x \ud y\,.
+\]
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= -\frac 32 & f_y &= -\frac 32\,.
+\end{align*}
+The triangle $D$ can be parametrized as follows,
+\[
+D = \{ (x,y) \,:\, 0 \leq x \leq 2\,, 0 \leq y \leq 2-x \}\,,
+\]
+however we do not need an explicit parametrization, because the integrand is a constant. We have
+\begin{align*}
+A &= \iint_D \sqrt{1 + \frac 94 + \frac 94} \ud x \ud y \\
+&= \iint_D \frac{\sqrt{22}}2 \ud x \ud y \\
+&= \frac{\sqrt{22}}{2} \on{Area}(D) = \frac{\sqrt{22}}2 \cdot 2 = \sqrt{22}\,.
+\end{align*}
+Here $\on{Area}(D)$ was obtained using elementary geometry, although one could also calculate it using double integrals.
+\end{solution}
+
+\begin{question}
+Calculate the area of that part of the plane
+\[
+x + 2y + 2z = 3\,,
+\]
+that lies inside the cylinder $x^2 + y^2 = 1$.
+\end{question}
+
+\begin{solution}
+The given plane is the graph of the function \\
+\begin{minipage}[c]{0.63\linewidth}
+\[
+f(x,y) = \frac 32 -\frac 12 x - y\,.
+\]
+The required area lies above the disk $x^2 + y^2 \leq 1$ in the $xy$-plane. Denote by $D$ this disk. Then the area, $A$, can be calculated via
+\begin{align*}
+A &= \iint_D \sqrt{1 + f_x(x,y)^2 + f_y(x,y)^2} \ud x \ud y\,.
+\end{align*}
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= -\frac 12 & f_y &= -1\,,
+\end{align*}
+\end{minipage}
+\begin{minipage}[c]{0.35\linewidth}
+\begin{center}
+\asyinclude{asy/surface_area_plane_cyl.asy}
+\end{center}
+\end{minipage} \\
+and therefore
+\begin{align*}
+A &= \iint_D \sqrt{1 + \frac 14 + 1} \ud x \ud y \\
+&= \iint_D \frac 32 \ud x \ud y = \frac 32 \pi\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+Find the area of the portion of the paraboloid $\frac 12 z=x^2 + y^2$ below the plane $z=1$.
+\end{question}
+
+\begin{solution}
+The paraboloid is the graph of the function
+\[
+f(x,y) = 2x^2 + 2y^2\,.
+\]
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{center}
+\asyinclude{asy/surface_area_paraboloid.asy}
+\end{center}
+\end{wrapfigure}
+
+The required area lies above the disk $x^2 + y^2 \leq 1$ in the $xy$-plane. Denote this disk by $D$. The area, $A$, can be calculated as
+\begin{align*}
+A &= \iint_D \sqrt{1 + f_x(x,y)^2 + f_y(x,y)^2} \ud x \ud y\,.
+\end{align*}
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= 4x & f_y &= 4y \,,
+\end{align*}
+and therefore
+\begin{align*}
+A &= \iint_D \sqrt{1 + 16 x^2 + 16y^2} \ud x \ud y\,.
+\end{align*}
+We will use polar coordinates to evaluate the integral
+\begin{align*}
+A &= \int_0^1 \int_0^{2\pi} \sqrt{1 + 16 r^2} \cdot r \ud \th \ud r 
+= 2\pi \int_0^1 \sqrt{1 + 16 r^2} \cdot r \ud r \\
+&= \frac 2 \pi \cdot \frac 1{48} \left(1 + 16 r^2\right)^{3/2} \bigg|_{r=0}^{r=1} 
+= \frac \pi{24} \left( 17 \sqrt{17} - 1 \right)\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 23; MW, III.17.3}}
+Find the area of the graph of the function 
+\[
+f(x,y) = \frac 23 \left(x^{3/2} + y^{3/2}\right)\,,
+\]
+that lies over the domain $D=[0,1] \times [0,1]$.
+\end{question}
+
+\begin{solution}
+The area is given by the formula
+\[
+\iint_D \sqrt{1 + f_x(x,y)^2 + f_y(x,y)^2} \ud x \ud y\,.
+\]
+The partial derivatives of $f$ are
+\[
+f_x(x,y) = x^{1/2}\,,\qquad
+f_y(x,y) = y^{1/2}\,.
+\]
+\begin{minipage}[c]{0.63\linewidth}
+Hence the area is
+\begin{align*}
+\int_0^1 \int_0^1 \sqrt{1 + x + y} \ud y \ud x
+&= \frac 23 \int_0^1 \left( 1+x+y\right)^{3/2} \bigg|_{y=0}^1 \ud x \\
+&= \frac 23 \int_0^1 \left(2 + x\right)^{3/2} - \left(1+x\right)^{3/2} \ud x \\
+&= \frac 4{15} \left[ \left(2 + x\right)^{5/2} - \left(1+x\right)^{5/2} \right] \bigg|_{x=0}^1 \\
+&= \frac 4{15} \left( 9\sqrt{3} - 8 \sqrt{2} + 1\right)\,.
+\end{align*}
+\end{minipage}
+\begin{minipage}[c]{0.35\textwidth}
+\begin{center}
+\asyinclude{asy/surface_area_1.asy}
+\end{center}
+\end{minipage}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 26; MW, III.17.3}}
+Find the area of the portion of the cylinder $x^2+z^2=4$ that lies above the rectangle defined by $-1 \leq x \leq 1$, $0\leq y \leq 2$.
+\end{question}
+
+\begin{solution}
+The part of the cylinder above the rectangle $D = [-1,1]\x [0,2]$ can be represented as the graph of the function
+\[
+z = \sqrt{4-x^2}\,.
+\]
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{center}
+\asyinclude{asy/surface_area_2.asy}
+\end{center}
+\end{wrapfigure}
+
+Its surface area is given by the formula
+\[
+\iint_D \sqrt{1 + \left(\frac{\p z}{\p x}\right)^2 + \left(\frac{\p z}{\p y}\right)^2} \ud x \ud y\,.
+\]
+We have
+\[
+\frac{\p z}{\p x} = \frac{-x}{\sqrt{4-x^2}}\,,\qquad
+\frac{\p z}{\p y} = 0\,,
+\]
+and therefore
+\[
+1 + \left(\frac{\p z}{\p x}\right)^2 + \left(\frac{\p z}{\p y}\right)^2 = \frac{4}{4-x^2}\,.
+\]
+Thus we have to compute the integral
+\begin{align*}
+\int_{-1}^1 \int_0^2 \frac{2}{\sqrt{4-x^2}} \ud y \ud x
+&= 4 \int_{-1}^1 \frac{1}{\sqrt{4-x^2}} \ud x = 4 \arcsin \frac x2 \bigg|_{x=-1}^1 \\
+&= 4 \left( \arcsin \frac 12 - \arcsin \left(-\frac 12\right)\right) = 8 \arcsin \frac 12  = \frac 43 \pi\,.
+\end{align*}
+Here we used the formula
+\[
+\int \frac{1}{\sqrt{a^2 - x^2}} \ud x = \arcsin \frac xa + C\,,
+\]
+which can be found on the back cover of the textbook.
+\end{solution}
+
+%%% Local Variables:
+%%% TeX-master: "solutions_sect_13"
+%%% End:

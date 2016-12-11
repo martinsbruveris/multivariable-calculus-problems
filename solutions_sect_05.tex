@@ -1,0 +1,50 @@
+\documentclass[a4paper, 11pt]{article}
+
+%--------------------------------------------------------------------
+%--- Title, author, date
+%--------------------------------------------------------------------
+
+\newcommand{\docauthor}{Martins Bruveris}
+\newcommand{\docdate}{2016 $|$ October $|$ 25}
+\newcommand{\docclass}{MA2712}
+\newcommand{\doctitle}{Problems}
+
+%--------------------------------------------------------------------
+%--- Input custom header
+%--------------------------------------------------------------------
+
+\input{header}
+
+%--------------------------------------------------------------------
+%--- Formatting commands
+%--------------------------------------------------------------------
+
+% Pagebreak after each problem section
+\setboolean{sectionnewpage}{false}
+
+% Print solutions or not
+\SetupExSheets{solution/print=true}
+
+%--------------------------------------------------------------------
+%--- The document
+%--------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firstpage}
+
+\setcounter{section}{4}
+\setcounter{question}{41}
+
+\section{Gradients and Directional Derivatives}
+\input{5_gradients}
+\ifthenelse{\boolean{sectionnewpage}}{\newpage}{}
+% Version: v1
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

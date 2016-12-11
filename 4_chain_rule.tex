@@ -1,0 +1,897 @@
+\begin{question}
+Suppose that a duck is swimming along a curve $x=3+2t$, $y=2-t^2$, while the water temperature is given by the formula $T = e^x(x + y)$. Find 
+$\frac{dT}{dt}$ in two ways:
+\begin{enumerate}
+\item
+by the chain rule and
+\item
+by expressing $T$ in terms of $t$ and differentiating.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+Note that we write $\frac{\p T}{\p x}$ and $\frac{\p T}{\p y}$, because $T(x,y)$ is a function of two variables. After subsituting $T(t)$ is a function of one variable and therefore we write $\frac{dT}{dt}$.
+\begin{enumerate}
+\item
+By the chain rule the temperature of the duck is given by
+\[
+\frac{dT}{dt} = \frac{\p T}{\p x}\frac{dx}{dt} + \frac{\p T}{\p y} \frac{dy}{dt}\,.
+\]
+We have
+\begin{align*}
+\frac{\p T}{\p x} &= e^x(1 + x + y) &
+\frac{\p T}{\p y} &= e^x\,,
+\end{align*}
+and after substitution
+\begin{align*}
+\frac{\p T}{\p x} 
+&= e^{3+2t}\left(6 + 2t - t^2\right) &
+\frac{\p T}{\p y} 
+&= e^{3 + 2t}\,.
+\end{align*}
+The derivatives of $x(t)$ and $y(t)$ are
+\begin{align*}
+\frac{dx}{dt} &= 2 &
+\frac{dy}{dt} &= -2t \,.
+\end{align*}
+Therefore
+\begin{align*}
+\frac{\p T}{\p x}\frac{dx}{dt} + \frac{\p T}{\p y} \frac{dy}{dt}
+&= e^{3+2t}\left(12 + 2t - 2t^2\right)\,,
+\end{align*}
+by the chain rule.
+\item
+If we express $T$ as a function of $t$, we get
+\[
+T(t) = e^{3+2t}\left(5 + 2t - t^2\right)\,,
+\]
+and differentiating it leads to
+\begin{align*}
+\frac{dT}{dt} &= e^{3+2t} \left( 2 \left(5 + 2t - t^2\right) + 2 - 2t \right) \\
+&= e^{3+2t} \left(12 + 2t - 2t^2 \right)\,.
+\end{align*}
+We see that both method lead to the same result.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Suppose that a bird flies along a helical curve $x=2 \cos t$, $y = 2 \sin t$, $z=3t$. The bird suddenly encounters a weather front, so that the barometric pressure is varying rather wildly from point to point as $P(x,y,z) = \frac 3{10}\frac{x^2 z}{y} \,\textrm{atm}$.
+\begin{enumerate}
+\item
+Use the chain rule to determine how the pressure is changing at $t = \frac \pi 4 \,\textrm{min}$.
+\item
+Using the linear approximation, determine the approximate pressure at $t=\frac \pi 4 + 0.01 \,\textrm{min}$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+Note that we can ignore the physical units for most of the calculations, but we will use them to state the answer.
+\begin{enumerate}
+\item
+The partial derivatives of $P(x,y,z)$ are
+\begin{align*}
+\frac{\p P}{\p x} &= \frac 35 \frac{xz}y &
+\frac{\p P}{\p y} &= -\frac 3{10} \frac{x^2z}{y^2} &
+\frac{\p P}{\p z} &= \frac 3{10} \frac{x^2}y\,,
+\end{align*}
+and the derivative of the bird's trajectory is
+\begin{align*}
+\frac{d x}{x t} &= -2 \sin t &
+\frac{d y}{x t} &= 2 \cos t &
+\frac{d z}{x t} &= 3 \,.
+\end{align*}
+The chain rule now gives
+\begin{align*}
+\frac{dP}{dt} &= \frac{9t}5 \frac {\cos t}{\sin t} \cdot (-2) \sin t
+- \frac {9t}{10} \frac{\cos^2 t}{\sin^2 t} \cdot 2 \cos t
++ \frac 35 \frac{\cos^2t}{\sin t} \cdot 3 \\
+&= -\frac{18t}5 \cos t - \frac{9t}{5} \frac{\cos^3 t}{\sin^2 t}
++ \frac 95 \frac{\cos^2t}{\sin t}\,.
+\end{align*}
+Evaluated at $t=\frac \pi 4$ we obtain
+\[
+\frac{dP}{dt}\left(\frac \pi 4\right) = -\frac{9\sqrt{2}}{10}\left(-\frac{3\pi}{4} + 1\right)
+\approx - 1.726\ldots\,.
+\]
+Therefore at $\frac \pi 4 \,\textrm{min}$ the barometric pressure changes at a rate of $-1.726 \,\frac{\textrm{atm}}{\textrm{min}}$.
+
+\item
+First we evaluate
+\[
+P(\left(\frac \pi 4 \right) = \frac{9\pi\sqrt 2}{40} \approx 0.9996\ldots
+\]
+The linear approximation tells us that
+\begin{align*}
+P\left( \frac \pi 4 + 0.01 \right) &\approx P\left(\frac \pi 4 \right) 
++ \frac{dP}{dt}\left(\frac \pi 4 \right) \cdot 0.01 \\
+&\approx 0.9996 - 1.726 \cdot 0.01 \approx 0.9823\,.
+\end{align*}
+\end{enumerate}
+The problem is stated in physical units, so it is natural to enquire, whether the numbers make sense. At $t=\frac \pi 4 \,\textrm{min}$ the barometric pressure is $0.9996 \,\textrm{atm}$, which is average sea-level pressure. How much does pressure change over time? The highest recorded barometric presssure is about $1.08 \,\textrm{atm}$ and the lowest pressures occur during typhoons and are about $0.86 \,\textrm{atm}$. Hence a rate of change of $-1.726 \,\frac{\textrm{atm}}{\textrm{min}}$ would indicate an extremely rapid decrease.
+\end{solution}
+
+\begin{question}
+Use the chain rule to determine an expression for the indicated derivative.
+\begin{enumerate}
+\item
+Let $z=\sqrt{x^2+y^2}+2xy^2$, where $x$ and $y$ are functions of $u$. Find an expression for $\frac{dz}{du}$.
+\item
+Let $u =\sin\left(a + \ln b\right)$, where $a$ and $b$ are functions of $t$. Find an expression for $\frac{du}{dt}$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The chain rule states that
+\[
+\frac{dz}{du} = \frac{\p z}{\p x}\frac{dx}{du}
++ \frac{\p z}{\p y}\frac{dy}{du}\,.
+\]
+The partial derivatives of $z=z(x,y)$ are
+\begin{align*}
+\frac{\p z}{\p x} &=
+\frac{x}{\sqrt{x^2+y^2}} + 2y^2 &
+\frac{\p z}{\p y} &=
+\frac{y}{\sqrt{x^2+y^2}} + 4xy\,.
+\end{align*}
+Hence
+\[
+\frac{dz}{du} = \frac{1}{\sqrt{x^2+y^2}}
+\left( x \frac{dx}{du} + y \frac{dy}{du} \right)
++ 2y^2 \frac{dx}{du} + 4xy \frac{dy}{du}\,.
+\]
+\item
+The chain rule states that
+\[
+\frac{du}{dt} = \frac{\p u}{\p a}\frac{da}{dt}
++ \frac{\p u}{\p b}\frac{db}{dt}\,.
+\]
+The partial derivatives of $u=u(a,b)$ are
+\begin{align*}
+\frac{\p u}{\p a} &=
+\cos(a + \ln b) &
+\frac{\p u}{\p b} &=
+\frac 1b \cos(a + \ln b) \,.
+\end{align*}
+Hence
+\[
+\frac{du}{dt} = \cos(a + \ln b) 
+\left( \frac{da}{dt} + \frac 1b \frac{db}{dt} \right)\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+For the following functions, calculate the derivative $\frac{d}{dt}\left(f \circ \bm{\si} \right)$ using the chain rule.
+\begin{enumerate}
+\item
+$f(x,y) = (x^2+y^2)\ln\left(\sqrt{x^2+y^2}\right)$;
+$\bm\si(t) = (e^t, e^{-t})$.
+\item
+$f(x,y) = xe^{x^2+y^2}$;
+$\bm\si(t) = (t,-t)$.
+\item
+$f(x,y,z) = x+y^2+z^3$;
+$\bm\si(t) = (\cos t, \sin t, t)$.
+\item
+$f(x,y,z) = e^{x-z}(y^2-x^2)$;
+$\bm\si(t) = (t, e^t, t^2)$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+We will write $\bm \si = (\si_1, \si_2)$ for the components of the curve $\bm \si$. Thus if $\bm \si(t) = (e^t, e^{-t})$, then $\si_1(t) = e^t$ and $\si_2(t) = e^{-t}$.
+\begin{enumerate}
+\item
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= x \left( 2 \ln \sqrt{x^2+y^2} +\sqrt{x^2+y^2} \right) &
+f_y &= y \left( 2 \ln \sqrt{x^2+y^2} +\sqrt{x^2+y^2} \right)\,,
+\end{align*}
+and
+\[
+\bm \si'(t) = \left(e^t, -e^{-t}\right)\,.
+\]
+Thus
+\begin{align*}
+\frac{d}{dt}\left(f \circ \bm \si\right) &=
+e^t \left( 2 \ln \sqrt{ e^{2t} + e^{-2t}} + \sqrt{ e^{2t} + e^{-2t}} \right) \cdot e^t \\
+&\qquad{} +
+e^{-t} \left( 2 \ln \sqrt{ e^{2t} + e^{-2t}} + \sqrt{ e^{2t} + e^{-2t}} \right) \cdot \left(-e^{-t}\right) \\
+&= \left(e^{2t}-e^{-2t}\right) \left(2\ln \sqrt{e^{2t}+e^{-2t}} + \sqrt{e^{2t}+e^{-2t}} \right)\,.
+\end{align*}
+
+\item
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= (1 + 2x^2)e^{x^2+y^2} &
+f_y &= 2xy e^{x^2+y^2}\,,
+\end{align*}
+and
+\[
+\bm \si'(t) = (1,-2)\,.
+\]
+Thus
+\begin{align*}
+\frac{d}{dt}\left(f \circ \bm \si\right) &=
+ (1 + 2t^2)e^{2t^2} \cdot 1 - 2t^2 e^{2t^2} \cdot (-1) = \left( 1 + 4t^2 \right) e^{2t^2} \,.
+\end{align*}
+
+\item
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= 1 &
+f_y &= 2y &
+f_z &= 3z^2\,,
+\end{align*}
+and
+\[
+\bm \si'(t) = (-\sin t, \cos t, 1)\,.
+\]
+Thus
+\begin{align*}
+\frac{d}{dt}\left(f \circ \bm \si\right) &=
+ 1 \cdot \left( - \sin t\right) + 2\sin t \cdot \cos t + 3t^2 \cdot 1
+= -\sin t + 2 \sin t \cos t + 3t^2\,.
+\end{align*}
+
+\item
+The partial derivatives of $f$ are
+\begin{align*}
+f_x &= e^{x-z}(y^2-2x-x^2) &
+f_y &= 2ye^{x-z} &
+f_z &= -e^{x-z}(y^2-x^2)\,.
+\end{align*}
+and
+\[
+\bm\si'(t) = (1, e^t, 2t)\,.
+\]
+Thus
+\begin{align*}
+\frac{d}{dt}\left(f \circ \bm \si\right) &=
+ e^{t-t^2}\left(e^{2t}-2t-t^2\right) \cdot 1 + 2e^{t} e^{t-t^2} \cdot e^t
+- e^{t-t^2} \left(e^{2t}-t^2\right) \cdot 2t \\
+&= (3-2t)e^{3t-t^2} - (2t+t^2-2t^3)e^{t-t^2}\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+In this problem we will use the chain rule to rederive results from single-variable calculus.
+\begin{enumerate}
+\item
+Apply the chain rule to the function $u=xyz$, where $x=x(t)$, $y=y(t)$ and $z=z(t)$ are functions of $t$ to get a rule for differentiating a product of three functions of one variable.
+\item
+Use the chain rule and the function $f(y,z) = y^z$ to find $\displaystyle\frac{d}{dx}\left( x^x \right)$.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+The chain rule gives
+\[
+\frac{du}{dt} = \frac{\p u}{\p x}\frac{dx}{dt}
++ \frac{\p u}{\p y}\frac{dy}{dt}
++ \frac{\p u}{\p z}\frac{dz}{dt} \,.
+\]
+The partial derivatives are
+\begin{align*}
+\frac{\p u}{\p x} &= yz &
+\frac{\p u}{\p y} &= xz &
+\frac{\p u}{\p z} &= xy\,,
+\end{align*}
+and hence
+\[
+\frac{du}{dt} = \frac{dx}{dt} yz
++ x \frac{dy}{dt} z
++ xy\frac{dz}{dt} \,,
+\]
+which is the product rule for a product of three factors. A more common form would be
+\[
+(fgh)' = f' gh + fg'h + fgh'\,.
+\]
+\item
+If we consider $y(x)=x$ and $z(x)=x$ as functions of $x$, then
+\[
+x^x = f(x,x)\,,
+\]
+where $f(y,z) = y^z$. Using the chain rule we have
+\[
+\frac{d}{dx}\left( x^x \right) =
+\frac{\p f}{\p y}\frac{dy}{dx} + 
+\frac{\p f}{\p z}\frac{dz}{dx}\,.
+\]
+To compute the partial derivatives of $f$ we make the following observation: keeping $z$ fixed we can differentiate $y^z$ like a polynomial; keeping $y$ fixed we can write $y = e^{\ln y}$ and thus $y^z = e^{z \ln y}$. Therefore the partial derivatives of $f(y,z)$ are
+\begin{align*}
+\frac{\p f}{\p y} &= zy^{z-1} &
+\frac{\p f}{\p z} &= y^z \ln y\,,
+\end{align*}
+and both $\frac{dy}{dx} = 1$ and $\frac{dz}{dx} = 1$. Thus
+\[
+\frac{d}{dx}\left( x^x \right) = x x^{x-1} + x^x \ln x = x^{x} \left( 1 + \ln x\right)\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Let $F(u,v)$ be a function of two variables. Suppose that $u = x+y$ and $v=xy$. Express $\frac{\p^2 F}{\p x \p y}$ in terms of $u$- and $v$-derivatives of $F$.
+\end{question}
+
+\begin{solution}
+We first compute $\frac{\p F}{\p x}$ and $\frac{\p F}{\p y}$,
+\begin{align*}
+\frac{\p F}{\p x} &= \frac{\p F}{\p u} + y\frac{\p F}{\p v} &
+\frac{\p F}{\p x} &= \frac{\p F}{\p u} + x\frac{\p F}{\p v}\,.
+\end{align*}
+Note that these formulas are valid for all functions $F(u,v)$. In particular we can replace $F$ by $\frac{\p F}{\p y}$,
+\begin{align*}
+\frac{\p}{\p x}\frac{\p F}{\p y} &=
+\frac{\p}{\p x}\left(\frac{\p F}{\p u} + x\frac{\p F}{\p v}\right) \\
+&= \frac{\p^2 F}{\p u^2} + y\frac{\p^2 F}{\p v \p u}
++ \frac{\p F}{\p v}
++ x \left( \frac{\p^2 F}{\p u \p v} + y\frac{\p^2 F}{\p v^2} \right) \\
+&= \frac{\p F}{\p v} + \frac{\p^2 F}{\p u^2} 
++ (x + y) \frac{\p^2 F}{\p u \p v} + x y\frac{\p^2 F}{\p v^2}\,.
+\end{align*}
+When calculating $\frac{\p}{\p x} \left( x \frac{\p F}{\p v} \right)$ we had to apply the product rule. Differentiating the first factor gives $\frac{\p}{\p x}(x) = 1$ and for the second factor we use the result from above, which was obtained using the chain rule.
+\end{solution}
+
+\begin{question}
+Let $u(x, y, z)$ be a function of three variables. Suppose that $x = pq^2 r$, $y = pq^3$ and $z = p^3$. Express $\frac{\p^2 u}{\p p \p r}$ in terms of $x$-, $y$- and $z$-derivatives of $u$.
+\end{question}
+
+\begin{solution}
+We start with the first derivatives
+\begin{align*}
+\frac{\p u}{\p p} &= q^2 r \frac{\p u}{\p x} + q^3 \frac{\p u}{\p y}
++ 3p^2 \frac{\p u}{\p z} &
+\frac{\p u}{\p r} &= pq^2 \frac{\p u}{\p x}\,.
+\end{align*}
+We do not need the $q$-derivative in this problem. Then
+\begin{align*}
+\frac{\p^2 u}{\p p \p r} &= \frac{\p}{\p p} \left(pq^2\right) \frac{\p u}{\p x} 
++ pq^2\left( q^2 r \frac{\p^2 u}{\p x^2} + q^3 \frac{\p^2 u}{\p y \p x}
++ 3p^2 \frac{\p^2 u}{\p z \p x} \right) \\
+&= q^2 \frac{\p u}{\p x} 
++ pq^4 r \frac{\p^2 u}{\p x^2} + pq^5 \frac{\p^2 u}{\p x \p y}
++ 3p^3q^2 \frac{\p^2 u}{\p x \p z}\,.
+\end{align*}
+\end{solution}
+
+\begin{question}
+Cartesian (rectangular) coordinates $(x,y)$ of a point can be expressed in terms of polar coordinates $(r,\th)$ using the expressions
+\begin{align*}
+x &= r \cos \th &
+y &= r \sin \th\,.
+\end{align*}
+Suppose that a function is given in terms of cartesian coordinates by $u=f(x,y)$. 
+\begin{enumerate}
+\item
+Express $\frac{\p u}{\p r}$ and $\frac{\p u}{\p \th}$ in terms of
+$\frac{\p u}{\p x}$ and $\frac{\p u}{\p y}$.
+\item
+Show that
+\[
+u_x^2 + u_y^2 = u_r^2 + \frac 1{r^2} u_\th^2\,.
+\]
+\item
+Express
+\[
+u_{rr} + \frac 1r u_r + \frac 1{r^2} u_{\th\th}
+\]
+in cartesian coordinates.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+The derivative of $(x,y)$ with respect to $(r,\th)$ is
+\begin{align*}
+\frac{\p x}{\p r} &= \cos \th & \frac{\p x}{\p \th} &= -r \sin \th \\
+\frac{\p y}{\p r} &= \sin \th & \frac{\p y}{\p \th} &= r \cos \th\,.
+\end{align*}
+\begin{enumerate}
+\item
+We can do this by simply applying the chain rule
+\begin{align*}
+\frac{\p u}{\p r} &= \cos \th \frac{\p u}{\p x} + \sin \th \frac{\p u}{\p y} \\
+\frac{\p u}{\p \th} &= -r \sin\th \frac{\p u}{\p x} + r\cos \th \frac{\p u}{\p y}\,.
+\end{align*}
+
+\item
+We start with the right hand side of the sought after identity,
+\begin{align*}
+u_r^2 + \frac 1{r^2} u_\th^2
+&= \left(\cos \th\,u_x + \sin\th \, u_y\right)^2
++ \frac{1}{r^2} \left( -r\sin \th\, u_x + r \cos \th \,u_y\right)^2 \\
+&= \left(\cos^2 \th + \sin^2 \th\right) u_x^2 + 
+\left(\cos^2 \th + \sin^2 \th\right) u_y^2
+= u_x^2 + u_y^2\,.
+\end{align*}
+
+Please note the difference between $u_x^2$ and $(u^2)_x$ and $u_{xx}$. By $u_x^2$ we mean the square of the function $u_x$, in other words $u_x^2 = (u_x)^2$. On the other hand $(u^2)_x$ is the $x$-derivative of the square $u^2$ and one has $(u^2)_x = 2uu_x$. Finally $u_{xx}$ is the second partial derivative. These are in general different functions.
+
+\item
+In order to express $u_{rr} + \frac 1r u_r + \frac{1}{r^2}u_{\th\th}$ in cartesian coordinates we need expressions for the second derivatives. First we have
+\begin{align*} 
+\frac{\p^2 u}{\p r^2}
+&= \frac{\p}{\p r} \left( \cos \th\right) \frac{\p u}{\p x}
++ \cos \th \left( \cos \th \frac{\p^2 u}{\p x^2} + 
+\sin \th \frac{\p^2 u}{\p y \p x} \right) \\
+&\qquad + \frac{\p}{\p r} \left( \sin \th\right) \frac{\p u}{\p y}
++ \sin \th \left( \cos \th \frac{\p^2 u}{\p x \p y} + 
+\sin \th \frac{\p^2 u}{\p y^2} \right) \\
+&= \cos^2 \th \frac{\p^2 u}{\p x^2} + 2\sin \th \cos \th \frac{\p^2 u}{\p x \p y}
++ \sin^2 \th \frac{\p^2 u}{\p y^2}\,.
+\end{align*}
+Next is the second $\th$-derivative,
+\begin{align*}
+\frac{\p^2 u}{\p \th^2}
+&= \frac{\p}{\p \th} \left( -r \sin \th\right) \frac{\p u}{\p x}
+-r\sin \th \left(-r \sin \th \frac{\p^2 u}{\p x^2} + 
+r \cos \th \frac{\p^2 u}{\p y \p x} \right) \\
+&\qquad{} + \frac{\p}{\p \th} \left( r \cos \th\right) \frac{\p u}{\p y}
++ r \cos \th \left( -r\sin \th \frac{\p^2 u}{\p x \p y} + 
+r \cos \th \frac{\p^2 u}{\p y^2} \right) \\
+&= -r\cos \th \frac{\p u}{\p x} - r \sin \th \frac{\p u}{\p y}
++ r^2 \sin^2 \th \frac{\p^2 u}{\p x^2} - 2r^2 \sin \th \cos \th \frac{\p^2 u}{\p x \p y}
++ r^2 \cos^2 \th \frac{\p^2 u}{\p y^2}\,.
+\end{align*}
+The required sum is
+\begin{align*}
+u_{rr} + &\frac{1}{r} u_r + \frac{1}{r^2} u_{\th\th} = \\
+&= \left( \cos^2 \th \, u_{xx} + 2 \sin \th \cos \th \, u_{xy}
++ \sin^2 \th \, u_{yy} \right)
++ \frac{1}{r} \left( \cos \th \, u_x + \sin \th \, u_y \right) \\
+&\qquad{} + \frac{1}{r^2} \left( -r\cos \th \, u_x - r \sin \th \, u_y 
++ r^2 \cos^2 \th \, u_{xx} - 2r^2 \sin \th \cos \th \, u_{xy} 
++ r^2 \cos^2 \th \, u_{yy} \right) \\
+&= \left( \cos^2 \th + \sin^2 \th \right) u_{xx} + 
+\left( \cos^2 \th + \sin^2 \th \right) u_{yy}
+= u_{xx} + u_{yy}\,.
+\end{align*}
+Therefore $u_{rr} + \frac 1r u_r + \frac{1}{r^2}u_{\th\th}$ becomes $u_{xx} + u_{yy}$ in cartesian coordinates.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+Compute the following derivative matrices and evaluate them at the given points.
+\begin{enumerate}
+\item
+$\frac{\p(x,y)}{\p(u,v)}$, where
+$x = u \sin v$, $y = e^{uv}$; evaluate at $(0,1)$.
+\item
+$\frac{\p(x,y,z)}{\p(r,\th,\ph)}$, where
+$x = r\sin \ph \cos \th$, $y = r \sin \ph \sin \th$, $z = r \cos \ph$; evaluate at 
+$\left(4, \frac\pi 4, \frac \pi 4\right)$.
+\item
+$\frac{\p(u,v)}{\p(x,y,z)}$, where
+$u = xyz$, $v = x+y+z$; evaluate at $(1, 2, 3)$.
+\end{enumerate}
+\end{question}
+
+\begin{solution} It is important to remember the order of partial derivatives in the derivative matrix.
+\begin{enumerate}
+\item
+We have
+\begin{align*}
+\frac{\p(x,y)}{\p(u,v)} &=
+\begin{pmatrix}
+\sin v & u \cos v \\
+v e^u & u e^v
+\end{pmatrix} &
+\frac{\p(x,y)}{\p(u,v)}(0,1) &=
+\begin{pmatrix}
+\sin 1 & 0 \\
+1 & 0
+\end{pmatrix}\,.
+\end{align*}
+\item
+We have
+\begin{align*}
+\frac{\p(x,y,z)}{\p(r,\th,\ph)} &=
+\begin{pmatrix}
+\sin \ph \cos \th & -r \sin \ph \sin \th & r \cos \ph \cos \th \\
+\sin \ph \sin \th & r \sin \ph \cos \th & r \cos \ph \sin \th \\
+\cos \ph & 0 & -r \sin \ph
+\end{pmatrix}\,.
+\end{align*}
+To evaluate at $\left(4, \frac \pi4, \frac \pi4\right)$ we use that $\sin \frac \pi4 = \frac{\sqrt 2}2$ and $\cos \frac \pi 4 = \frac{\sqrt 2}{2}$ and hence
+\[
+\frac{\p(x,y,z)}{\p(r,\th,\ph)}\left(4, \frac \pi 4, \frac \pi 4\right) =
+\begin{pmatrix}
+\tfrac 12 & -1 & 1 \\
+\tfrac 12 & 1 & 1 \\
+\tfrac{\sqrt 2}2 & 0 & -2
+\end{pmatrix} \,.
+\]
+
+\item
+We have
+\begin{align*}
+\frac{\p(u,v)}{\p(x,y,z)} &=
+\begin{pmatrix}
+yz & xz & xy \\
+1 & 1 & 1
+\end{pmatrix} &
+\frac{\p(u,v)}{\p(x,y,z)}(1, 2, 3) &=
+\begin{pmatrix}
+6 & 3 & 2 \\
+1 & 1 & 1
+\end{pmatrix}\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+% \begin{question}
+% Verify the general chain rule for each of the functions by following these steps:
+% \begin{enumerate}[(i)]
+% \item
+% Compute the derivative matrices
+% $\displaystyle\frac{\p(x,y)}{\p(t,s)}$ and
+% $\displaystyle\frac{\p(u,v)}{\p(x,y)}$;
+% \item
+% Express $(u,v)$ in terms of $(t,s)$ and calculate
+% $\displaystyle\frac{\p(u,v)}{\p(t,s)}$;
+% \item
+% Verify that the chain rule holds.
+% \end{enumerate}
+% Do this for the following functions:
+% \begin{enumerate}
+% \item
+% $
+% \begin{aligned}
+% x &= t+s \\
+% y &= t-s
+% \end{aligned}
+% \quad\text{ and }\quad
+% \begin{aligned}
+% u &= x^2 + y^2 \\
+% v &= x^2 - y^2
+% \end{aligned}
+% \,.$
+
+% \item
+% $
+% \begin{aligned}
+% x &= t^2-s^2 \\
+% y &= ts
+% \end{aligned}
+% \quad\text{ and }\quad
+% \begin{aligned}
+% u &= \sin(x+y) \\
+% v &= \cos(x-y)
+% \end{aligned}
+% \,.$
+
+% \item
+% $
+% \begin{aligned}
+% x &= t^2+s^2 \\
+% y &= t^2-s^2 \\
+% z &= 2ts
+% \end{aligned}
+% \quad\text{ and }\quad
+% \begin{aligned}
+% u &= xy \\
+% v &= yz \\
+% w &= xz
+% \end{aligned}
+% $
+% \end{enumerate}
+% \end{question}
+
+% \begin{solution}
+% The chain rule states that
+% \[
+% \frac{\p(u,v)}{\p(t,s)} = \frac{\p(u,v)}{\p(x,y)}(t,s) \cdot \frac{\p(x,y)}{\p(t,s)}\,,
+% \]
+% where $\frac{\p(u,v)}{\p(x,y)}(t,s)$ denotes the Jacobi matrix of the functions $(u,v)$ with respect to $(x,y)$, but evaluated in the $(t,s)$ variables.
+
+% \begin{enumerate}[(a)]
+% \item
+% Following the steps we have
+% \begin{enumerate}[(i)]
+% \item
+% \begin{align*}
+% \frac{\p (u,v)}{\p (x,y)} &=
+% \begin{pmatrix}
+% 2x & 2y \\
+% 2x & -2y
+% \end{pmatrix} &
+% \frac{\p (u,v)}{\p (x,y)}(t,s) &=
+% \begin{pmatrix}
+% 2(t+s) & 2(t-s) \\
+% 2(t+s) & -2(t-s)
+% \end{pmatrix} &
+% \frac{\p (x,y)}{\p (t,s)} &=
+% \begin{pmatrix}
+% 1 & 1 \\
+% 1 & -1
+% \end{pmatrix}
+% \end{align*}
+% \item
+% We have
+% \begin{align*}
+% u &= (t+s)^2 + (t-s)^2 = 2t^2 + 2s^2\\
+% v &= (t+s)^2 - (t-s)^2 = 4ts
+% \end{align*}
+% and the Jacobi matrix is
+% \[
+% \frac{\p (u,v)}{\p (t,s)} =
+% \begin{pmatrix}
+% 4t & 4s \\
+% 4s & 4t
+% \end{pmatrix}
+% \]
+% \item
+% To verify the chain rule we need to compute the matrix product
+% \[
+% \frac{\p(u,v)}{\p(x,y)}(t,s) \cdot \frac{\p(x,y)}{\p(t,s)} = 
+% \begin{pmatrix}
+% 2(t+s) & 2(t-s) \\
+% 2(t+s) & -2(t-s)
+% \end{pmatrix} \cdot
+% \begin{pmatrix}
+% 1 & 1 \\
+% 1 & -1
+% \end{pmatrix}
+% = \begin{pmatrix}
+% 4t & 4s \\
+% 4s & 4t
+% \end{pmatrix}\,.
+% \]
+% \end{enumerate}
+
+% \item
+% Following the steps we have
+% \begin{enumerate}[(i)]
+% \item
+% \begin{align*}
+% \frac{\p (u,v)}{\p (x,y)} &\!=\!
+% \begin{pmatrix}
+% \cos(x+y) & \!\!\!\cos(x+y) \\
+% -\sin(x-y) & \!\!\! \sin(x-y)
+% \end{pmatrix} &\!\!\!\!
+% \frac{\p (u,v)}{\p (x,y)}(t,s) &\!=\!
+% \begin{pmatrix}
+% \cos(t^2-s^2+ts) & \!\!\!\cos(t^2-s^2+ts) \\
+% -\sin(t^2-s^2-ts) & \!\!\! \sin(t^2-s^2-ts)
+% \end{pmatrix} &\!\!\!\!
+% \frac{\p (x,y)}{\p (t,s)} &\!=\!
+% \begin{pmatrix}
+% 2t & -2s \\
+% s & t
+% \end{pmatrix}
+% \end{align*}
+% \item
+% We have
+% \begin{align*}
+% u &= \sin(t^2-s^2+ts)\\
+% v &= \cos(t^2-s^2-ts)
+% \end{align*}
+% and the Jacobi matrix is
+% \[
+% \frac{\p (u,v)}{\p (t,s)} =
+% \begin{pmatrix}
+% (2t+s) \cos(t^2-s^2+ts) & (-2s+t) \cos(t^2-s^2+ts) \\
+% -(2t-s)\sin(t^2-s^2-ts) & -(-2s-t)\sin(t^2-s^2-ts)
+% \end{pmatrix}
+% \]
+% \item
+% To verify the chain rule we need to compute the matrix product
+% \begin{align*}
+% \frac{\p(u,v)}{\p(x,y)}(t,s) \cdot \frac{\p(x,y)}{\p(t,s)} &= 
+% \begin{pmatrix}
+% \cos(t^2-s^2+ts) & \cos(t^2-s^2+ts) \\
+% -\sin(t^2-s^2-ts) & \sin(t^2-s^2-ts)
+% \end{pmatrix} \cdot
+% \begin{pmatrix}
+% 2t & -2s \\
+% s & t
+% \end{pmatrix} \\ &=
+% \begin{pmatrix}
+% (2t+s) \cos(t^2-s^2+ts) & (-2s+t) \cos(t^2-s^2+ts) \\
+% (-2t+s)\sin(t^2-s^2-ts) & (2s+t)\sin(t^2-s^2-ts)
+% \end{pmatrix}\,.
+% \end{align*}
+% \end{enumerate}
+
+% \item
+% Following the steps we have
+% \begin{enumerate}[(i)]
+% \item
+% \begin{align*}
+% \frac{\p (u,v,w)}{\p (x,y, z)} &=
+% \begin{pmatrix}
+% y & x & 0 \\
+% 0 & z & y \\
+% z & 0 & x
+% \end{pmatrix} &
+% \frac{\p (u,v,w)}{\p (x,y,z)}(t,s) &=
+% \begin{pmatrix}
+% t^2-s^2 & t^2+s^2 & 0 \\
+% 0 & 2ts & t^2-s^2 \\
+% 2ts & 0 & t^2+s^2
+% \end{pmatrix} &
+% \frac{\p (x,y,z)}{\p (t,s)} &=
+% \begin{pmatrix}
+% 2t & 2s \\
+% 2t & -2s \\
+% 2s & 2t
+% \end{pmatrix}
+% \end{align*}
+% \item
+% We have
+% \begin{align*}
+% u &= (t^2+s^2)(t^2-s^2) = t^4 - s^4\\
+% v &= 2t^3 s - 2ts^3 \\
+% z &= 2t^3 s + 2ts^3
+% \end{align*}
+% and the Jacobi matrix is
+% \[
+% \frac{\p (u,v,w)}{\p (t,s)} =
+% \begin{pmatrix}
+% 4t^3 & -4s^3 \\
+% 6t^2s - 2s^3 & 2t^3 - 6ts^2 \\
+% 6t^2s + 2s^3 & 2t^3 + 6ts^2
+% \end{pmatrix}
+% \]
+% \item
+% To verify the chain rule we need to compute the matrix product
+% \begin{align*}
+% \frac{\p(u,v,w)}{\p(x,y,z)}(t,s) \cdot \frac{\p(x,y,z)}{\p(t,s)} &= 
+% \begin{pmatrix}
+% t^2-s^2 & t^2+s^2 & 0 \\
+% 0 & 2ts & t^2-s^2 \\
+% 2ts & 0 & t^2+s^2
+% \end{pmatrix} \cdot
+% \begin{pmatrix}
+% 2t & 2s \\
+% 2t & -2s \\
+% 2s & 2t
+% \end{pmatrix} \\&=
+% \begin{pmatrix}
+% 4t^3 & -4s^3 \\
+% 6t^2s - 2s^3 & 2t^3 - 6ts^2 \\
+% 6t^2s + 2s^3 & 2t^3 + 6ts^2
+% \end{pmatrix} \,.
+% \end{align*}
+% \end{enumerate}
+% \end{enumerate}
+% \end{solution}
+
+% \begin{question}
+% Cartesian (rectangular) coordinates $(x,y)$ of a point can be expressed in terms of polar coordinates $(r,\th)$ using the expressions
+% \begin{align*}
+% x &= r \cos \th &
+% y &= r \sin \th\,.
+% \end{align*}
+% Suppose that a function is given in terms of cartesian coordinates by $u=f(x,y)$. 
+% \begin{enumerate}[(a)]
+% \item
+% Calculate the derivative matrix $\displaystyle\frac{\p(x,y)}{\p (r,\th)}$.
+% \item
+% Suppose that a function is given in terms of cartesian coordinates by $u=f(x,y)$. Express
+% $\displaystyle\frac{\p u}{\p r}$ and $\displaystyle\frac{\p u}{\p \th}$ in terms of
+% $\displaystyle\frac{\p u}{\p x}$ and $\displaystyle\frac{\p u}{\p y}$.
+% \item
+% Let $u=x^2+y^2$. Find $\displaystyle\frac{\p u}{\p r}$ and 
+% $\displaystyle\frac{\p u}{\p \th}$.
+% \item
+% Express the polar coordinates $r$, $\th$ in terms of the cartesian coordinates $x$, $y$ and find the derivative matrix $\displaystyle\frac{\p(r,\th)}{\p (x,y)}$
+% \end{enumerate}
+% \end{question}
+
+% \begin{solution}
+% \begin{enumerate}[(a)]
+% \item
+% The derivative matrix is given by
+% \[
+% \frac{\p(x,y)}{\p (r,\th)} = 
+% \begin{pmatrix}
+% \cos \th & -r\sin \th \\
+% \sin \th & r \cos \th
+% \end{pmatrix}\,.
+% \]
+% \item
+% We have
+% \begin{align*}
+% \frac{\p u}{\p r} &=
+% \frac{\p u}{\p x} \frac{\p x}{\p r} + \frac{\p u}{\p y} \frac{\p y}{\p r}
+% = \frac{\p u}{\p x} \cos \th + \frac{\p u}{\p y} \sin \th \\
+% \frac{\p u}{\p \th} &=
+% \frac{\p u}{\p x} \frac{\p x}{\p \th} + \frac{\p u}{\p y} \frac{\p y}{\p \th}
+% = - r \frac{\p u}{\p x} \sin \th + r \frac{\p u}{\p y} \cos \th \,.
+% \end{align*}
+% \item
+% We have
+% \begin{align*}
+% r &= \sqrt{x^2 + y^2} \\
+% \th &= \arctan \frac y x\,,
+% \end{align*}
+% and so
+% \[
+% \frac{\p(x,y)}{\p (r,\th)} = 
+% \begin{pmatrix}
+% \displaystyle\frac{x}{\sqrt{x^2+y^2}} & \displaystyle\frac{y}{\sqrt{x^2+y^2}} \\
+% \displaystyle\frac{-y}{x^2+y^2} & \displaystyle\frac{x}{x^2+y^2} 
+% \end{pmatrix}\,.
+% \]
+% \end{enumerate}
+% \end{solution}
+
+
+\begin{question}
+{\bfseries Differentiating under the integral.}
+Under mild continuity restrictions, it is true that if
+\[
+F(x) = \int_a^b g(t,x) \ud t\,,
+\]
+then
+$\displaystyle F'(x) = \int_a^b g_x(t,x) \ud t$.
+Using this fact and the chain rule we can find the derivative of
+\[
+F(x) = \int_a^{f(x)} g(t,x) \ud t
+\]
+by letting
+\[
+G(u,x) = \int_a^u g(t,x) \ud t\,,
+\]
+where $u = f(x)$. Find the derivatives of the following functions:
+\begin{enumerate}
+\item
+$\displaystyle
+F(x) = \int_0^{x^2} \sqrt{t^4 + x^3} \ud t\,.
+$
+\item
+$\displaystyle
+F(x) = \int_{x}^{1} x \ln(t^2+x^2) \ud t\,.
+$
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+With $G(u,x)$ defined as above we have
+\[
+F(x) = G(f(x), x)
+\]
+and we can find the derivative of $F$ using the chain rule,
+\[
+F'(x) = G_u(f(x),x) f'(x) + G_x(f(x),x)\,.
+\]
+We know from the problem statement, that
+\[
+G_x(u,x) = \int_a^u g_x(t,x) \ud t\,,
+\]
+and what we need know is the derivative $G_u(u,x)$. But this we obtain from the fundamental theorem of calculus, which states that
+\[
+\frac{d}{du} \int_a^u g(t,x) \ud t = g(u,x)\,,
+\]
+or in our notation, $G_u(u,x) = g(u,x)$. It means that differentiating an integral with respect to the upper limit results in the function we are integrating. Putting it all together we obtain
+\begin{align*}
+F'(x) &= G_u(f(x),x) f'(x) + G_x(f(x),x) \\
+&= g(f(x), x) f'(x) + \int_a^{f(x)} g_x(t,x) \ud t\,.
+\end{align*}
+
+Now we are ready to attempt the problems.
+\begin{enumerate}
+\item
+$F(x) = \int_0^{x^2} \sqrt{t^4 + x^3} \ud t$. Then
+\[
+F'(x) = \sqrt{x^8 + x^3} \cdot 2x + \frac 32 \int_0^{x^2} \frac{x^2}{\sqrt{t^4+x^3}} \ud t\,.
+\]
+\item
+We rewrite $F(x)$ as 
+$F(x) = \int_{x}^{1} x \ln\left(t^2 + x^2\right) \ud t = -\int_1^{x} x \ln\left(t^2 + x^2\right) \ud t$. Then
+\begin{align*}
+F'(x) &= -x \ln \left(x^2 + x^2\right) - \int_1^x \frac{2x^2}{t^2 + x^2} \ud t \\
+&= -x \ln \left(2x^2 \right) + \int_x^1 \frac{2x}{t^2 + x^2} \ud t\,.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:

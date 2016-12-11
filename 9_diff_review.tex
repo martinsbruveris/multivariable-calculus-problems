@@ -1,0 +1,393 @@
+\begin{question}
+\SetQuestionProperties{source = {Ex. 6; MW, III.16 Review}}
+Calculate the directional derivative of the function
+\[
+f(x, y) = \frac{x-y}{x+y}
+\]
+at the point $(x_0, y_0) = (0,1)$
+\begin{enumerate}
+\item
+in the direction $\displaystyle \mathbf d = \frac{\sqrt 2}{2} \mathbf i - \frac{\sqrt{2}}{2} \mathbf j$ and
+\item
+the direction, in which the function is increasing most rapidly at the given point.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+We have
+\[
+\nabla f(x,y) = \frac{2y}{(x+y)^2} \mathbf i + \frac{-2x}{(x+y)^2} \mathbf j\,,
+\qquad
+\nabla f(0,1) = 2 \mathbf i\,.
+\]
+\begin{enumerate}
+\item
+The directional derivative in the direction $\displaystyle \mathbf d = \frac{\sqrt 2}{2} \mathbf i - \frac{\sqrt{2}}{2} \mathbf j$ is given by
+\[
+\nabla f(0,1) \cdot \mathbf d = 2 \mathbf i \cdot \frac{\sqrt 2}{2} \left( \mathbf i - \mathbf j \right) = \sqrt 2\,.
+\]
+\item
+The direction, in which the function is increasing most rapidly is the direction of the gradient,
+\[
+\mathbf d = \frac{1}{|\nabla f(0,1)|} \nabla f(0,1) = \mathbf i\,,
+\]
+and the directional derivative in this direction is
+\[
+\nabla f(0,1) \cdot \mathbf d = 2\mathbf i \cdot \mathbf i = 2\,.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 27; MW, III.16 Review}}
+Find the critical points of the function
+\[
+f(x,y) = y \sin(\pi x)\,,
+\]
+and determine their type.
+\end{question}
+
+\begin{solution}
+The partial derivatives are
+\begin{align*}
+f_x(x,y) &= \pi y \cos(\pi x) &
+f_y(x,y) &= \sin(\pi x)\,.
+\end{align*}
+Critical points are solutions of the two equations
+\begin{align*}
+\pi y \cos(\pi x) &= 0\,, \\
+\sin(\pi x) &= 0\,.
+\end{align*}
+The second equation has the infinitely many solutions
+\[
+x = k \,,\; k \in \mathbb Z\,,
+\]
+and since $\cos(k\pi) \neq 0$, the first equation implies that $y=0$. Thus critical points are $(k, 0)$ with $k \in \mathbb Z$.
+
+To determine the type of the critical points we need the second derivatives
+\begin{align*}
+f_{xx}(x,y) &= -\pi^2 y \sin(\pi x) &
+f_{xy}(x,y) &= \pi \cos(\pi x) &
+f_{yy}(x,y) &= 0\,.
+\end{align*}
+And therefore $A=0$, $C=0$ and
+\[
+B = \pi \cos (k \pi) = (-1)^k \pi\,.
+\]
+Since $AC - B^2 = -\pi^2 < 0$ all critical points are saddle points.
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 31; MW, III.16 Review}}
+Minimize the distance from $(0,0,0)$ to each of the following surfaces
+\begin{tasks}(3)
+\task
+$z = \displaystyle\sqrt{x^2-1}$
+\task
+$z= 6xy+7$
+\task
+$z=\displaystyle\frac{1}{xy}$
+\end{tasks}
+\begin{hint*}
+Write the square of the distance as a function of $x$ and $y$.
+\end{hint*}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item
+First note that the surface is only defined on the set
+$D = \{ (x,y) \,:\, |x| \geq 1 \}$,
+otherwise the square root is making problems. The squared distance of a point 
+$\left(x, y, \sqrt{x^2-1}\right)$ on the surface to the origin is
+\begin{align*}
+f(x,y) &= x^2 + y^2 + \left(x^2 - 1\right) \\
+&= 2x^2 + y^2 -1
+\end{align*}
+Its partial derivatives are
+\begin{align*}
+f_x(x,y) &= 4x &
+f_y(x,y) &= 2y\,,
+\end{align*}
+and hence the only critical point is $(0,0)$. However this does not correspond to a point on the surface, because the surface is only defined for $|x| \geq 1$.
+
+Next we look for minima on the boundary of the surface, i.e., when $|x|=1$ or equivalently $x^2 = 1$. Then the squared distance is given by
+\[
+h(y) = f(\pm 1, y) =1 + y^2\,.
+\]
+This function has a minimum at $y=0$. Since $f(\pm 1, 0) = 1$, the minimal distance from the surface to the origin is $\sqrt{f(\pm 1, 0)} = 1$.
+
+\item
+The squared distance of a point $\left(x, y, 6xy+7\right)$ on the surface to the origin is
+\[
+f(x,y) = x^2 + y^2 + \left(6xy+7\right)^2\,.
+\]
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= 2x + 12y (6xy+7) &
+f_y(x,y) &= 2y + 12x (6xy+7)\,.
+\end{align*}
+Critical points are solutions of the two equations
+\begin{align*}
+x + 6y(6xy+7) &= 0 \\
+y + 6x(6xy+7) &= 0\,.
+\end{align*}
+We multiply the first equation by $x$ and the second by $y$ and subtract one from the other to obtain
+\begin{align*}
+x^2 + 6xy(6xy+7) - y^2 - 6xy(6xy+7) &= 0
+\quad\Leftrightarrow\quad
+x^2 - y^2 = 0 
+\quad\Leftrightarrow\quad
+(x-y)(x+y) = 0\,.
+\end{align*}
+This leads to the two cases $x=y$ and $x=-y$. If $x=y$, then both equations become
+\begin{align*}
+x\left(36x^2 + 43\right) &= 0 \,,
+\end{align*}
+and the only solution is $x=0$. Thus a critical point is $(0,0)$. If $x=-y$, then
+\[
+x \left(36x^2 - 41 \right) = 0\,,
+\]
+and we have the two solutions $x = \frac{\sqrt{41}}6$ and $x = -\frac{\sqrt{41}}6$. Thus we have three crititcal points
+\begin{align*}
+(0,0) &&
+\left( \frac{\sqrt{41}}6, -\frac{\sqrt{41}}6 \right) &&
+\left( -\frac{\sqrt{41}}6, \frac{\sqrt{41}}6 \right)\,,
+\end{align*}
+and their squared distance to the origin is
+\begin{align*}
+f(0,0) &= 49 &
+f\left( \frac{\sqrt{41}}6, -\frac{\sqrt{41}}6 \right) &=
+f\left( -\frac{\sqrt{41}}6, \frac{\sqrt{41}}6 \right) = \frac{41}{36} + \frac{41}{36} + \left(-6 \frac{41}{36} + 7 \right)
+= \frac{22}{9}\,.
+\end{align*}
+Therefore the minimal distance from the surface to the origin is $\frac{\sqrt{22}}3$.
+
+\item
+The squared distance of a point $\left(x, y, \frac{1}{xy}\right)$ on the surface to the origin is
+\[
+f(x,y) = x^2 + y^2 + \frac{1}{x^2y^2}\,.
+\]
+The partial derivatives of $f(x,y)$ are
+\begin{align*}
+f_x(x,y) &= 2x - \frac{2}{x^3y^2} &
+f_x(x,y) &= 2y - \frac{2}{x^2y^3}\,.
+\end{align*}
+Critical points are solutions of the equations
+\begin{align*}
+x - \frac{1}{x^3y^2} &= 0 &
+y - \frac{1}{x^2y^3} &= 0\,.
+\end{align*}
+We multiply the first equation by $x^3y^2$ and the second by $x^2 y^3$ to remove the fractions,
+\begin{align*}
+x^4y^2 - 1 &= 0 &
+x^2 y^4 - 1 &= 0\,,
+\end{align*}
+and then we multiply the first by $y^2$ and the second by $x^2$
+\begin{align*}
+x^4y^4 - y^2 &= 0 &
+x^4 y^4 - x^2 &= 0\,,
+\end{align*}
+and subtract the second from the first,
+\begin{align*}
+x^2 - y^2 &= 0
+\quad\Leftrightarrow\quad
+(x-y)(x+y) = 0\,.
+\end{align*}
+This lead to the two possibilities $x=y$ or $x=-y$. In both cases we obtain the equation
+\begin{align*}
+x^6 - 1 &= 0\,,
+\end{align*}
+which has the two solutions $x=\pm 1$. Together we obtain the four critical points
+\begin{align*}
+(1,1) &&
+(1,-1) &&
+(-1,1) &&
+(-1,-1)\,.
+\end{align*}
+For all these points we have $f(\pm 1, \pm 1) =3$ and hence the minimal distance from the surface to the origin in $\sqrt{3}$.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 35; MW, III.16 Review}}
+Use the method of Lagrange multipliers to find the extrema of the function
+\[
+f(x,y) = \cos(x^2 - y^2)\,,
+\]
+subject to the constraint $x^2 + y^2 = 1$.
+\end{question}
+
+\begin{solution}
+The Lagrange equations are
+\begin{align*}
+-2x \sin\left(x^2 - y^2 \right) &= 2x\la &
+2y \sin\left(x^2 - y^2 \right) &= 2y\la &
+x^2 + y^2 &= 1\,.
+\end{align*}
+We can rewrite the first two equations as
+\begin{align*}
+x \left(\la + \sin\left(x^2 - y^2 \right)\right) &= 0 &
+y \left(\la - \sin\left(x^2 - y^2 \right)\right) &= 0\,.
+\end{align*}
+This leads to the three cases $x=0$, $y=0$ and both $x,y \neq 0$.
+
+If $x=0$, the constraint equation gives $y^2 = 1$ and so $y = \pm 1$. If $y=0$, then similarly $x^2 = 1$ and so $x = \pm 1$. Both cases together give us the four solutions $(\pm 1, 0)$ and $(0, \pm 1)$.
+
+If both $x,y \neq 0$, then we can divive by $x$ and $y$ to obtain
+\begin{align*}
+\la &= - \sin\left(x^2 - y^2 \right) &
+\la &=  \sin\left(x^2 - y^2 \right)\,.
+\end{align*}
+Together this implies
+\begin{align*}
+\sin\left(x^2-y^2\right) = 0\quad\Leftrightarrow\quad
+x^2 - y^2 = k \pi\,,\; k \in \mathbb Z\,.
+\end{align*}
+The only choice of $k \in \mathbb Z$, that is consistent with the constraint $x^2 + y^2 =1$ is $k=0$ and therefore we obtain $x^2 =y^2$. This gives the four additional solutions
+\begin{align*}
+\left(\frac{\sqrt{2}}2, \frac{\sqrt{2}}2 \right) &&
+\left(\frac{\sqrt{2}}2, -\frac{\sqrt{2}}2 \right) &&
+\left(-\frac{\sqrt{2}}2, \frac{\sqrt{2}}2 \right) &&
+\left(-\frac{\sqrt{2}}2, -\frac{\sqrt{2}}2 \right)\,.
+\end{align*}
+To find the minimum and maximum we need to evaluate $f(x,y)$,
+\begin{align*}
+f(0, \pm 1) = f(\pm 1, 0) &= \cos(1) &
+f\left(\pm\frac{\sqrt{2}}2, \pm\frac{\sqrt{2}}2 \right) &= \cos(0) = 1\,.
+\end{align*}
+Thus the minimum value is $\cos(1)$ and the maximum value is $1$.
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 39; MW, III.16 Review}}
+A function $f(x,y)$ with continuous second partial derivatives is called \emph{harmonic}, if it satisfies
+\[
+\frac{\p^2 f}{\p x^2} + \frac{\p^2 f}{\p y^2} = 0\,.
+\]
+
+\begin{enumerate}
+\item
+Suppose that $z=f(x,y)$ is harmonic and that $\displaystyle\frac{\p^2 f}{\p x^2}(x_0, y_0) \neq 0$. Prove that $f(x,y)$ cannot have a local maximum or minimum at $(x_0, y_0)$.
+\item
+Conclude that if $f(x,y)$ is harmonic on the region $x^2 + y^2 < 1$ and is zero on $x^2 + y^2 = 1$ and additionally $\displaystyle\frac{\p^2 f}{\p x^2}(x, y) \neq 0$ for all points $(x,y)$, then $f(x,y)$ is zero everywhere on the unit disc.
+
+\begin{hint*}
+Where are the maximum and minimum values of $f(x,y)$?
+\end{hint*}
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+A function $f(x,y)$ with continuous second partial derivatives is called \emph{harmonic}, if it satisfies
+\[
+\frac{\p^2 f}{\p x^2} + \frac{\p^2 f}{\p y^2} = 0\,.
+\]
+
+\begin{enumerate}
+\item
+We consider the second derivative test. We have
+\begin{align*}
+A &= \frac{\p^2 f}{\p x^2} &
+B &= \frac{\p^2 f}{\p x \p y} &
+C &= \frac{\p^2 f}{\p y^2} = - \frac{\p^2 f}{\p x^2} = -A\,.
+\end{align*}
+The identity $C = -A$ follows, because we have assumed that $f(x,y)$ is harmonic. Therefore
+\[
+AC-B^2 = -A^2 - B^2 < 0\,.
+\]
+Note that because we assumed that $A \neq 0$, the quantity $AC-B^2$ is strictly negative and therefore any critical point has to be a saddle point. In particular $f(x,y)$ cannot have a local maximum at $(x_0,y_0)$.
+
+\item
+If $f(x,y)$ is a function on the disc, then it attains the minimum and maximum at some point. We have seen above, that this point cannot lie in the interior of the disc, because all critical points in the interiour are saddle points. Therefore both the minimum and maximum have to lie on the boundary of the disc, but the function is identically zero on the boundary. Hence the function is identically zero everywhere.
+\end{enumerate}
+\end{solution}
+
+\begin{question}
+\SetQuestionProperties{source = {Ex. 41; MW, III.16 Review}}
+Consider the two surfaces
+\begin{align*}
+S_1:\,&x^2 + y^2 + z^2 = 6 &
+S_2:\,&2x^2 + 3y^2 +z^2 = 9\,.
+\end{align*}
+\begin{enumerate}
+\item
+Find the normal vectors and tangent planes to $S_1$ and $S_2$ at the point $(1,1,2)$.
+\item
+Find the angle between the tangent planes.
+\item
+Find an expression for the line tangent at $(1,1,2)$ to the curve of intersection of $S_1$ and $S_2$.
+
+\begin{hint*}
+It lies in both tangent planes.
+\end{hint*}
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+Define the functions
+\begin{align*}
+f_1(x,y,z) &= x^2 + y^2 + z^2 &
+f_2(x,y,z) &= 2x^2 + 3y^2 +z^2\,.
+\end{align*}
+Then the surface $S_1$ is the level set $f_1(x,y,z) = 6$ and the surface $S_2$ is the level set $f_2(x,y,z) = 9$. The gradients of $f_1$ and $f_2$ are
+\begin{align*}
+\nabla f_1(x,y,z) &= 2x \mathbf i + 2y \mathbf j + 2z \mathbf k &
+\nabla f_2(x,y,z) &= 4x \mathbf i + 6y \mathbf j + 2z \mathbf k\,,
+\end{align*}
+and we can evaluate them at $(1,1,2)$,
+\begin{align*}
+\nabla f_1(1,1,2) &= 2 \mathbf i + 2 \mathbf j + 4 \mathbf k &
+\nabla f_2(1,1,2) &= 4 \mathbf i + 6 \mathbf j + 4 \mathbf k\,.
+\end{align*}
+
+\begin{enumerate}
+\item
+The tangent plane to the first surface at the point $(1,1,2)$ is given by the equation
+\begin{align*}
+2x + 2y + 4z &= 2 + 2 + 8
+\quad\Leftrightarrow\quad
+x + y + 2z = 6\,,
+\end{align*}
+and the the tangent plane to the second surface is
+\begin{align*}
+4x + 6y + 4z &= 4 + 6 + 8
+\quad\Leftrightarrow\quad
+2x + 3y + 2z = 9\,.
+\end{align*}
+Normal vectors are given by the gradients $\nabla f_1(1,1,2)$ and $\nabla f_2(1,1,2)$.
+
+\item
+The angle between the tangent planes equals the angle between the normal vectors. Denote the angle by $\th$. Then
+\begin{align*}
+\cos \th &= \frac{\nabla f_1(1,1,2) \cdot \nabla f_2(1,1,2)}{\left| \nabla f_1(1,1,2)\right| \left| \nabla f_2(1,1,2)\right|}
+= \frac{8 + 12 + 16}{\sqrt{24}\sqrt{68}}
+= 0.8911\,
+\end{align*}
+and hence $\th = 0.471$.
+
+\item
+The line tangent at to the curve of intersection of $S_1$ and $S_2$ has to lie in both tangen planes. Hence we have to solve the following system of linear equations
+\[
+\begin{aligned}
+x + y + 2z &= 6 \\
+2x + 3y + 2z &= 9\,.
+\end{aligned}
+\quad\Leftrightarrow\quad
+\begin{aligned}
+x + 4z &= 12 \\
+y - 2z &= -3
+\end{aligned}\,.
+\]
+and hence the line of intersection can be parametrised by
+\[
+\vec\si(t) = (1, 1, 2) + t ( -4, 2, 1)\,.
+%\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + 
+% t \begin{pmatrix} -4 \\ 2 \\ 1 \end{pmatrix}\,.
+\]
+\end{enumerate}
+\end{solution}
+
+%%% Local Variables:
+%%% TeX-master: "problems"
+%%% End:
