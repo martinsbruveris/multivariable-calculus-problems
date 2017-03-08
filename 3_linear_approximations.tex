@@ -532,26 +532,26 @@ The volume of a right circular cone of radius $r$ and height $h$ is given by $V=
 \end{question}
 
 \begin{solution}
-Write $V(r,h)$ for the volume of the cone to emphasize that it is a function of both radius $r$ and height $h$. The volume of the old cone is $V(20, 4) = 1675.52\six{cm^3}$ and the volume of the new cone is $V(19.95, 4.05) = 1687.99\six{cm^3}$. The change of volume is thus
+Write $V(r,h)$ for the volume of the cone to emphasize that it is a function of both radius $r$ and height $h$. The volume of the old cone is $V(4,20) = 335.103\six{cm^3}$ and the volume of the new cone is $V(4.05,19.95) = 342.674\six{cm^3}$. The change of volume is thus
 \[
-V(19.95, 4.05) - V(20,4) = 12.47\,.
+V(4.05,19.95) - V(4,20) = 7.57\six{cm^3}\,.
 \]
 The partial derivatives of $V$ are
 \begin{align*}
 V_r(r,h) &= \frac 23 \pi r h &
 V_h(r,h) &= \frac 13 \pi r^2\,,
 \end{align*}
-and $V_r(20,4) = 167.55$, $V_h(20,4) = 418.88$. The linear approximation of $V$ at $(20,4)$ is
+and $V_r(4,20) = 167.55$, $V_h(4,20) = 16.755$. The linear approximation of $V$ at $(4,20)$ is
 \begin{align*}
-\ell(r,h) &= V(20,4) + V_r(20,4)(r-20) + V_h(20,4)(h-4)\,.
+\ell(r,h) &= V(4,20) + V_r(4,20)(r-4) + V_h(4,20)(h-20)\,.
 \end{align*}
 Therefore the approximate volume of the new cone is
 \[
-\ell(19.95, 4.05) = 1675.52 - 167.55 \cdot 0.05 + 418.88 \cdot 0.05 = 1688.09\,.
+\ell(4.05,19.95) = 335.103 - 167.55 \cdot 0.05 + 16.755 \cdot 0.05 = 342.643\,.
 \]
 The approximate change of volume is thus
 \[
-\ell(19.95, 4.05) - V(20,4) = 12.57\,.
+\ell(4.05,19.95) - V(4,20) = 7.5398\six{cm^3}\,.
 \]
 \end{solution}
 
